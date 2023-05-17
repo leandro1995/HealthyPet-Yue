@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Separator -->
+
+    <declare-styleable name="SeparatorComponent">
+
+        <attr name="background_separator" format="reference" />
+    </declare-styleable>
+
+</resources>
