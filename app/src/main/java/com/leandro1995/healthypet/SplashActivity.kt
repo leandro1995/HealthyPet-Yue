@@ -20,5 +20,6 @@ class SplashActivity : AppCompatActivity() {
         installSplashScreen().setKeepOnScreenCondition { true }
 
         startActivity(Intent(this, WelcomeActivity::class.java))
+        finishAffinity()
     }
 }
