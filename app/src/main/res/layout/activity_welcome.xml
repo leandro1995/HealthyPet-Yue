@@ -35,7 +35,29 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_0"
             android:layout_weight="1"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/welcomePager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0"
+                android:layout_weight="1"
+                tools:ignore="InefficientWeight,NestedWeights" />
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dotIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:dotsColor="@color/white_E6E7F8"
+                app:dotsCornerRadius="@dimen/dimen_8"
+                app:dotsSize="@dimen/dimen_16"
+                app:dotsSpacing="@dimen/dimen_4"
+                app:dotsWidthFactor="2.5"
+                app:progressMode="true"
+                app:selectedDotColor="@color/yellow_F1A852" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

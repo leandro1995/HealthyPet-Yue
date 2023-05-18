@@ -5,6 +5,7 @@
     <!-- White -->
 
     <color name="white">#FFFFFFFF</color>
+    <color name="white_E6E7F8">#E6E7F8</color>
 
     <!-- Blue -->
 
@@ -14,5 +15,9 @@
     <!-- Lead -->
 
     <color name="lead_BBC3CE">#BBC3CE</color>
+
+    <!-- Yellow -->
+
+    <color name="yellow_F1A852">#F1A852</color>
 
 </resources>
