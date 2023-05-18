@@ -1,109 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".activity.WelcomeActivity">
 
-    <TextView
-        android:id="@+id/skipText"
-        style="@style/Headline.H6"
-        android:layout_width="@dimen/dimen_0"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_16"
-        android:layout_marginTop="@dimen/dimen_16"
-        android:layout_marginEnd="@dimen/dimen_16"
-        android:gravity="right"
-        android:text="@string/skip_text"
-        android:textColor="@color/blue_4552CB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="@dimen/dimen_0"
-        android:layout_height="@dimen/dimen_0"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skipText">
+        <TextView
+            android:id="@+id/skipText"
+            style="@style/Headline.H6"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:gravity="right"
+            android:text="@string/skip_text"
+            android:textColor="@color/blue_4552CB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/dimen_0"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skipText">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/welcomePager"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_0"
                 android:layout_weight="1"
-                tools:ignore="InefficientWeight,NestedWeights" />
+                android:orientation="vertical">
 
-            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-                android:id="@+id/dotIndicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/welcomePager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0"
+                    android:layout_weight="1"
+                    tools:ignore="InefficientWeight,NestedWeights" />
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dotIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:dotsColor="@color/white_E6E7F8"
+                    app:dotsCornerRadius="@dimen/dimen_8"
+                    app:dotsSize="@dimen/dimen_16"
+                    app:dotsSpacing="@dimen/dimen_4"
+                    app:dotsWidthFactor="2.5"
+                    app:progressMode="true"
+                    app:selectedDotColor="@color/yellow_F1A852" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0"
                 android:layout_gravity="center"
-                app:dotsColor="@color/white_E6E7F8"
-                app:dotsCornerRadius="@dimen/dimen_8"
-                app:dotsSize="@dimen/dimen_16"
-                app:dotsSpacing="@dimen/dimen_4"
-                app:dotsWidthFactor="2.5"
-                app:progressMode="true"
-                app:selectedDotColor="@color/yellow_F1A852" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16">
+
+                <TextView
+                    style="@style/Headline.H2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/title_welcome_one" />
+
+                <TextView
+                    style="@style/Headline.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:gravity="center"
+                    android:text="@string/description_welcome_one" />
+
+                <Button
+                    style="@style/Button"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:text="@string/next_button" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_0"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/dimen_16">
+        <com.leandro1995.healthypet.component.SeparatorComponent
+            android:id="@+id/separatorComponent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:layout_marginBottom="@dimen/dimen_0"
+            app:background_separator="@drawable/separator_lead"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                style="@style/Headline.H2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/title_welcome_one" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                style="@style/Headline.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:gravity="center"
-                android:text="@string/description_welcome_one" />
-
-            <Button
-                style="@style/Button"
-                android:layout_marginTop="@dimen/dimen_16"
-                android:text="@string/next_button" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <com.leandro1995.healthypet.component.SeparatorComponent
-        android:id="@+id/separatorComponent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_0"
-        android:layout_marginEnd="@dimen/dimen_0"
-        android:layout_marginBottom="@dimen/dimen_0"
-        app:background_separator="@drawable/separator_lead"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
