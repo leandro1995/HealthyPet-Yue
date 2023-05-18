@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Healthy Pet</string>
+
+    <!-- Text -->
+
+    <string name="skip_text">Omitir</string>
+    <string name="title_welcome_one">Bienvenido a Healthy Pet</string>
+    <string name="description_welcome_one">La mejor experiencia para el cuidado de mascotas.</string>
+
+    <!-- Button Text -->
+
+    <string name="next_button">Siguiente</string>
+
 </resources>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+
+    <!-- White -->
+
     <color name="white">#FFFFFFFF</color>
 
     <!-- Blue -->
 
     <color name="blue_4552CB">#4552CB</color>
+    <color name="blue_070821">#070821</color>
 
     <!-- Lead -->
 
