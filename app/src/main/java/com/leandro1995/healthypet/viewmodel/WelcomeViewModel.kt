@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.leandro1995.healthypet.activity.ListPetActivity
 import com.leandro1995.healthypet.intent.WelcomeIntent
 import com.leandro1995.healthypet.model.design.PositionViewPager
+import com.leandro1995.healthypet.util.ArrayListUtil
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class WelcomeViewModel : ViewModel() {
@@ -19,6 +20,8 @@ class WelcomeViewModel : ViewModel() {
     }
 
     var position = 0
+
+    val welcomePageArrayList = ArrayListUtil.welcomePageArrayList()
 
     val onClick = fun(action: Int) {
 
@@ -38,8 +41,20 @@ class WelcomeViewModel : ViewModel() {
 
     private fun position() {
 
-        welComeMutableStateFlow.value =
-            WelcomeIntent.PositionPage(positionViewPager = PositionViewPager(position = position))
+        PositionViewPager(position = position).let { positionViewPager ->
+
+            if (positionViewPager.pagePosition(
+                    maxPosition = ArrayListUtil.arrayListSize(arrayList = welcomePageArrayList)
+                )
+            ) {
+
+                onClick.invoke(LIST_PET_ACTIVITY)
+            } else {
+
+                welComeMutableStateFlow.value =
+                    WelcomeIntent.PositionPage(positionViewPager = positionViewPager)
+            }
+        }
     }
 
     private fun listPetActivity() {

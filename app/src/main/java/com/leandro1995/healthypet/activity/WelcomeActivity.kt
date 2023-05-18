@@ -15,7 +15,6 @@ import com.leandro1995.healthypet.databinding.ActivityWelcomeBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.WelcomeIntentConfig
 import com.leandro1995.healthypet.model.design.PositionViewPager
-import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.viewmodel.WelcomeViewModel
 
 class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
@@ -24,7 +23,6 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
     private val welcomeViewModel by viewModels<WelcomeViewModel>()
 
-    private val welcomePageArrayList = ArrayListUtil.welcomePageArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,7 +52,7 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
             welcomePager.let { welcomePager ->
 
                 welcomePager.adapter =
-                    WelcomePageAdapter(welcomePageArrayList = welcomePageArrayList)
+                    WelcomePageAdapter(welcomePageArrayList = this@WelcomeActivity.welcomeViewModel.welcomePageArrayList)
 
                 welcomePager.registerOnPageChangeCallback(WelcomeOnPageChangeCallBack().apply {
 
@@ -64,7 +62,7 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
                             this@WelcomeActivity.welcomeViewModel.position = position
 
-                            welcomePageArrayList[position].let { welcomePage ->
+                            this@WelcomeActivity.welcomeViewModel.welcomePageArrayList[position].let { welcomePage ->
 
                                 titleText.text = welcomePage.title(activity = this@WelcomeActivity)
                                 subTitleText.text =
@@ -83,8 +81,7 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
     override fun positionPage(positionViewPager: PositionViewPager) {
 
-        welcomeBinding.welcomePager.currentItem =
-            positionViewPager.pagePosition(maxPosition = ArrayListUtil.arrayListSize(arrayList = welcomePageArrayList))
+        welcomeBinding.welcomePager.currentItem = positionViewPager.position
     }
 
     override fun listPetActivity(activity: Activity) {

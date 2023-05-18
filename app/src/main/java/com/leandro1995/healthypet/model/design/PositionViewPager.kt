@@ -1,19 +1,15 @@
 package com.leandro1995.healthypet.model.design
 
-class PositionViewPager constructor(private var position: Int) {
+class PositionViewPager constructor(var position: Int) {
 
-    fun pagePosition(maxPosition: Int): Int {
+    fun pagePosition(maxPosition: Int): Boolean {
 
         var pagePosition = position
 
-        if (pagePosition == maxPosition) {
+        pagePosition += 1
 
-            pagePosition = 0
-        } else {
+        position = pagePosition
 
-            pagePosition += 1
-        }
-
-        return pagePosition
+        return position == maxPosition
     }
 }

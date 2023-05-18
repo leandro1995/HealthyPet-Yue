@@ -26,6 +26,6 @@ class ArrayListUtil {
             )
         )
 
-        fun arrayListSize(arrayList: ArrayList<*>) = arrayList.size - 1
+        fun arrayListSize(arrayList: ArrayList<*>) = arrayList.size
     }
 }
