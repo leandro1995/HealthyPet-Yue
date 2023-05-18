@@ -2,11 +2,12 @@ package com.leandro1995.healthypet
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.leandro1995.healthypet.activity.WelcomeActivity
 import com.leandro1995.healthypet.config.Setting
+import com.leandro1995.healthypet.datastore.config.HealthyPetDataStoreConfig
+import com.leandro1995.healthypet.util.DesignUtil
 import java.util.concurrent.TimeUnit
 
 @SuppressLint("CustomSplashScreen")
@@ -19,7 +20,12 @@ class SplashActivity : AppCompatActivity() {
 
         installSplashScreen().setKeepOnScreenCondition { true }
 
-        startActivity(Intent(this, WelcomeActivity::class.java))
+        startActivity(
+            Intent(
+                this,
+                DesignUtil.splashActivitySelect(isWelcome = HealthyPetDataStoreConfig.isWelcome())::class.java
+            )
+        )
         finishAffinity()
     }
 }
