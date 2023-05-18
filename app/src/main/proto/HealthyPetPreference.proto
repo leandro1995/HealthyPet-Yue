@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.leandro1995.healthypet";
+option java_multiple_files = true;
+
+message HealthyPetPreferences {
+
+    bool is_welcome = 1;
+}
