@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".activity.ListPetActivity">
 
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginTop="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.leandro1995.healthypet.component.SeparatorComponent
+        android:id="@+id/separatorComponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_0"
+        app:background_separator="@drawable/separator_lead"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
