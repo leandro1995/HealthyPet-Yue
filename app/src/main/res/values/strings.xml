@@ -5,10 +5,15 @@
 
     <string name="skip_text">Omitir</string>
     <string name="title_welcome_one">Bienvenido a Healthy Pet</string>
+    <string name="title_welcome_two">La mejor experiencia</string>
+    <string name="title_welcome_three">El mejor cuidado de tus mascotas</string>
     <string name="description_welcome_one">La mejor experiencia para el cuidado de mascotas.</string>
+    <string name="description_welcome_two">La app permite el manejo de manera sencilla y simple de sus mascotas para el cuidado.</string>
+    <string name="description_welcome_three">La app se base en que registren el cuidado y tradamiento de sus mascotas como una agenta personal.</string>
 
     <!-- Button Text -->
 
     <string name="next_button">Siguiente</string>
+    <string name="begin_button">Empezar</string>
 
 </resources>
