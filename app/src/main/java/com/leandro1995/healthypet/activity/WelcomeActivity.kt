@@ -12,6 +12,7 @@ import com.leandro1995.healthypet.config.callback.intent.WelcomeIntentCallBack
 import com.leandro1995.healthypet.config.callback.viewpage.ViewPagePositionCallBack
 import com.leandro1995.healthypet.config.callback.viewpage.WelcomeOnPageChangeCallBack
 import com.leandro1995.healthypet.databinding.ActivityWelcomeBinding
+import com.leandro1995.healthypet.datastore.config.HealthyPetDataStoreConfig
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.WelcomeIntentConfig
 import com.leandro1995.healthypet.model.design.PositionViewPager
@@ -86,6 +87,7 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
     override fun listPetActivity(activity: Activity) {
 
+        HealthyPetDataStoreConfig.setIsWelcome(isWelcome = true)
         startActivity(Intent(this, activity::class.java))
         finishAffinity()
     }
