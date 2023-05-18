@@ -5,10 +5,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.adapter.WelcomePageAdapter
 import com.leandro1995.healthypet.config.callback.intent.WelcomeIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityWelcomeBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.WelcomeIntentConfig
+import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.viewmodel.WelcomeViewModel
 
 class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
@@ -40,5 +42,12 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
     override fun view() {
 
+        welcomeBinding.apply {
+
+            welcomePager.adapter =
+                WelcomePageAdapter(welcomePageArrayList = ArrayListUtil.welcomePageArrayList())
+
+            dotIndicator.attachTo(welcomePager)
+        }
     }
 }
