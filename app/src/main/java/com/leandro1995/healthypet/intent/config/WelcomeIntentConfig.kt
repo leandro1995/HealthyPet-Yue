@@ -25,6 +25,11 @@ object WelcomeIntentConfig {
 
                 welcomeIntentCallBack.positionPage(positionViewPager = welcomeIntent.positionViewPager)
             }
+
+            is WelcomeIntent.ListPetActivity -> {
+
+                welcomeIntentCallBack.listPetActivity(activity = welcomeIntent.activity)
+            }
         }
     }
 }

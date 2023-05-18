@@ -24,6 +24,7 @@
             android:layout_marginTop="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
             android:gravity="right"
+            android:onClick="@{()-> welcomeViewModel.onClick.invoke(welcomeViewModel.LIST_PET_ACTIVITY)}"
             android:text="@string/skip_text"
             android:textColor="@color/blue_4552CB"
             app:layout_constraintEnd_toEndOf="parent"

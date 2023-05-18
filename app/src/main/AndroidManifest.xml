@@ -11,6 +11,9 @@
         android:theme="@style/Theme.HealthyPet"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ListPetActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.WelcomeActivity"
             android:exported="false" />
         <activity

@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -83,5 +85,11 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
         welcomeBinding.welcomePager.currentItem =
             positionViewPager.pagePosition(maxPosition = ArrayListUtil.arrayListSize(arrayList = welcomePageArrayList))
+    }
+
+    override fun listPetActivity(activity: Activity) {
+
+        startActivity(Intent(this, activity::class.java))
+        finishAffinity()
     }
 }
