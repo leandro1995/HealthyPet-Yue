@@ -3,7 +3,10 @@
     <style name="Base.Theme.HealthyPet" parent="Theme.Material3.Light.NoActionBar">
 
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/blue_4552CB</item>
+
+        <!-- Background Activity -->
+        <item name="android:windowBackground">@color/white</item>
 
         <!-- Lock theme in the app -->
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
@@ -18,6 +21,43 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_splash</item>
         <item name="windowSplashScreenAnimationDuration">@integer/splash_screen_time_out</item>
         <item name="postSplashScreenTheme">@style/Theme.HealthyPet</item>
+    </style>
+
+    <!-- Headline -->
+
+    <style name="Headline">
+
+        <item name="android:textColor">@color/blue_070821</item>
+    </style>
+
+    <style name="Headline.H2">
+
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="Headline.H6">
+
+        <item name="fontFamily">@font/semi_bold</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
+
+    <style name="Headline.Body1">
+
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <!-- Component -->
+
+    <style name="Button">
+
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/blue_4552CB</item>
+        <item name="android:layout_width">@dimen/dimen_250</item>
+        <item name="android:layout_height">@dimen/dimen_60</item>
     </style>
 
 </resources>
