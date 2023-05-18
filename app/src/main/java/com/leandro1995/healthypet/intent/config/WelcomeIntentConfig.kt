@@ -20,6 +20,11 @@ object WelcomeIntentConfig {
 
                 welcomeIntentCallBack.view()
             }
+
+            is WelcomeIntent.PositionPage -> {
+
+                welcomeIntentCallBack.positionPage(positionViewPager = welcomeIntent.positionViewPager)
+            }
         }
     }
 }

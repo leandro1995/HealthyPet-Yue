@@ -12,6 +12,7 @@ import com.leandro1995.healthypet.config.callback.viewpage.WelcomeOnPageChangeCa
 import com.leandro1995.healthypet.databinding.ActivityWelcomeBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.WelcomeIntentConfig
+import com.leandro1995.healthypet.model.design.PositionViewPager
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.viewmodel.WelcomeViewModel
 
@@ -59,6 +60,8 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
                         override fun position(position: Int) {
 
+                            this@WelcomeActivity.welcomeViewModel.position = position
+
                             welcomePageArrayList[position].let { welcomePage ->
 
                                 titleText.text = welcomePage.title(activity = this@WelcomeActivity)
@@ -74,5 +77,11 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
 
             dotIndicator.attachTo(welcomePager)
         }
+    }
+
+    override fun positionPage(positionViewPager: PositionViewPager) {
+
+        welcomeBinding.welcomePager.currentItem =
+            positionViewPager.pagePosition(maxPosition = ArrayListUtil.arrayListSize(arrayList = welcomePageArrayList))
     }
 }

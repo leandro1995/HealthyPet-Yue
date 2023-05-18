@@ -25,5 +25,7 @@ class ArrayListUtil {
                 idButtonText = R.string.begin_button
             )
         )
+
+        fun arrayListSize(arrayList: ArrayList<*>) = arrayList.size - 1
     }
 }

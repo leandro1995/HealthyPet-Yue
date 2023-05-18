@@ -100,6 +100,7 @@
                     android:id="@+id/nextButton"
                     style="@style/Button"
                     android:layout_marginTop="@dimen/dimen_16"
+                    android:onClick="@{()-> welcomeViewModel.onClick.invoke(welcomeViewModel.POSITION)}"
                     android:text="@string/next_button" />
 
             </LinearLayout>
