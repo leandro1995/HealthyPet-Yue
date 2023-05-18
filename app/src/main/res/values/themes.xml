@@ -5,6 +5,9 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/blue_4552CB</item>
 
+        <!-- Background Activity -->
+        <item name="android:windowBackground">@color/white</item>
+
         <!-- Lock theme in the app -->
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
