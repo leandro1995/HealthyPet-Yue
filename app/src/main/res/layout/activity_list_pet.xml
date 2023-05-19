@@ -20,20 +20,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/subTitleText"
+            style="@style/ButtonText"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:gravity="center"
+            android:text="@string/choose_pet_text"
+            android:textColor="@color/blue_4552CB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar" />
+
         <com.leandro1995.healthypet.component.PetListComponent
             android:id="@+id/petListComponent"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/dimen_0"
             android:layout_marginStart="@dimen/dimen_0"
-            android:layout_marginTop="@dimen/dimen_0"
+            android:layout_marginTop="@dimen/dimen_4"
             android:layout_marginEnd="@dimen/dimen_0"
-            android:layout_marginBottom="@dimen/dimen_0"
+            android:layout_marginBottom="@dimen/dimen_4"
             app:image_error_list="@drawable/ic_dog_error_message"
-            app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+            app:layout_constraintBottom_toTopOf="@+id/addText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:layout_constraintTop_toBottomOf="@+id/subTitleText"
             app:text_error_list="@string/not_pet_list_error_message" />
+
+        <TextView
+            android:id="@+id/addText"
+            style="@style/ButtonText"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_16"
+            android:gravity="center"
+            android:text="@string/add_pet_text"
+            android:textColor="@color/blue_4552CB"
+            app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.leandro1995.healthypet.component.SeparatorComponent
             android:id="@+id/separatorComponent"

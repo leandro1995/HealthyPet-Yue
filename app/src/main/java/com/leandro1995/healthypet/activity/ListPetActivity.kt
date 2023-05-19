@@ -24,7 +24,7 @@ class ListPetActivity : AppCompatActivity() {
         DesignUtil.materialToolbar(
             activity = this,
             materialToolbar = listPetBinding.appBar.toolbar,
-            idTitle = R.string.app_name
+            idTitle = R.string.list_pet_text_title
         )
     }
 }
