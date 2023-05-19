@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.component.ambient
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.databinding.ComponentListPetBinding
@@ -20,5 +21,15 @@ open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
             this,
             true
         )
+    }
+
+    protected fun errorMessageVisible() {
+
+        componentListPetBinding.messageErrorLinear.visibility = View.VISIBLE
+    }
+
+    private fun errorMessageGone() {
+
+        componentListPetBinding.messageErrorLinear.visibility = View.GONE
     }
 }
