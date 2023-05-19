@@ -36,6 +36,12 @@
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
 
+    <style name="Headline.H3">
+
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
     <style name="Headline.H6">
 
         <item name="fontFamily">@font/semi_bold</item>
@@ -48,16 +54,25 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
-    <!-- Component -->
-
-    <style name="Button">
+    <style name="ButtonText">
 
         <item name="fontFamily">@font/bold</item>
         <item name="android:textSize">@dimen/sp_16</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Component -->
+
+    <style name="Button" parent="ButtonText">
+
         <item name="backgroundTint">@color/blue_4552CB</item>
         <item name="android:layout_width">@dimen/dimen_250</item>
         <item name="android:layout_height">@dimen/dimen_60</item>
+    </style>
+
+    <style name="MaterialToolBar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+
+        <item name="titleTextColor">@color/blue_070821</item>
     </style>
 
 </resources>
