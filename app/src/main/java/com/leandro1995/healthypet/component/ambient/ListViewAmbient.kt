@@ -13,15 +13,19 @@ import com.leandro1995.healthypet.databinding.ComponentListPetBinding
 open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
     ViewAmbient(context, attrs) {
 
-    private lateinit var componentListPetBinding: ComponentListPetBinding
+    protected lateinit var componentListPetBinding: ComponentListPetBinding
 
     init {
+
+        errorMessageVisible()
 
         typedArray(
             typedArray = attributes(
                 intArray = R.styleable.ListViewAmbient, attrs = attrs
             )
         )
+
+        adapter()
     }
 
     override fun view() {
@@ -52,13 +56,17 @@ open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
         }
     }
 
+    protected open fun adapter() {}
+
     protected fun errorMessageVisible() {
 
         componentListPetBinding.messageErrorLinear.visibility = View.VISIBLE
+        componentListPetBinding.listLinear.visibility = View.GONE
     }
 
-    private fun errorMessageGone() {
+    protected fun errorMessageGone() {
 
         componentListPetBinding.messageErrorLinear.visibility = View.GONE
+        componentListPetBinding.listLinear.visibility = View.VISIBLE
     }
 }

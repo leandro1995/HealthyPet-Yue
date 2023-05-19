@@ -41,7 +41,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ListLinear"
+            android:id="@+id/listLinear"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/dimen_0"
             android:layout_marginStart="@dimen/dimen_0"
