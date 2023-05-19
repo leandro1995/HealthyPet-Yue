@@ -20,6 +20,11 @@ object ListPetIntentConfig {
 
                 listPetIntentCallBack.view()
             }
+
+            is ListPetIntent.RegisterPetActivity -> {
+
+                listPetIntentCallBack.registerPetActivity(activity = listPetIntent.activity)
+            }
         }
     }
 }

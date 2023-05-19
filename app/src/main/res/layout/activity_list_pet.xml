@@ -66,6 +66,7 @@
             android:layout_marginEnd="@dimen/dimen_16"
             android:layout_marginBottom="@dimen/dimen_16"
             android:gravity="center"
+            android:onClick="@{()-> listPetViewModel.onClick.invoke(listPetViewModel.LIST_PET_ACTIVITY)}"
             android:text="@string/add_pet_text"
             android:textColor="@color/blue_4552CB"
             app:layout_constraintBottom_toTopOf="@+id/separatorComponent"

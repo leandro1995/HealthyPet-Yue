@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +26,7 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
         ListPetIntentConfig.instance(listPetIntentCallBack = this)
 
         listPetBinding = DataBindingUtil.setContentView(this, R.layout.activity_list_pet)
+        listPetBinding.listPetViewModel = listPetViewModel
 
         materialToolbar()
         collect()
@@ -51,5 +54,10 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
     override fun view() {
 
+    }
+
+    override fun registerPetActivity(activity: Activity) {
+
+        startActivity(Intent(this, activity::class.java))
     }
 }
