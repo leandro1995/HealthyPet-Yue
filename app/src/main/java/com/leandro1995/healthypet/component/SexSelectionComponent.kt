@@ -7,12 +7,15 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.ambient.ViewAmbient
+import com.leandro1995.healthypet.component.config.callback.SexSelectionComponentCallBack
 import com.leandro1995.healthypet.databinding.ComponentSexSelectionBinding
 
 class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
     ViewAmbient(context, attrs) {
 
     private lateinit var componentSexSelectionBinding: ComponentSexSelectionBinding
+
+    var sexSelectionComponentCallBack: SexSelectionComponentCallBack? = null
 
     override fun view() {
 
@@ -70,6 +73,8 @@ class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
         componentSexSelectionBinding.sexMaleImage.setImageResource(R.drawable.ic_male_select)
 
         componentSexSelectionBinding.sexFemaleImage.setImageResource(R.drawable.ic_female)
+
+        isSexSelection(isSelection = false)
     }
 
     private fun sexFemaleSelect() {
@@ -97,5 +102,15 @@ class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
         componentSexSelectionBinding.sexMaleImage.setImageResource(R.drawable.ic_male)
 
         componentSexSelectionBinding.sexFemaleImage.setImageResource(R.drawable.ic_female_select)
+
+        isSexSelection(isSelection = true)
+    }
+
+    private fun isSexSelection(isSelection: Boolean) {
+
+        if (sexSelectionComponentCallBack != null) {
+
+            sexSelectionComponentCallBack!!.isSelectSex(isSelection)
+        }
     }
 }
