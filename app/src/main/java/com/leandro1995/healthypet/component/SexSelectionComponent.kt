@@ -24,6 +24,12 @@ class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
         )
 
         onClick()
+        defaultSelect()
+    }
+
+    private fun defaultSelect() {
+
+        sexMaleSelect()
     }
 
     private fun onClick() {
