@@ -53,12 +53,11 @@
             android:textColor="@color/lead_BBC3CE" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/EditText"
             android:layout_marginTop="@dimen/dimen_5"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            tools:ignore="Autofill,LabelFor" />
 
         <TextView
             style='style="@style/Headline.H6"'
@@ -69,8 +68,7 @@
             android:textColor="@color/lead_BBC3CE" />
 
         <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/EditText"
             android:layout_marginTop="@dimen/dimen_5" />
 
         <TextView
@@ -90,10 +88,8 @@
             android:textColor="@color/lead_BBC3CE" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_5"
-            android:text="TextView" />
+            style="@style/EditText"
+            android:layout_marginTop="@dimen/dimen_5" />
 
     </LinearLayout>
 
