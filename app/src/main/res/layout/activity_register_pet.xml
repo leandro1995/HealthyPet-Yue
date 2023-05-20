@@ -79,6 +79,10 @@
             android:text="Sexo de las mascota"
             android:textColor="@color/lead_BBC3CE" />
 
+        <com.leandro1995.healthypet.component.SexSelectionComponent
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TextView
             style='style="@style/Headline.H6"'
             android:layout_width="match_parent"
