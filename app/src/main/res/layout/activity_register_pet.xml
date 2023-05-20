@@ -24,9 +24,10 @@
         android:layout_marginStart="@dimen/dimen_0"
         android:layout_marginTop="@dimen/dimen_0"
         android:layout_marginEnd="@dimen/dimen_0"
-        android:layout_marginBottom="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_0"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+        android:padding="@dimen/dimen_16"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar">
@@ -34,27 +35,24 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_16"
-            android:layout_marginTop="@dimen/dimen_16"
-            android:layout_marginEnd="@dimen/dimen_16"
             android:text="Información General" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_16"
-            android:layout_marginTop="@dimen/dimen_16"
-            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_10"
             android:orientation="vertical"></LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="Nombre de las mascota" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -62,28 +60,44 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="Especie de las mascota" />
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="Sexo de las mascota" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="Fecha de nacimiento de la mascota" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5"
             android:text="TextView" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/saveButton"
+        style="@style/Button"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="Guardar"
+        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.leandro1995.healthypet.component.SeparatorComponent
         android:id="@+id/separatorComponent"
