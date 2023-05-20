@@ -22,23 +22,26 @@
             tools:ignore="DisableBaselineAlignment">
 
             <LinearLayout
+                android:id="@+id/sexMaleLinear"
                 android:layout_width="@dimen/dimen_0"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/dimen_5"
                 android:layout_weight="1"
-                android:background="@drawable/background_sex_selection_component"
+                android:background="@drawable/background_sex_selection_component_deactivated"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dimen_16">
 
                 <ImageView
+                    android:id="@+id/sexMaleImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_male"
                     tools:ignore="ContentDescription" />
 
                 <TextView
+                    android:id="@+id/sexMaleText"
                     style="@style/Headline.H6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,23 +51,26 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/sexFemaleLinear"
                 android:layout_width="@dimen/dimen_0"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/dimen_5"
                 android:layout_weight="1"
-                android:background="@drawable/background_sex_selection_component"
+                android:background="@drawable/background_sex_selection_component_deactivated"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dimen_16">
 
                 <ImageView
+                    android:id="@+id/sexFemaleImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_female"
                     tools:ignore="ContentDescription" />
 
                 <TextView
+                    android:id="@+id/sexFemaleText"
                     style="@style/Headline.H6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

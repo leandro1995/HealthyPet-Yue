@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.component
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.ambient.ViewAmbient
@@ -21,5 +22,74 @@ class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
             this,
             true
         )
+
+        onClick()
+    }
+
+    private fun onClick() {
+
+        componentSexSelectionBinding.sexMaleLinear.setOnClickListener {
+
+            sexMaleSelect()
+        }
+
+        componentSexSelectionBinding.sexFemaleLinear.setOnClickListener {
+
+            sexFemaleSelect()
+        }
+    }
+
+    private fun sexMaleSelect() {
+
+        componentSexSelectionBinding.sexMaleLinear.background = ContextCompat.getDrawable(
+            context, R.drawable.background_sex_selection_component_activated
+        )
+
+        componentSexSelectionBinding.sexFemaleLinear.background = ContextCompat.getDrawable(
+            context, R.drawable.background_sex_selection_component_deactivated
+        )
+
+        componentSexSelectionBinding.sexMaleText.setTextColor(
+            ContextCompat.getColor(
+                context, R.color.white
+            )
+        )
+
+        componentSexSelectionBinding.sexFemaleText.setTextColor(
+            ContextCompat.getColor(
+                context, R.color.blue_070821
+            )
+        )
+
+        componentSexSelectionBinding.sexMaleImage.setImageResource(R.drawable.ic_male_select)
+
+        componentSexSelectionBinding.sexFemaleImage.setImageResource(R.drawable.ic_female)
+    }
+
+    private fun sexFemaleSelect() {
+
+        componentSexSelectionBinding.sexMaleLinear.background = ContextCompat.getDrawable(
+            context, R.drawable.background_sex_selection_component_deactivated
+        )
+
+        componentSexSelectionBinding.sexFemaleLinear.background = ContextCompat.getDrawable(
+            context, R.drawable.background_sex_selection_component_activated
+        )
+
+        componentSexSelectionBinding.sexMaleText.setTextColor(
+            ContextCompat.getColor(
+                context, R.color.blue_070821
+            )
+        )
+
+        componentSexSelectionBinding.sexFemaleText.setTextColor(
+            ContextCompat.getColor(
+                context, R.color.white
+            )
+        )
+
+        componentSexSelectionBinding.sexMaleImage.setImageResource(R.drawable.ic_male)
+
+        componentSexSelectionBinding.sexFemaleImage.setImageResource(R.drawable.ic_female_select)
     }
 }
