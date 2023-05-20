@@ -16,11 +16,19 @@
     <string name="description_welcome_three">La app se base en que registren el cuidado y tradamiento de sus mascotas como una agenta personal.</string>
     <string name="choose_pet_text">¿Cuál es la mascota que quieres ver?</string>
     <string name="add_pet_text">+ Añadir mascota</string>
+    <string name="male_text">Macho</string>
+    <string name="female_text">Hembra</string>
+    <string name="name_pet_text">Nombre de las mascota</string>
+    <string name="species_pet_text">Especie de las mascota</string>
+    <string name="sex_pet_text">Sexo de las mascota</string>
+    <string name="date_pet_text">Fecha de nacimiento de la mascota</string>
+    <string name="information_pet_text">Información General</string>
 
     <!-- Button Text -->
 
     <string name="next_button">Siguiente</string>
     <string name="begin_button">Empezar</string>
+    <string name="save_button">Guardar</string>
 
     <!-- Error Message -->
 
