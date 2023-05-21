@@ -68,6 +68,7 @@
                 android:id="@+id/cameraImage"
                 android:layout_width="@dimen/dimen_70"
                 android:layout_height="@dimen/dimen_70"
+                android:onClick="@{()->cameraViewModel.onClick.invoke(cameraViewModel.PHOTO)}"
                 app:srcCompat="@drawable/ic_camera_button"
                 tools:ignore="ContentDescription" />
 

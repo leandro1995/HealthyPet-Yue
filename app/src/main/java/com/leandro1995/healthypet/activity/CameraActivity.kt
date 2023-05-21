@@ -1,11 +1,14 @@
 package com.leandro1995.healthypet.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.callback.camera.CameraPhotoCallBack
 import com.leandro1995.healthypet.config.callback.intent.CameraIntentCallBack
+import com.leandro1995.healthypet.config.listener.CameraPhotoListener
 import com.leandro1995.healthypet.databinding.ActivityCameraBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.CameraIntentConfig
@@ -51,6 +54,28 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
 
     override fun view() {
 
-        cameraBinding.camera.setLifecycleOwner(this)
+        cameraBinding.apply {
+
+            camera.let { cameraView ->
+
+                cameraView.setLifecycleOwner(this@CameraActivity)
+
+                cameraView.addCameraListener(CameraPhotoListener().apply {
+
+                    cameraPhotoCallBack = object : CameraPhotoCallBack {
+
+                        override fun photoByteArray(byteArray: ByteArray) {
+
+                            Log.e("ENTRA","$byteArray")
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+    override fun photo() {
+
+        cameraBinding.camera.takePicture()
     }
 }

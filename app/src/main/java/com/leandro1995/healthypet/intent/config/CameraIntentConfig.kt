@@ -20,6 +20,11 @@ object CameraIntentConfig {
 
                 cameraIntentCallBack.view()
             }
+
+            is CameraIntent.Photo -> {
+
+                cameraIntentCallBack.photo()
+            }
         }
     }
 }
