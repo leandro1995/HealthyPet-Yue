@@ -1,16 +1,20 @@
 package com.leandro1995.healthypet.activity
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.CropImageIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityCropImageBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
+import com.leandro1995.healthypet.extension.putExtra
 import com.leandro1995.healthypet.intent.config.CropImageIntentConfig
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.CropImageViewModel
+import java.io.File
 
 class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
@@ -28,6 +32,7 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
         materialToolbar()
         collect()
+        putExtra()
     }
 
     private fun materialToolbar() {
@@ -47,6 +52,11 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
                 CropImageIntentConfig.cropImageSelect(cropImageIntent = cropImageIntent)
             }
         })
+    }
+
+    private fun putExtra() {
+
+        cropImageBinding.cropImage.setImageUriAsync(Uri.fromFile(File((Setting.IMAGE_PUT putExtra this)!!)))
     }
 
     override fun view() {

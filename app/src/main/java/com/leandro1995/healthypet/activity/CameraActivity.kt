@@ -68,16 +68,7 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
 
                         override fun photoByteArray(byteArray: ByteArray) {
 
-                            startActivity(Intent(
-                                this@CameraActivity, CropImageActivity::class.java
-                            ).apply {
-
-                                putExtra(
-                                    Setting.IMAGE_PUT, FileUtil.photoUrl(
-                                        activity = this@CameraActivity, byteArray = byteArray
-                                    )
-                                )
-                            })
+                            starActivityCropImage(byteArray = byteArray)
                         }
                     }
                 })
@@ -88,5 +79,16 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
     override fun photo() {
 
         cameraBinding.camera.takePicture()
+    }
+
+    private fun starActivityCropImage(byteArray: ByteArray) {
+
+        startActivity(Intent(this@CameraActivity, CropImageActivity::class.java).apply {
+
+            putExtra(
+                Setting.IMAGE_PUT,
+                FileUtil.photoUrl(activity = this@CameraActivity, byteArray = byteArray)
+            )
+        })
     }
 }
