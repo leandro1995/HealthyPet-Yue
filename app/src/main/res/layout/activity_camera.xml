@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.CameraActivity">
 
+    <data>
+
+        <variable
+            name="cameraViewModel"
+            type="com.leandro1995.healthypet.viewmodel.CameraViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,6 +25,14 @@
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_0"
             android:keepScreenOn="true"
+            app:cameraGesturePinch="zoom"
+            app:cameraGestureScrollHorizontal="zoom"
+            app:cameraGestureScrollVertical="zoom"
+            app:cameraGestureTap="autoFocus"
+            app:cameraHdr="on"
+            app:cameraAudio="off"
+            app:cameraPictureFormat="jpeg"
+            app:cameraRequestPermissions="false"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
