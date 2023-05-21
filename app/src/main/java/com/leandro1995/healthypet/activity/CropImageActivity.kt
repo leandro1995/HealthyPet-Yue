@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -61,5 +63,14 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
     override fun view() {
 
+    }
+
+    override fun cropImage() {
+
+        setResult(Activity.RESULT_OK, Intent().apply {
+
+            putExtra(Setting.IMAGE_PUT, cropImageBinding.cropImage.getCroppedImage())
+        })
+        finish()
     }
 }

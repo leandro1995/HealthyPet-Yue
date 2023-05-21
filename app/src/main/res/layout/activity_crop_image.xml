@@ -47,6 +47,7 @@
             android:layout_marginStart="@dimen/dimen_16"
             android:layout_marginEnd="@dimen/dimen_16"
             android:layout_marginBottom="@dimen/dimen_16"
+            android:onClick="@{()->cropImageViewModel.onClick.invoke(cropImageViewModel.CROP_IMAGE)}"
             android:text="@string/save_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

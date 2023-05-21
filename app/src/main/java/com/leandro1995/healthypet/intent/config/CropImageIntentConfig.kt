@@ -20,6 +20,11 @@ object CropImageIntentConfig {
 
                 cropImageIntentCallBack.view()
             }
+
+            CropImageIntent.CropImage -> {
+
+                cropImageIntentCallBack.cropImage()
+            }
         }
     }
 }
