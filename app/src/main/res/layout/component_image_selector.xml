@@ -24,7 +24,7 @@
             fresco:placeholderImageScaleType="fitCenter"
             fresco:roundAsCircle="true"
             fresco:roundingBorderColor="@color/blue_4552CB"
-            fresco:roundingBorderWidth="@dimen/dimen_2" />
+            fresco:roundingBorderWidth="@dimen/dimen_3" />
 
         <ImageView
             android:id="@+id/addImage"
