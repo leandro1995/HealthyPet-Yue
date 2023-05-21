@@ -12,7 +12,7 @@ import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.CropImageIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityCropImageBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
-import com.leandro1995.healthypet.extension.putExtra
+import com.leandro1995.healthypet.extension.putString
 import com.leandro1995.healthypet.intent.config.CropImageIntentConfig
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.util.FileUtil
@@ -61,7 +61,7 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
     private fun putExtra() {
 
-        file = File(((Setting.IMAGE_PUT putExtra this)!!))
+        file = File(((Setting.IMAGE_PUT putString this)!!))
     }
 
     override fun view() {
