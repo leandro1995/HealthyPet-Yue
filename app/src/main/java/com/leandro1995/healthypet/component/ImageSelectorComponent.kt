@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.activity.CameraActivity
 import com.leandro1995.healthypet.component.ambient.ViewAmbient
+import com.leandro1995.healthypet.component.config.callback.ImageSelectorComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.databinding.ComponentImageSelectorBinding
 import com.leandro1995.healthypet.extension.putString
@@ -22,13 +23,26 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
 
     private lateinit var componentImageSelectorBinding: ComponentImageSelectorBinding
 
-    private val resultLauncher =
-        ActivityUtil.activityResultLauncher(activity = (context as AppCompatActivity),
-            resultData = { data ->
+    var imageSelectorComponentCallBack: ImageSelectorComponentCallBack? = null
 
-                componentImageSelectorBinding.photoProfileSimple.setImageURI(Uri.fromFile(File((data putString Setting.IMAGE_PUT)!!)))
+    private val resultLauncher = ActivityUtil.activityResultLauncher(
+        activity = (context as AppCompatActivity),
+        resultData = { data ->
+
+            (data putString Setting.IMAGE_PUT).let { photoUrl ->
+
+                componentImageSelectorBinding.photoProfileSimple.setImageURI(
+                    Uri.fromFile(
+                        File(
+                            photoUrl!!
+                        )
+                    )
+                )
                 componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
-            })
+
+                isImageSelectorComponent(url = photoUrl)
+            }
+        })
 
     override fun view() {
 
@@ -52,10 +66,19 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
 
     private fun starActivityCamera() {
 
-        PermissionUtil.cameraPermission(fragmentActivity = (context as AppCompatActivity),
+        PermissionUtil.cameraPermission(
+            fragmentActivity = (context as AppCompatActivity),
             result = {
 
                 resultLauncher.launch(Intent(context, CameraActivity::class.java))
             })
+    }
+
+    private fun isImageSelectorComponent(url: String) {
+
+        if (imageSelectorComponentCallBack != null) {
+
+            imageSelectorComponentCallBack!!.photoUrl(url = url)
+        }
     }
 }
