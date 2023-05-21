@@ -14,8 +14,7 @@ import com.leandro1995.healthypet.datastore.HealthyPetSerializable
 import kotlinx.coroutines.launch
 
 val Context.healthyPetDataStore: DataStore<HealthyPetPreferences> by dataStore(
-    fileName = Setting.DATA_STORE_HEALTHY_PET,
-    serializer = HealthyPetSerializable()
+    fileName = Setting.DATA_STORE_HEALTHY_PET, serializer = HealthyPetSerializable()
 )
 
 fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
@@ -28,3 +27,5 @@ fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
         }
     }
 }
+
+infix fun String.putExtra(activity: Activity) = activity.intent.getStringExtra(this)
