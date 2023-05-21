@@ -1,7 +1,6 @@
 package com.leandro1995.healthypet.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,7 +12,6 @@ import com.leandro1995.healthypet.databinding.ActivityCameraBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.CameraIntentConfig
 import com.leandro1995.healthypet.util.DesignUtil
-import com.leandro1995.healthypet.util.FileUtil
 import com.leandro1995.healthypet.viewmodel.CameraViewModel
 
 class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
@@ -66,9 +64,7 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
                     cameraPhotoCallBack = object : CameraPhotoCallBack {
 
                         override fun photoByteArray(byteArray: ByteArray) {
-
-                            Log.e("ENTRA1",FileUtil.createFolder(activity = this@CameraActivity))
-                            Log.e("ENTRA2","$byteArray")
+                            
                         }
                     }
                 })
