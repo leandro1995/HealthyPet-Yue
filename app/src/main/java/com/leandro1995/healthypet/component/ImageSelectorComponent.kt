@@ -26,6 +26,7 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
         resultData = { data ->
 
             componentImageSelectorBinding.photoProfileSimple.setImageURI(Uri.fromFile(File((data putString Setting.IMAGE_PUT)!!)))
+            componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
         })
 
     override fun view() {
