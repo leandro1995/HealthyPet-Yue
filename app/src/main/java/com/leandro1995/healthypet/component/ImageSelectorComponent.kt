@@ -13,7 +13,7 @@ import com.leandro1995.healthypet.component.ambient.ViewAmbient
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.databinding.ComponentImageSelectorBinding
 import com.leandro1995.healthypet.extension.putString
-import com.leandro1995.healthypet.model.design.ActivityUtil
+import com.leandro1995.healthypet.util.ActivityUtil
 import java.io.File
 
 class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
