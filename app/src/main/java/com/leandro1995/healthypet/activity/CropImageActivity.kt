@@ -36,8 +36,8 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
         cropImageBinding.cropImageViewModel = cropImageViewModel
 
         materialToolbar()
-        collect()
         putExtra()
+        collect()
     }
 
     private fun materialToolbar() {
@@ -62,12 +62,11 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
     private fun putExtra() {
 
         file = File(((Setting.IMAGE_PUT putExtra this)!!))
-
-        cropImageBinding.cropImage.setImageUriAsync(Uri.fromFile(file))
     }
 
     override fun view() {
 
+        cropImageBinding.cropImage.setImageUriAsync(Uri.fromFile(file))
     }
 
     override fun cropImage() {
