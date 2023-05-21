@@ -1,10 +1,12 @@
 package com.leandro1995.healthypet.config.listener
 
+import android.app.Activity
 import com.leandro1995.healthypet.config.callback.camera.CameraPhotoCallBack
+import com.leandro1995.healthypet.util.FileUtil
 import com.otaliastudios.cameraview.CameraListener
 import com.otaliastudios.cameraview.PictureResult
 
-class CameraPhotoListener : CameraListener() {
+class CameraPhotoListener constructor(private val activity: Activity) : CameraListener() {
 
     var cameraPhotoCallBack: CameraPhotoCallBack? = null
 
@@ -17,7 +19,12 @@ class CameraPhotoListener : CameraListener() {
 
         if (cameraPhotoCallBack != null) {
 
-            cameraPhotoCallBack!!.photoByteArray(byteArray = byteArray)
+            cameraPhotoCallBack!!.photoByteArray(
+                url = FileUtil.photoUrl(
+                    activity = activity,
+                    byteArray = byteArray
+                )
+            )
         }
     }
 }

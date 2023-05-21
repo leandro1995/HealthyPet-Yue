@@ -14,7 +14,6 @@ import com.leandro1995.healthypet.databinding.ActivityCameraBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.CameraIntentConfig
 import com.leandro1995.healthypet.util.DesignUtil
-import com.leandro1995.healthypet.util.FileUtil
 import com.leandro1995.healthypet.viewmodel.CameraViewModel
 
 class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
@@ -62,13 +61,13 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
 
                 cameraView.setLifecycleOwner(this@CameraActivity)
 
-                cameraView.addCameraListener(CameraPhotoListener().apply {
+                cameraView.addCameraListener(CameraPhotoListener(activity = this@CameraActivity).apply {
 
                     cameraPhotoCallBack = object : CameraPhotoCallBack {
 
-                        override fun photoByteArray(byteArray: ByteArray) {
+                        override fun photoByteArray(url: String) {
 
-                            starActivityCropImage(byteArray = byteArray)
+                            starActivityCropImage(url = url)
                         }
                     }
                 })
@@ -81,14 +80,11 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
         cameraBinding.camera.takePicture()
     }
 
-    private fun starActivityCropImage(byteArray: ByteArray) {
+    private fun starActivityCropImage(url: String) {
 
         startActivity(Intent(this@CameraActivity, CropImageActivity::class.java).apply {
 
-            putExtra(
-                Setting.IMAGE_PUT,
-                FileUtil.photoUrl(activity = this@CameraActivity, byteArray = byteArray)
-            )
+            putExtra(Setting.IMAGE_PUT, url)
         })
     }
 }
