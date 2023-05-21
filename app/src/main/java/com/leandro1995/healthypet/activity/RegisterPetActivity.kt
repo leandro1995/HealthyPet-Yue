@@ -9,6 +9,7 @@ import com.leandro1995.healthypet.config.callback.intent.RegisterPetIntentCallBa
 import com.leandro1995.healthypet.databinding.ActivityRegisterPetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterPetIntentConfig
+import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.RegisterPetViewModel
 
 class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
@@ -25,6 +26,7 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
         registerPetBinding = DataBindingUtil.setContentView(this, R.layout.activity_register_pet)
         registerPetBinding.registerPetViewModel = registerPetViewModel
 
+        materialToolbar()
         collect()
     }
 
@@ -37,6 +39,15 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
                 RegisterPetIntentConfig.registerPetSelect(registerPetIntent = registerPetIntent)
             }
         })
+    }
+
+    private fun materialToolbar() {
+
+        DesignUtil.materialToolbar(activity = this,
+            materialToolbar = registerPetBinding.appBar.toolbar,
+            idTitle = R.string.register_pet_text_title,
+            isArrow = true,
+            method = { finish() })
     }
 
     override fun view() {
