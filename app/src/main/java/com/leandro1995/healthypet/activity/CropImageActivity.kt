@@ -15,6 +15,7 @@ import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putExtra
 import com.leandro1995.healthypet.intent.config.CropImageIntentConfig
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.FileUtil
 import com.leandro1995.healthypet.viewmodel.CropImageViewModel
 import java.io.File
 
@@ -69,7 +70,13 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
         setResult(Activity.RESULT_OK, Intent().apply {
 
-            putExtra(Setting.IMAGE_PUT, cropImageBinding.cropImage.getCroppedImage())
+            putExtra(
+                Setting.IMAGE_PUT,
+                FileUtil.bitmapUrl(
+                    activity = this@CropImageActivity,
+                    bitmap = cropImageBinding.cropImage.getCroppedImage()!!
+                )
+            )
         })
         finish()
     }
