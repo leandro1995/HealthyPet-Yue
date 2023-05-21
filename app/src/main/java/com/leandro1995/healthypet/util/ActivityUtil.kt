@@ -1,4 +1,4 @@
-package com.leandro1995.healthypet.model.design
+package com.leandro1995.healthypet.util
 
 import android.app.Activity
 import android.content.Intent

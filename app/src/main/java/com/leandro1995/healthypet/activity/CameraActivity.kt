@@ -15,7 +15,7 @@ import com.leandro1995.healthypet.databinding.ActivityCameraBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putString
 import com.leandro1995.healthypet.intent.config.CameraIntentConfig
-import com.leandro1995.healthypet.model.design.ActivityUtil
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.CameraViewModel
 
