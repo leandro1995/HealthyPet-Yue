@@ -25,15 +25,27 @@
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_0"
             android:keepScreenOn="true"
+            app:cameraAudio="off"
             app:cameraGesturePinch="zoom"
             app:cameraGestureScrollHorizontal="zoom"
             app:cameraGestureScrollVertical="zoom"
             app:cameraGestureTap="autoFocus"
             app:cameraHdr="on"
-            app:cameraAudio="off"
             app:cameraPictureFormat="jpeg"
             app:cameraRequestPermissions="false"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/appBarTransparent"
+            layout="@layout/app_bar_transparent"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginTop="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
