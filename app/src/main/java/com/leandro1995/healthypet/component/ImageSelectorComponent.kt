@@ -14,6 +14,7 @@ import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.databinding.ComponentImageSelectorBinding
 import com.leandro1995.healthypet.extension.putString
 import com.leandro1995.healthypet.util.ActivityUtil
+import com.leandro1995.healthypet.util.PermissionUtil
 import java.io.File
 
 class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
@@ -21,13 +22,13 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
 
     private lateinit var componentImageSelectorBinding: ComponentImageSelectorBinding
 
-    private val resultLauncher = ActivityUtil.activityResultLauncher(
-        activity = (context as AppCompatActivity),
-        resultData = { data ->
+    private val resultLauncher =
+        ActivityUtil.activityResultLauncher(activity = (context as AppCompatActivity),
+            resultData = { data ->
 
-            componentImageSelectorBinding.photoProfileSimple.setImageURI(Uri.fromFile(File((data putString Setting.IMAGE_PUT)!!)))
-            componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
-        })
+                componentImageSelectorBinding.photoProfileSimple.setImageURI(Uri.fromFile(File((data putString Setting.IMAGE_PUT)!!)))
+                componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
+            })
 
     override fun view() {
 
@@ -51,6 +52,10 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
 
     private fun starActivityCamera() {
 
-        resultLauncher.launch(Intent(context, CameraActivity::class.java))
+        PermissionUtil.cameraPermission(fragmentActivity = (context as AppCompatActivity),
+            result = {
+
+                resultLauncher.launch(Intent(context, CameraActivity::class.java))
+            })
     }
 }
