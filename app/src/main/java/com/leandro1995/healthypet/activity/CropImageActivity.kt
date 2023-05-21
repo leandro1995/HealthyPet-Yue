@@ -25,6 +25,8 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
     private val cropImageViewModel by viewModels<CropImageViewModel>()
 
+    private lateinit var file: File
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +61,9 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
 
     private fun putExtra() {
 
-        cropImageBinding.cropImage.setImageUriAsync(Uri.fromFile(File((Setting.IMAGE_PUT putExtra this)!!)))
+        file = File(((Setting.IMAGE_PUT putExtra this)!!))
+
+        cropImageBinding.cropImage.setImageUriAsync(Uri.fromFile(file))
     }
 
     override fun view() {
@@ -71,13 +75,14 @@ class CropImageActivity : AppCompatActivity(), CropImageIntentCallBack {
         setResult(Activity.RESULT_OK, Intent().apply {
 
             putExtra(
-                Setting.IMAGE_PUT,
-                FileUtil.bitmapUrl(
+                Setting.IMAGE_PUT, FileUtil.bitmapUrl(
                     activity = this@CropImageActivity,
-                    bitmap = cropImageBinding.cropImage.getCroppedImage()!!
+                    bitmap = cropImageBinding.cropImage.getCroppedImage()!!,
+                    name = file.name
                 )
             )
         })
+
         finish()
     }
 }

@@ -40,12 +40,11 @@ class FileUtil {
             return file.absolutePath
         }
 
-        fun bitmapUrl(activity: Activity, bitmap: Bitmap): String {
+        fun bitmapUrl(activity: Activity, bitmap: Bitmap, name: String = ""): String {
 
-            val file = File(
-                createFolder(activity = activity),
+            val file = File(createFolder(activity = activity), name.ifEmpty {
                 "${INITIAL_IMG}${System.currentTimeMillis()}${EXTENSION_JPEG}"
-            )
+            })
 
             val fileOutputStream = FileOutputStream(file)
             val bufferedOutputStream = BufferedOutputStream(fileOutputStream)
