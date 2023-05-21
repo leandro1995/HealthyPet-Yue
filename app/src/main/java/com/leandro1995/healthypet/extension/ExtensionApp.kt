@@ -2,6 +2,7 @@ package com.leandro1995.healthypet.extension
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
@@ -28,4 +29,6 @@ fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
     }
 }
 
-infix fun String.putExtra(activity: Activity) = activity.intent.getStringExtra(this)
+infix fun String.putString(activity: Activity) = activity.intent.getStringExtra(this)
+
+infix fun Intent.putString(key: String) = this.getStringExtra(key)

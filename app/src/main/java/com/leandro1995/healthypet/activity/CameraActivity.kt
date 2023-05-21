@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -12,7 +13,9 @@ import com.leandro1995.healthypet.config.callback.intent.CameraIntentCallBack
 import com.leandro1995.healthypet.config.listener.CameraPhotoListener
 import com.leandro1995.healthypet.databinding.ActivityCameraBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
+import com.leandro1995.healthypet.extension.putString
 import com.leandro1995.healthypet.intent.config.CameraIntentConfig
+import com.leandro1995.healthypet.model.design.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.CameraViewModel
 
@@ -21,6 +24,17 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
     private lateinit var cameraBinding: ActivityCameraBinding
 
     private val cameraViewModel by viewModels<CameraViewModel>()
+
+    private val resultLauncher =
+        ActivityUtil.activityResultLauncher(activity = this, resultData = { data ->
+
+            setResult(Activity.RESULT_OK, Intent().apply {
+
+                putExtra(Setting.IMAGE_PUT, data putString Setting.IMAGE_PUT)
+            })
+            
+            finish()
+        })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +96,7 @@ class CameraActivity : AppCompatActivity(), CameraIntentCallBack {
 
     private fun starActivityCropImage(url: String) {
 
-        startActivity(Intent(this@CameraActivity, CropImageActivity::class.java).apply {
+        resultLauncher.launch(Intent(this@CameraActivity, CropImageActivity::class.java).apply {
 
             putExtra(Setting.IMAGE_PUT, url)
         })
