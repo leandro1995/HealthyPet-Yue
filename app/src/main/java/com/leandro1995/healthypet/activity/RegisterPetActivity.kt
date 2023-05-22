@@ -10,8 +10,10 @@ import com.leandro1995.healthypet.config.callback.intent.RegisterPetIntentCallBa
 import com.leandro1995.healthypet.databinding.ActivityRegisterPetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterPetIntentConfig
+import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.DialogUtil
 import com.leandro1995.healthypet.viewmodel.RegisterPetViewModel
 
 class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
@@ -64,5 +66,10 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
             spiceSpinner.adapter = spiceAdapter
         }
+    }
+
+    override fun datePickerDialog(calendar: Calendar) {
+
+        DialogUtil.datePickerDialog(activity = this)
     }
 }

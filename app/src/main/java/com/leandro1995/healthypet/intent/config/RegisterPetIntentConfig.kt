@@ -20,6 +20,11 @@ object RegisterPetIntentConfig {
 
                 registerPetIntentCallBack.view()
             }
+
+            is RegisterPetIntent.DatePickerDialog -> {
+
+                registerPetIntentCallBack.datePickerDialog(calendar = registerPetIntent.calendar)
+            }
         }
     }
 }

@@ -111,7 +111,8 @@
 
                 <TextView
                     style="@style/EditText"
-                    android:layout_marginTop="@dimen/dimen_5" />
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:onClick="@{()-> registerPetViewModel.onClick.invoke(registerPetViewModel.DATE_PICKER_DIALOG)}" />
 
             </LinearLayout>
 
