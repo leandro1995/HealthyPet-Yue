@@ -5,10 +5,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.adapter.SpiceAdapter
 import com.leandro1995.healthypet.config.callback.intent.RegisterPetIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityRegisterPetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterPetIntentConfig
+import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.RegisterPetViewModel
 
@@ -17,6 +19,8 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     private lateinit var registerPetBinding: ActivityRegisterPetBinding
 
     private val registerPetViewModel by viewModels<RegisterPetViewModel>()
+
+    private lateinit var spiceAdapter: SpiceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,5 +56,13 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun view() {
 
+        spiceAdapter = SpiceAdapter(
+            activity = this, spiceArrayList = ArrayListUtil.spiceArrayList()
+        )
+
+        registerPetBinding.apply {
+
+            spiceSpinner.adapter = spiceAdapter
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.leandro1995.healthypet.util
 
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.model.design.WelcomePage
+import com.leandro1995.healthypet.model.entity.Spice
 
 class ArrayListUtil {
 
@@ -27,5 +28,10 @@ class ArrayListUtil {
         )
 
         fun arrayListSize(arrayList: ArrayList<*>) = arrayList.size
+
+        fun spiceArrayList() = arrayListOf(
+            Spice(id = 1, idText = R.string.dog_text),
+            Spice(id = 2, idText = R.string.cat_text)
+        )
     }
 }

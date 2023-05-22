@@ -24,6 +24,8 @@
     <string name="sex_pet_text">Sexo de las mascota</string>
     <string name="date_pet_text">Fecha de nacimiento de la mascota</string>
     <string name="information_pet_text">Información General</string>
+    <string name="dog_text">Perro</string>
+    <string name="cat_text">Gato</string>
 
     <!-- Button Text -->
 
