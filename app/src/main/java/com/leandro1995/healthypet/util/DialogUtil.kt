@@ -23,9 +23,16 @@ class DialogUtil {
                     dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 }
 
-                dialog.build().show(
-                    (activity as AppCompatActivity).supportFragmentManager, DATE_PICKER_DIALOG
-                )
+                dialog.build().let { build ->
+
+                    build.addOnPositiveButtonClickListener {
+
+                    }
+
+                    build.show(
+                        (activity as AppCompatActivity).supportFragmentManager, DATE_PICKER_DIALOG
+                    )
+                }
             }
         }
     }
