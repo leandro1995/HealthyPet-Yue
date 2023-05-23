@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.extension
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -13,6 +14,9 @@ import com.leandro1995.healthypet.HealthyPetPreferences
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.datastore.HealthyPetSerializable
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 
 val Context.healthyPetDataStore: DataStore<HealthyPetPreferences> by dataStore(
     fileName = Setting.DATA_STORE_HEALTHY_PET, serializer = HealthyPetSerializable()
@@ -32,3 +36,22 @@ fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
 infix fun String.putString(activity: Activity) = activity.intent.getStringExtra(this)
 
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
+
+@SuppressLint("SimpleDateFormat")
+infix fun Long.dateFormat(format: String): String {
+
+    val date = Date(this)
+
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+
+    calendar.add(Calendar.DAY_OF_MONTH, 1)
+
+    return SimpleDateFormat(format).format(calendar.time.time)
+}
+
+@SuppressLint("SimpleDateFormat")
+infix fun String.dateFormat(format: String): Long {
+
+    return SimpleDateFormat(format).parse(this)!!.time
+}

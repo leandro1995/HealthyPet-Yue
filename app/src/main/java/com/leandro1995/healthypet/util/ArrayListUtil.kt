@@ -1,7 +1,9 @@
 package com.leandro1995.healthypet.util
 
+import android.app.Activity
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.model.design.WelcomePage
+import com.leandro1995.healthypet.model.entity.Spice
 
 class ArrayListUtil {
 
@@ -27,5 +29,10 @@ class ArrayListUtil {
         )
 
         fun arrayListSize(arrayList: ArrayList<*>) = arrayList.size
+
+        fun spiceArrayList(activity: Activity) = arrayListOf(
+            Spice(id = 1, name = activity.getString(R.string.dog_text)),
+            Spice(id = 2, name = activity.getString(R.string.cat_text))
+        )
     }
 }
