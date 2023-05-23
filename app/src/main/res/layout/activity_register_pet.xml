@@ -72,6 +72,7 @@
                     android:layout_marginTop="@dimen/dimen_5"
                     android:ems="10"
                     android:inputType="text"
+                    android:text="@={registerPetViewModel.pet.name}"
                     tools:ignore="Autofill,LabelFor" />
 
                 <TextView
@@ -116,6 +117,7 @@
                     android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center|left"
                     android:onClick="@{()-> registerPetViewModel.onClick.invoke(registerPetViewModel.DATE_PICKER_DIALOG)}"
+                    app:date="@={registerPetViewModel.pet.date}"
                     tools:ignore="RtlHardcoded" />
 
             </LinearLayout>

@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.adapter.SpiceAdapter
+import com.leandro1995.healthypet.component.config.callback.ImageSelectorComponentCallBack
+import com.leandro1995.healthypet.component.config.callback.SexSelectionComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.RegisterPetIntentCallBack
+import com.leandro1995.healthypet.config.callback.spinner.SpiceSpinnerCallBack
+import com.leandro1995.healthypet.config.listener.SpiceSpinnerListener
 import com.leandro1995.healthypet.databinding.ActivityRegisterPetBinding
 import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
@@ -25,6 +29,8 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     private val registerPetViewModel by viewModels<RegisterPetViewModel>()
 
     private lateinit var spiceAdapter: SpiceAdapter
+
+    private val spiceArrayList = ArrayListUtil.spiceArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +66,42 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun view() {
 
-        spiceAdapter = SpiceAdapter(
-            activity = this, spiceArrayList = ArrayListUtil.spiceArrayList()
-        )
+        spiceAdapter = SpiceAdapter(activity = this, spiceArrayList = spiceArrayList)
 
         registerPetBinding.apply {
 
-            spiceSpinner.adapter = spiceAdapter
+            spiceSpinner.let { spinner ->
+
+                spinner.adapter = spiceAdapter
+
+                spinner.onItemSelectedListener = SpiceSpinnerListener().apply {
+
+                    spiceSpinnerCallBack = object : SpiceSpinnerCallBack {
+
+                        override fun position(position: Int) {
+
+                            this@RegisterPetActivity.registerPetViewModel.pet.spice =
+                                spiceArrayList[position]
+                        }
+                    }
+                }
+            }
+
+            imageSelectorComponent.imageSelectorComponentCallBack =
+                object : ImageSelectorComponentCallBack {
+                    override fun photoUrl(url: String) {
+
+                        this@RegisterPetActivity.registerPetViewModel.pet.photoUrl = url
+                    }
+                }
+
+            sexSelectionComponent.sexSelectionComponentCallBack =
+                object : SexSelectionComponentCallBack {
+                    override fun isSelectSex(isSex: Boolean) {
+
+                        this@RegisterPetActivity.registerPetViewModel.pet.isSex = isSex
+                    }
+                }
         }
     }
 

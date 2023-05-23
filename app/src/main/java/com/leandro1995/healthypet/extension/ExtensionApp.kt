@@ -49,3 +49,9 @@ infix fun Long.dateFormat(format: String): String {
 
     return SimpleDateFormat(format).format(calendar.time.time)
 }
+
+@SuppressLint("SimpleDateFormat")
+infix fun String.dateFormat(format: String): Long {
+
+    return SimpleDateFormat(format).parse(this)!!.time
+}

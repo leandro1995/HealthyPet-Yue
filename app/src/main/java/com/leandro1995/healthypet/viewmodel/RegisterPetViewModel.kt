@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.viewmodel
 import androidx.lifecycle.ViewModel
 import com.leandro1995.healthypet.intent.RegisterPetIntent
 import com.leandro1995.healthypet.model.design.Calendar
+import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class RegisterPetViewModel : ViewModel() {
@@ -26,6 +27,8 @@ class RegisterPetViewModel : ViewModel() {
             }
         }
     }
+
+    val pet = Pet()
 
     private fun datePickerDialog() {
 
