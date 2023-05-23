@@ -23,6 +23,11 @@ class DialogUtil {
                     dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 }
 
+                if (calendar.isNow) {
+
+                    dialog.setCalendarConstraints(DatePickerCalendarUtil.setValidatorNow())
+                }
+
                 dialog.build().let { build ->
 
                     build.addOnPositiveButtonClickListener {
