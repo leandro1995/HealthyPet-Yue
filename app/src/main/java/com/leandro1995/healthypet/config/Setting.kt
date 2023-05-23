@@ -18,7 +18,7 @@ class Setting {
         const val DATE_MESSAGE = 2
         const val COMPLETE = 3
 
-        val MessageHashMap = hashMapOf(
+        val MESSAGE_HASH_MAP = hashMapOf(
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
             Pair(NAME_MESSAGE, R.string.name_message),
             Pair(DATE_MESSAGE, R.string.date_message),
