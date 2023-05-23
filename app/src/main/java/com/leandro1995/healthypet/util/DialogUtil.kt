@@ -3,8 +3,10 @@ package com.leandro1995.healthypet.util
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.model.design.Calendar
+import com.leandro1995.healthypet.model.design.Message
 
 class DialogUtil {
 
@@ -13,9 +15,7 @@ class DialogUtil {
         private const val DATE_PICKER_DIALOG = "date_picker_dialog"
 
         fun datePickerDialog(
-            activity: Activity,
-            calendar: Calendar,
-            dateLong: (long: Long) -> Unit
+            activity: Activity, calendar: Calendar, dateLong: (long: Long) -> Unit
         ) {
 
             MaterialDatePicker.Builder.datePicker().let { dialog ->
@@ -44,6 +44,15 @@ class DialogUtil {
                     )
                 }
             }
+        }
+
+        fun messageDialog(activity: Activity, message: Message) {
+
+            MaterialAlertDialogBuilder(activity).setTitle(activity.getString(R.string.app_name))
+                .setMessage(activity.getString(message.messageError()!!))
+                .setPositiveButton(activity.getString(R.string.accept_button)) { _, _ ->
+
+                }.show()
         }
     }
 }

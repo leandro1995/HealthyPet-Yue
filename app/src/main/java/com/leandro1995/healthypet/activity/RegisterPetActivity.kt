@@ -120,5 +120,6 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun messageErrorDialog(message: Message) {
 
+        DialogUtil.messageDialog(activity = this, message = message)
     }
 }
