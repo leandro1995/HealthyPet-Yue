@@ -70,6 +70,6 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun datePickerDialog(calendar: Calendar) {
 
-        DialogUtil.datePickerDialog(activity = this)
+        DialogUtil.datePickerDialog(activity = this, calendar = calendar)
     }
 }
