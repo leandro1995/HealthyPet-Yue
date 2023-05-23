@@ -39,8 +39,11 @@ class RegisterPetViewModel : ViewModel() {
 
     private fun datePickerDialog() {
 
-        registerPetMutableStateFlow.value =
-            RegisterPetIntent.DatePickerDialog(calendar = Calendar(isToday = true, isNow = true))
+        registerPetMutableStateFlow.value = RegisterPetIntent.DatePickerDialog(
+            calendar = Calendar(
+                date = pet.date, isToday = true, isNow = true
+            )
+        )
     }
 
     private fun verifyPet() {

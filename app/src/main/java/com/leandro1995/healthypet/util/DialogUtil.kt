@@ -24,7 +24,13 @@ class DialogUtil {
 
                 if (calendar.isToday) {
 
-                    dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    if (calendar.isDateEmpty()) {
+
+                        dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    } else {
+
+                        dialog.setSelection(calendar.date)
+                    }
                 }
 
                 if (calendar.isNow) {
