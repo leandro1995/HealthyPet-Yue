@@ -25,6 +25,11 @@ object RegisterPetIntentConfig {
 
                 registerPetIntentCallBack.datePickerDialog(calendar = registerPetIntent.calendar)
             }
+
+            is RegisterPetIntent.MessageErrorDialog -> {
+
+                registerPetIntentCallBack.messageErrorDialog(message = registerPetIntent.message)
+            }
         }
     }
 }

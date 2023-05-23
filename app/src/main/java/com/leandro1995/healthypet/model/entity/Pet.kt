@@ -37,5 +37,5 @@ class Pet constructor(
 
     private fun isNameEmpty() = name.isEmpty()
 
-    private fun isDateEmpty() = date == 1L
+    private fun isDateEmpty() = date == -1L
 }

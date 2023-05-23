@@ -13,10 +13,10 @@ class Setting {
 
         const val DATE_FORMAT_ONE = "dd/MM/yyyy"
 
-        const val PHOTO_URL_MESSAGE = 0
-        const val NAME_MESSAGE = 1
-        const val DATE_MESSAGE = 2
-        const val COMPLETE = 3
+        const val PHOTO_URL_MESSAGE = 1
+        const val NAME_MESSAGE = 2
+        const val DATE_MESSAGE = 3
+        const val COMPLETE = 0
 
         val MESSAGE_HASH_MAP = hashMapOf(
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
