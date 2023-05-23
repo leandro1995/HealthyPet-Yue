@@ -12,7 +12,11 @@ class DialogUtil {
 
         private const val DATE_PICKER_DIALOG = "date_picker_dialog"
 
-        fun datePickerDialog(activity: Activity, calendar: Calendar) {
+        fun datePickerDialog(
+            activity: Activity,
+            calendar: Calendar,
+            dateLong: (long: Long) -> Unit
+        ) {
 
             MaterialDatePicker.Builder.datePicker().let { dialog ->
 
@@ -32,6 +36,7 @@ class DialogUtil {
 
                     build.addOnPositiveButtonClickListener {
 
+                        dateLong(it)
                     }
 
                     build.show(

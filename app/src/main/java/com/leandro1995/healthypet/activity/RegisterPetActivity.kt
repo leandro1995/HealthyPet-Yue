@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.adapter.SpiceAdapter
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.RegisterPetIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityRegisterPetBinding
+import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterPetIntentConfig
 import com.leandro1995.healthypet.model.design.Calendar
@@ -70,6 +72,9 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun datePickerDialog(calendar: Calendar) {
 
-        DialogUtil.datePickerDialog(activity = this, calendar = calendar)
+        DialogUtil.datePickerDialog(activity = this, calendar = calendar) { dateLong ->
+
+            registerPetBinding.dateText.text = dateLong dateFormat Setting.DATE_FORMAT_ONE
+        }
     }
 }

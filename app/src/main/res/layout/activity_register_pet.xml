@@ -110,9 +110,13 @@
                     android:textColor="@color/lead_BBC3CE" />
 
                 <TextView
+                    android:id="@+id/dateText"
                     style="@style/EditText"
+                    android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimen_5"
-                    android:onClick="@{()-> registerPetViewModel.onClick.invoke(registerPetViewModel.DATE_PICKER_DIALOG)}" />
+                    android:gravity="center|left"
+                    android:onClick="@{()-> registerPetViewModel.onClick.invoke(registerPetViewModel.DATE_PICKER_DIALOG)}"
+                    tools:ignore="RtlHardcoded" />
 
             </LinearLayout>
 
