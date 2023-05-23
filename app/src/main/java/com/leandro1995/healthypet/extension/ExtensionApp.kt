@@ -15,6 +15,7 @@ import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.datastore.HealthyPetSerializable
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 
 val Context.healthyPetDataStore: DataStore<HealthyPetPreferences> by dataStore(
@@ -39,5 +40,12 @@ infix fun Intent.putString(key: String) = this.getStringExtra(key)
 @SuppressLint("SimpleDateFormat")
 infix fun Long.dateFormat(format: String): String {
 
-    return SimpleDateFormat(format).format(Date(this))
+    val date = Date(this)
+
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+
+    calendar.add(Calendar.DAY_OF_MONTH, 1)
+
+    return SimpleDateFormat(format).format(calendar.time.time)
 }
