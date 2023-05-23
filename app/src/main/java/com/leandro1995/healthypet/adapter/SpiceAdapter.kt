@@ -11,7 +11,7 @@ import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.model.entity.Spice
 
 class SpiceAdapter constructor(
-    private val activity: Activity,
+    activity: Activity,
     private val spiceArrayList: ArrayList<Spice>
 ) : BaseAdapter() {
 
@@ -37,8 +37,7 @@ class SpiceAdapter constructor(
 
         return inflater.inflate(R.layout.item_spice, null).apply {
 
-            findViewById<TextView>(R.id.spiceText).text =
-                spiceArrayList[position].text(activity = activity)
+            findViewById<TextView>(R.id.spiceText).text = spiceArrayList[position].name
         }
     }
 }

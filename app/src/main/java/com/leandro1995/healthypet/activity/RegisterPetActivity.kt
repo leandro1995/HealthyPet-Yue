@@ -17,6 +17,7 @@ import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterPetIntentConfig
 import com.leandro1995.healthypet.model.design.Calendar
+import com.leandro1995.healthypet.model.entity.Spice
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.util.DialogUtil
@@ -30,7 +31,7 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     private lateinit var spiceAdapter: SpiceAdapter
 
-    private val spiceArrayList = ArrayListUtil.spiceArrayList()
+    private val spiceArrayList = arrayListOf<Spice>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +66,9 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     }
 
     override fun view() {
+
+        spiceArrayList.clear()
+        spiceArrayList.addAll(ArrayListUtil.spiceArrayList(activity = this))
 
         spiceAdapter = SpiceAdapter(activity = this, spiceArrayList = spiceArrayList)
 
