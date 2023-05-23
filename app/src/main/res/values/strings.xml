@@ -36,5 +36,8 @@
     <!-- Error Message -->
 
     <string name="not_pet_list_error_message">No tiene mascotas registradas</string>
+    <string name="photo_url_message">Ingrese una foto de la mascota</string>
+    <string name="name_message">Ingrese un nombre de la mascota</string>
+    <string name="date_message">Ingrese una fecha de nacimiento de la mascota</string>
 
 </resources>

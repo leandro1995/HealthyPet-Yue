@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.config
 
+import com.leandro1995.healthypet.R
+
 class Setting {
 
     companion object {
@@ -16,12 +18,11 @@ class Setting {
         const val DATE_MESSAGE = 2
         const val COMPLETE = 3
 
-        val MessageHashMap =
-            hashMapOf(
-                Pair(PHOTO_URL_MESSAGE, 0),
-                Pair(NAME_MESSAGE, 0),
-                Pair(DATE_MESSAGE, 0),
-                Pair(COMPLETE, 0)
-            )
+        val MessageHashMap = hashMapOf(
+            Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
+            Pair(NAME_MESSAGE, R.string.name_message),
+            Pair(DATE_MESSAGE, R.string.date_message),
+            Pair(COMPLETE, 0)
+        )
     }
 }
