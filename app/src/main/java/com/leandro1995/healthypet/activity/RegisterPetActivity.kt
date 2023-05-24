@@ -1,6 +1,7 @@
 package com.leandro1995.healthypet.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -121,5 +122,10 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     override fun messageErrorDialog(message: Message) {
 
         DialogUtil.messageDialog(activity = this, message = message)
+    }
+
+    override fun completeRegistration() {
+
+        Log.e("completeRegistration", "SIIIIIIIIIIIIIIIII")
     }
 }

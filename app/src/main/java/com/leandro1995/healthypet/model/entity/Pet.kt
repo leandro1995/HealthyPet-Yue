@@ -1,6 +1,8 @@
 package com.leandro1995.healthypet.model.entity
 
 import com.leandro1995.healthypet.config.Setting
+import com.leandro1995.healthypet.database.config.DataBaseConfig
+import com.leandro1995.healthypet.database.model.Pet
 
 class Pet constructor(
     var photoUrl: String = "",
@@ -31,6 +33,15 @@ class Pet constructor(
 
             Setting.COMPLETE
         }
+    }
+
+    suspend fun registerPetDatabase() {
+
+        DataBaseConfig.petDao().register(
+            pet = Pet(
+                photoUrl = photoUrl, name = name, spiceId = spice.id, isSex = isSex, date = date
+            )
+        )
     }
 
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()

@@ -10,4 +10,6 @@ sealed class RegisterPetIntent {
     data class DatePickerDialog constructor(val calendar: Calendar) : RegisterPetIntent()
 
     data class MessageErrorDialog constructor(val message: Message) : RegisterPetIntent()
+
+    object CompleteRegistration : RegisterPetIntent()
 }
