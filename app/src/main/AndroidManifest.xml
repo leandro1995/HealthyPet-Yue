@@ -21,11 +21,11 @@
         <activity
             android:name=".activity.CropImageActivity"
             android:exported="false"
-            android:theme="@style/Theme.Camera" />
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".activity.CameraActivity"
             android:exported="false"
-            android:theme="@style/Theme.Camera" />
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".activity.RegisterPetActivity"
             android:exported="false" />

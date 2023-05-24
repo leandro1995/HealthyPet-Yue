@@ -15,7 +15,7 @@
 
     <style name="Theme.HealthyPet" parent="Base.Theme.HealthyPet" />
 
-    <style name="Theme.Camera" parent="Base.Theme.HealthyPet">
+    <style name="Theme.Transparent" parent="Base.Theme.HealthyPet">
 
         <item name="android:windowTranslucentStatus">true</item>
     </style>
