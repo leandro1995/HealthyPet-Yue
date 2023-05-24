@@ -1,11 +1,13 @@
 package com.leandro1995.healthypet.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.leandro1995.healthypet.intent.RegisterPetIntent
 import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 
 class RegisterPetViewModel : ViewModel() {
 
@@ -13,6 +15,7 @@ class RegisterPetViewModel : ViewModel() {
 
         const val DATE_PICKER_DIALOG = 0
         const val VERIFY_PET = 1
+        private const val REGISTER_PET = 2
     }
 
     val registerPetMutableStateFlow: MutableStateFlow<RegisterPetIntent> by lazy {
@@ -31,6 +34,11 @@ class RegisterPetViewModel : ViewModel() {
             VERIFY_PET -> {
 
                 verifyPet()
+            }
+
+            REGISTER_PET -> {
+
+                registerPet()
             }
         }
     }
@@ -56,7 +64,18 @@ class RegisterPetViewModel : ViewModel() {
                     RegisterPetIntent.MessageErrorDialog(message = Message(indexMessage = index))
             } else {
 
+                onClick.invoke(REGISTER_PET)
             }
+        }
+    }
+
+    private fun registerPet() {
+
+        viewModelScope.launch {
+
+            pet.registerPetDatabase()
+
+            registerPetMutableStateFlow.value = RegisterPetIntent.CompleteRegistration
         }
     }
 }

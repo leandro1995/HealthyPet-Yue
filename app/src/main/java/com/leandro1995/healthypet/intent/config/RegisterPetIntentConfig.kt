@@ -30,6 +30,11 @@ object RegisterPetIntentConfig {
 
                 registerPetIntentCallBack.messageErrorDialog(message = registerPetIntent.message)
             }
+
+            RegisterPetIntent.CompleteRegistration -> {
+
+                registerPetIntentCallBack.completeRegistration()
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -121,5 +122,10 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     override fun messageErrorDialog(message: Message) {
 
         DialogUtil.messageDialog(activity = this, message = message)
+    }
+
+    override fun completeRegistration() {
+
+        startActivity(Intent(this, ToCompleteActivity::class.java))
     }
 }

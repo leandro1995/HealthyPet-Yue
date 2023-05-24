@@ -12,6 +12,10 @@ object DataBaseConfig {
 
     fun instance(context: Context) {
 
-        database = Room.databaseBuilder(context, DatabaseApp::class.java, DATA_BASE).build()
+        database =
+            Room.databaseBuilder(context.applicationContext, DatabaseApp::class.java, DATA_BASE)
+                .build()
     }
+
+    fun petDao() = database.petDao()
 }

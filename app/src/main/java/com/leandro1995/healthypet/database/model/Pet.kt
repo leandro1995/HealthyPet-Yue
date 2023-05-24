@@ -7,7 +7,7 @@ import com.leandro1995.healthypet.database.config.DatabaseSetting
 
 @Entity
 class Pet constructor(
-    @PrimaryKey(autoGenerate = true) val id: Int = -1,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = DatabaseSetting.PHOTO_URL) var photoUrl: String = "",
     @ColumnInfo(name = DatabaseSetting.NAME) var name: String = "",
     @ColumnInfo(name = DatabaseSetting.SPICE_ID) var spiceId: Int = -1,
