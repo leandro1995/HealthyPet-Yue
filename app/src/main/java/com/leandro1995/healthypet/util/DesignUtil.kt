@@ -2,6 +2,9 @@ package com.leandro1995.healthypet.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.os.Build
+import android.view.Window
+import android.view.WindowManager
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.google.android.material.appbar.MaterialToolbar
@@ -47,6 +50,20 @@ class DesignUtil {
                 this.isTitleCentered = isTitleCentered
 
                 setNavigationOnClickListener { method() }
+            }
+        }
+
+        fun statusBarTransparent(window: Window) {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+                window.setDecorFitsSystemWindows(false)
+            } else {
+
+                window.setFlags(
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                )
             }
         }
     }

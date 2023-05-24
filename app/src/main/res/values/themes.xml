@@ -20,6 +20,11 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="Theme.ToActivity" parent="Base.Theme.HealthyPet">
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
     <!-- Splash Screen-->
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
