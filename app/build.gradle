@@ -48,6 +48,11 @@ android {
 
         enabled = true
     }
+
+    buildFeatures {
+
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -71,12 +76,15 @@ dependencies {
     implementation 'com.google.protobuf:protobuf-javalite:3.21.11'
     implementation 'com.facebook.fresco:fresco:2.6.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation("com.vanniktech:android-image-cropper:4.5.0")
+    implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'com.guolindev.permissionx:permissionx:1.7.1'
+    implementation 'androidx.room:room-runtime:2.5.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    api("com.otaliastudios:cameraview:2.7.2")
+    api('com.otaliastudios:cameraview:2.7.2')
+    kapt 'androidx.room:room-compiler:2.5.1'
 }
 
 protobuf {
