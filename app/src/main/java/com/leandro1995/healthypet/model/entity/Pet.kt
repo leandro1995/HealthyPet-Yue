@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.model.entity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.database.config.DataBaseConfig
 import com.leandro1995.healthypet.database.model.Pet
+import java.io.Serializable
 
 class Pet constructor(
     var photoUrl: String = "",
@@ -10,7 +11,7 @@ class Pet constructor(
     var spice: Spice = Spice(),
     var isSex: Boolean = false,
     var date: Long = -1L
-) {
+) : Serializable {
 
     fun checkPet() = when {
 
