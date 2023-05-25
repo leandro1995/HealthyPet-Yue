@@ -35,6 +35,8 @@ fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
 
 infix fun String.putString(activity: Activity) = activity.intent.getStringExtra(this)
 
+infix fun String.putInt(activity: Activity) = activity.intent.getIntExtra(this, -1)
+
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
 
 @SuppressLint("SimpleDateFormat")

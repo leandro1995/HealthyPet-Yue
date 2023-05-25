@@ -10,6 +10,7 @@ class Setting {
         const val DATA_STORE_HEALTHY_PET = "data_store_healthy_pet"
 
         const val IMAGE_PUT = "image_put"
+        const val CODE_MESSAGE_PUT = "code_message_put"
 
         const val DATE_FORMAT_ONE = "dd/MM/yyyy"
 
@@ -17,6 +18,8 @@ class Setting {
         const val NAME_MESSAGE = 2
         const val DATE_MESSAGE = 3
         const val COMPLETE = 0
+
+        const val TO_COMPLETE_MESSAGE_CODE = 0
 
         val MESSAGE_HASH_MAP = hashMapOf(
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
