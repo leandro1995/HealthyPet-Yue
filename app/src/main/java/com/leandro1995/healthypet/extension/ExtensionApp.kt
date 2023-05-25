@@ -43,13 +43,13 @@ infix fun String.putInt(activity: Activity) = activity.intent.getIntExtra(this, 
 
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
 
-infix fun Intent.putPut(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+infix fun Intent.putPet(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 
     this.getSerializableExtra(key, Pet::class.java)
 } else {
 
     @Suppress("DEPRECATION")
-    this.getSerializableExtra(key)
+    this.getSerializableExtra(key) as Pet
 }
 
 @SuppressLint("SimpleDateFormat")
