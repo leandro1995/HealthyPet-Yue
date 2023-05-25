@@ -16,7 +16,7 @@ class DataBindingUtil {
 
             if (long != -1L) {
 
-                textView.text = long dateFormat Setting.DATE_FORMAT_ONE
+                textView.text = long.dateFormat(format = Setting.DATE_FORMAT_ONE)
             }
         }
 
