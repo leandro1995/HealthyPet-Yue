@@ -13,10 +13,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.leandro1995.healthypet.HealthyPetPreferences
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.datastore.HealthyPetSerializable
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import kotlin.coroutines.CoroutineContext
 
 val Context.healthyPetDataStore: DataStore<HealthyPetPreferences> by dataStore(
     fileName = Setting.DATA_STORE_HEALTHY_PET, serializer = HealthyPetSerializable()
@@ -56,4 +58,12 @@ infix fun Long.dateFormat(format: String): String {
 infix fun String.dateFormat(format: String): Long {
 
     return SimpleDateFormat(format).parse(this)!!.time
+}
+
+fun coroutineScope(context: CoroutineContext, method: suspend () -> Unit) {
+
+    CoroutineScope(context).launch {
+
+        method()
+    }
 }
