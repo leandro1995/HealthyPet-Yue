@@ -2,4 +2,5 @@
 <resources>
 
     <integer name="splash_screen_time_out">200</integer>
+    <integer name="angle_135">135</integer>
 </resources>

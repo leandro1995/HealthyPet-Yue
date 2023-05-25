@@ -40,5 +40,6 @@
     <string name="photo_url_message">Ingrese una foto de la mascota</string>
     <string name="name_message">Ingrese un nombre de la mascota</string>
     <string name="date_message">Ingrese una fecha de nacimiento de la mascota</string>
+    <string name="register_pet_message">Se registro su mascota con éxito</string>
 
 </resources>

@@ -126,6 +126,9 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun completeRegistration() {
 
-        startActivity(Intent(this, ToCompleteActivity::class.java))
+        startActivity(Intent(this, ToCompleteActivity::class.java).apply {
+
+            putExtra(Setting.CODE_MESSAGE_PUT, Setting.TO_COMPLETE_MESSAGE_CODE)
+        })
     }
 }
