@@ -38,9 +38,12 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
     private val spiceArrayList = arrayListOf<Spice>()
 
     private val resultLauncher =
-        ActivityUtil.activityResultLauncher(activity = this) { resultData ->
+        ActivityUtil.activityResultLauncher(activity = this) {
 
-            setResult(Activity.RESULT_OK, Intent())
+            setResult(Activity.RESULT_OK, Intent().apply {
+
+                putExtra(Setting.PET_PUT, registerPetViewModel.pet)
+            })
             finish()
         }
 

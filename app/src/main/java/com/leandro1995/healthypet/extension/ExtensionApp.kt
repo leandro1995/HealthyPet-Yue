@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
@@ -13,6 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.leandro1995.healthypet.HealthyPetPreferences
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.datastore.HealthyPetSerializable
+import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -40,6 +42,15 @@ infix fun String.putString(activity: Activity) = activity.intent.getStringExtra(
 infix fun String.putInt(activity: Activity) = activity.intent.getIntExtra(this, -1)
 
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
+
+infix fun Intent.putPut(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+
+    this.getSerializableExtra(key, Pet::class.java)
+} else {
+
+    @Suppress("DEPRECATION")
+    this.getSerializableExtra(key)
+}
 
 @SuppressLint("SimpleDateFormat")
 infix fun Long.dateFormat(format: String): String {
