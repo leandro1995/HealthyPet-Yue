@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.adapter.WelcomePageAdapter
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.WelcomeIntentCallBack
 import com.leandro1995.healthypet.config.callback.viewpage.ViewPagePositionCallBack
 import com.leandro1995.healthypet.config.callback.viewpage.WelcomeOnPageChangeCallBack
@@ -16,6 +17,7 @@ import com.leandro1995.healthypet.datastore.config.HealthyPetDataStoreConfig
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.WelcomeIntentConfig
 import com.leandro1995.healthypet.model.design.PositionViewPager
+import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.viewmodel.WelcomeViewModel
 
 class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
@@ -88,7 +90,11 @@ class WelcomeActivity : AppCompatActivity(), WelcomeIntentCallBack {
     override fun listPetActivity(activity: Activity) {
 
         HealthyPetDataStoreConfig.setIsWelcome(isWelcome = true)
-        startActivity(Intent(this, activity::class.java))
+        startActivity(Intent(this, activity::class.java).apply {
+
+            putExtra(Setting.PET_ARRAY_LIST_PUT, arrayListOf<Pet>())
+        })
+
         finishAffinity()
     }
 }
