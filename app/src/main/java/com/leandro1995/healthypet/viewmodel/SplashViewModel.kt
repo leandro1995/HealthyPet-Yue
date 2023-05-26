@@ -42,7 +42,7 @@ class SplashViewModel : ViewModel() {
 
                 splashMutableStateFlow.value = SplashIntent.ListPetActivity(
                     activity = ListPetActivity(),
-                    petArrayList = user.petArrayList()
+                    petArrayList = user.petArrayListDatabase()
                 )
             }
         } else {

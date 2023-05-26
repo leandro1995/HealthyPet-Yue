@@ -4,7 +4,7 @@ import com.leandro1995.healthypet.database.config.DataBaseConfig
 
 class User {
 
-    suspend fun petArrayList(): ArrayList<Pet> {
+    suspend fun petArrayListDatabase(): ArrayList<Pet> {
 
         val petArrayList = arrayListOf<Pet>()
 
