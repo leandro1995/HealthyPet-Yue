@@ -20,6 +20,18 @@ object SplashIntentConfig {
 
                 splashIntentCallBack.view()
             }
+
+            is SplashIntent.WelcomeActivity -> {
+
+                splashIntentCallBack.welComeActivity(activity = splashIntent.activity)
+            }
+
+            is SplashIntent.ListPetActivity -> {
+
+                splashIntentCallBack.petListActivity(
+                    activity = splashIntent.activity, petArrayList = splashIntent.petArrayList
+                )
+            }
         }
     }
 }
