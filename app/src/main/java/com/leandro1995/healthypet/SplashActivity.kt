@@ -58,7 +58,7 @@ class SplashActivity : AppCompatActivity(), SplashIntentCallBack {
 
         startActivity(Intent(this, activity::class.java).apply {
 
-            putExtra("", petArrayList)
+            putExtra(Setting.PET_ARRAY_LIST_PUT, petArrayList)
         })
         finishAffinity()
     }

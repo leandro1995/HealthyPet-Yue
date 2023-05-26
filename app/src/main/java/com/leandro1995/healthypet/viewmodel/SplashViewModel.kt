@@ -6,6 +6,7 @@ import com.leandro1995.healthypet.activity.ListPetActivity
 import com.leandro1995.healthypet.activity.WelcomeActivity
 import com.leandro1995.healthypet.datastore.config.HealthyPetDataStoreConfig
 import com.leandro1995.healthypet.intent.SplashIntent
+import com.leandro1995.healthypet.model.entity.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
@@ -31,6 +32,8 @@ class SplashViewModel : ViewModel() {
         }
     }
 
+    private val user = User()
+
     private fun activitySelect() {
 
         if (HealthyPetDataStoreConfig.isWelcome()) {
@@ -39,7 +42,7 @@ class SplashViewModel : ViewModel() {
 
                 splashMutableStateFlow.value = SplashIntent.ListPetActivity(
                     activity = ListPetActivity(),
-                    petArrayList = arrayListOf()
+                    petArrayList = user.petArrayList()
                 )
             }
         } else {

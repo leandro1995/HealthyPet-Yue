@@ -43,6 +43,18 @@ infix fun String.putString(activity: Activity) = activity.intent.getStringExtra(
 
 infix fun String.putInt(activity: Activity) = activity.intent.getIntExtra(this, -1)
 
+@Suppress("UNCHECKED_CAST")
+infix fun String.putPetArrayList(activity: Activity) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+
+        activity.intent.getParcelableArrayListExtra(this, Pet::class.java)
+    } else {
+
+        @Suppress(
+            "DEPRECATION"
+        ) activity.intent.getSerializableExtra(this) as ArrayList<Pet>
+    }
+
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
 
 infix fun Intent.putPet(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
