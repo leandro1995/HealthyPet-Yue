@@ -9,12 +9,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.drawee.view.SimpleDraweeView
+import com.google.android.material.card.MaterialCardView
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.util.DesignComponentUtil
 import com.leandro1995.healthypet.config.Setting
+import com.leandro1995.healthypet.config.adapter.ListPetAdapterCallBack
 import com.leandro1995.healthypet.model.entity.Pet
 
 class ListPetAdapter : ListAdapter<Pet, ListPetAdapter.ListPetViewHolder>(PetDiffUtil()) {
+
+    var listPetAdapterCallBack: ListPetAdapterCallBack? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListPetViewHolder {
 
@@ -29,17 +33,22 @@ class ListPetAdapter : ListAdapter<Pet, ListPetAdapter.ListPetViewHolder>(PetDif
 
             getItem(position).let { pet ->
 
-                @Suppress("DEPRECATION")
-                photoSimple.setImageURI(pet.photoFile())
+                @Suppress("DEPRECATION") photoSimple.setImageURI(pet.photoFile())
                 sexImage.setImageResource(DesignComponentUtil.sexImage(isSex = pet.isSex))
                 nameText.text = pet.name
                 dateText.text = pet.date(format = Setting.DATE_FORMAT_ONE)
+
+                petCard.setOnClickListener {
+
+                    isListPetAdapter(pet = pet)
+                }
             }
         }
     }
 
     class ListPetViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
 
+        val petCard: MaterialCardView = view.findViewById(R.id.petCard)
         val photoSimple: SimpleDraweeView = view.findViewById(R.id.photoSimple)
         val sexImage: ImageView = view.findViewById(R.id.sexImage)
         val nameText: TextView = view.findViewById(R.id.nameText)
@@ -56,6 +65,14 @@ class ListPetAdapter : ListAdapter<Pet, ListPetAdapter.ListPetViewHolder>(PetDif
         override fun areContentsTheSame(oldItem: Pet, newItem: Pet): Boolean {
 
             return areItemsTheSame(oldItem, newItem)
+        }
+    }
+
+    private fun isListPetAdapter(pet: Pet) {
+
+        if (listPetAdapterCallBack != null) {
+
+            listPetAdapterCallBack!!.pet(pet = pet)
         }
     }
 }

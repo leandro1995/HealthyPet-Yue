@@ -7,11 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.component.config.callback.PetListComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ListPetIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityListPetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putPet
+import com.leandro1995.healthypet.extension.putPetArrayList
 import com.leandro1995.healthypet.intent.config.ListPetIntentConfig
 import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.util.ActivityUtil
@@ -42,8 +44,15 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
         listPetBinding = DataBindingUtil.setContentView(this, R.layout.activity_list_pet)
         listPetBinding.listPetViewModel = listPetViewModel
 
+        putExtra()
         materialToolbar()
         collect()
+    }
+
+    private fun putExtra() {
+
+        petArrayList.clear()
+        petArrayList.addAll((Setting.PET_ARRAY_LIST_PUT putPetArrayList this)!!)
     }
 
     private fun materialToolbar() {
@@ -68,10 +77,32 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
     override fun view() {
 
+        listPetBinding.petListComponent.apply {
+
+            petListComponentCallBack = object : PetListComponentCallBack {
+
+                override fun pet(pet: Pet) {
+
+                    startHomeActivity(pet = pet)
+                }
+            }
+
+            petArrayList(petArrayList = petArrayList)
+        }
     }
 
     override fun registerPetActivity(activity: Activity) {
 
         resultLauncher.launch(Intent(this, activity::class.java))
+    }
+
+    private fun startHomeActivity(pet: Pet) {
+
+        startActivity(Intent(this, HomeActivity::class.java).apply {
+
+            putExtra(Setting.PET_PUT, pet)
+        })
+
+        finishAffinity()
     }
 }
