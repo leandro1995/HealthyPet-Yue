@@ -83,6 +83,7 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
                 override fun pet(pet: Pet) {
 
+                    startHomeActivity(pet = pet)
                 }
             }
 
@@ -93,5 +94,15 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
     override fun registerPetActivity(activity: Activity) {
 
         resultLauncher.launch(Intent(this, activity::class.java))
+    }
+
+    private fun startHomeActivity(pet: Pet) {
+
+        startActivity(Intent(this, HomeActivity::class.java).apply {
+
+            putExtra(Setting.PET_PUT, pet)
+        })
+
+        finishAffinity()
     }
 }
