@@ -26,6 +26,7 @@ class ToCompleteActivity : AppCompatActivity() {
         putExtra()
         statusBar()
         timeOut()
+        onBack()
     }
 
     private fun putExtra() {
@@ -49,5 +50,10 @@ class ToCompleteActivity : AppCompatActivity() {
                 finish()
             })
         })
+    }
+
+    private fun onBack() {
+
+        DesignUtil.onBackPressed(activity = this)
     }
 }

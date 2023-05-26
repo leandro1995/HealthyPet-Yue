@@ -5,8 +5,10 @@ import android.app.Activity
 import android.os.Build
 import android.view.Window
 import android.view.WindowManager
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.config.Setting
@@ -69,6 +71,17 @@ class DesignUtil {
 
                 -1
             }
+        }
+
+        fun onBackPressed(activity: Activity, method: () -> Unit = {}) {
+
+            (activity as AppCompatActivity).onBackPressedDispatcher.addCallback(activity,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+
+                        method()
+                    }
+                })
         }
     }
 }
