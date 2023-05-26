@@ -18,8 +18,8 @@ android {
         applicationId "com.leandro1995.healthypet"
         minSdk 22
         targetSdk 33
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
