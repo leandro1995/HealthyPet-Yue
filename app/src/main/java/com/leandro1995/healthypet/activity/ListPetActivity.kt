@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.component.config.callback.PetListComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ListPetIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityListPetBinding
@@ -76,7 +77,17 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
     override fun view() {
 
-        listPetBinding.petListComponent.petArrayList(petArrayList = petArrayList)
+        listPetBinding.petListComponent.apply {
+
+            petListComponentCallBack = object : PetListComponentCallBack {
+
+                override fun pet(pet: Pet) {
+
+                }
+            }
+
+            petArrayList(petArrayList = petArrayList)
+        }
     }
 
     override fun registerPetActivity(activity: Activity) {
