@@ -127,7 +127,7 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
         DialogUtil.datePickerDialog(activity = this, calendar = calendar) { dateLong ->
 
-            registerPetBinding.dateText.text = dateLong dateFormat Setting.DATE_FORMAT_ONE
+            registerPetBinding.dateText.text = dateLong.dateFormat(format = Setting.DATE_FORMAT_ONE)
         }
     }
 

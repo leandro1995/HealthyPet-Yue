@@ -7,10 +7,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ListPetIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityListPetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
+import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.intent.config.ListPetIntentConfig
+import com.leandro1995.healthypet.model.entity.Pet
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.ListPetViewModel
 
@@ -19,6 +23,16 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
     private lateinit var listPetBinding: ActivityListPetBinding
 
     private val listPetViewModel by viewModels<ListPetViewModel>()
+
+    private val petArrayList = arrayListOf<Pet>()
+
+    private val resultLauncher =
+        ActivityUtil.activityResultLauncher(activity = this) { resultData ->
+
+            petArrayList.add((resultData putPet Setting.PET_PUT)!!)
+
+            listPetBinding.petListComponent.petArrayList(petArrayList = petArrayList)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +72,6 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
     override fun registerPetActivity(activity: Activity) {
 
-        startActivity(Intent(this, activity::class.java))
+        resultLauncher.launch(Intent(this, activity::class.java))
     }
 }

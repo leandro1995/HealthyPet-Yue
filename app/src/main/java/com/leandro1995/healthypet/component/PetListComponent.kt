@@ -2,9 +2,10 @@ package com.leandro1995.healthypet.component
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.leandro1995.healthypet.adapter.ListPetAdapter
 import com.leandro1995.healthypet.component.ambient.ListViewAmbient
+import com.leandro1995.healthypet.component.config.ComponentSetting
 import com.leandro1995.healthypet.model.entity.Pet
 
 class PetListComponent(context: Context, attrs: AttributeSet? = null) :
@@ -29,8 +30,7 @@ class PetListComponent(context: Context, attrs: AttributeSet? = null) :
 
         componentListPetBinding.listRecycler.let { recycler ->
 
-            recycler.layoutManager =
-                LinearLayoutManager(context).apply { orientation = LinearLayoutManager.VERTICAL }
+            recycler.layoutManager = GridLayoutManager(context, ComponentSetting.GRID_LAYOUT_TWO)
 
             recycler.adapter = listPetAdapter
         }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -17,6 +18,7 @@ import com.leandro1995.healthypet.datastore.HealthyPetSerializable
 import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -43,24 +45,26 @@ infix fun String.putInt(activity: Activity) = activity.intent.getIntExtra(this, 
 
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
 
-infix fun Intent.putPut(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+infix fun Intent.putPet(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 
     this.getSerializableExtra(key, Pet::class.java)
 } else {
 
-    @Suppress("DEPRECATION")
-    this.getSerializableExtra(key)
+    @Suppress("DEPRECATION") this.getSerializableExtra(key) as Pet
 }
 
 @SuppressLint("SimpleDateFormat")
-infix fun Long.dateFormat(format: String): String {
+fun Long.dateFormat(format: String, isCalendar: Boolean = true): String {
 
     val date = Date(this)
 
     val calendar = Calendar.getInstance()
     calendar.time = date
 
-    calendar.add(Calendar.DAY_OF_MONTH, 1)
+    if (isCalendar) {
+
+        calendar.add(Calendar.DAY_OF_MONTH, 1)
+    }
 
     return SimpleDateFormat(format).format(calendar.time.time)
 }
@@ -78,3 +82,5 @@ fun coroutineScope(context: CoroutineContext, method: suspend () -> Unit) {
         method()
     }
 }
+
+fun String.fileUrl() = Uri.fromFile(File(this))!!

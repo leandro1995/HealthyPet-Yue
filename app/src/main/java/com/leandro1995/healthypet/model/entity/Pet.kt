@@ -3,6 +3,8 @@ package com.leandro1995.healthypet.model.entity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.database.config.DataBaseConfig
 import com.leandro1995.healthypet.database.model.Pet
+import com.leandro1995.healthypet.extension.dateFormat
+import com.leandro1995.healthypet.extension.fileUrl
 import java.io.Serializable
 
 class Pet constructor(
@@ -35,6 +37,10 @@ class Pet constructor(
             Setting.COMPLETE
         }
     }
+
+    fun photoFile() = photoUrl.fileUrl()
+
+    fun date(format: String) = date.dateFormat(format = format, isCalendar = false)
 
     suspend fun registerPetDatabase() {
 
