@@ -7,7 +7,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginTop="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:background="@color/lead_BBC3CE_20"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/dimen_80"
             android:layout_marginStart="@dimen/dimen_0"
@@ -29,7 +42,7 @@
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:backgroundTint="@color/white"/>
+                    app:backgroundTint="@color/white" />
 
             </LinearLayout>
 
