@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.ambient.ViewAmbient
