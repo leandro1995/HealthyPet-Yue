@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.ambient.ViewAmbient
@@ -34,6 +35,8 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
             this,
             true
         )
+
+        onClick()
     }
 
     fun navigationItem(navController: NavController) {
@@ -52,6 +55,36 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
                     indexAttr = R.styleable.BottomNavigationComponent_menu_bottom_navigation
                 )
             )
+        }
+    }
+
+    private fun onClick() {
+
+        menuSelectOption()
+        buttonOption()
+    }
+
+    private fun menuSelectOption() {
+
+        componentBottomNavigationBinding.homeNavigation.apply {
+
+            setOnItemSelectedListener {
+
+                selectedItemId = it.itemId
+
+                return@setOnItemSelectedListener true
+            }
+        }
+    }
+
+    private fun buttonOption() {
+
+        componentBottomNavigationBinding.apply {
+
+            profileFloating.setOnClickListener {
+
+                homeNavigation.selectedItemId = R.id.navigation_profile
+            }
         }
     }
 }

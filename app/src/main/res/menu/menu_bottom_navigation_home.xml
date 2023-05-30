@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_vaccine_deactivate"
         android:title="@string/injection_text" />
 
+    <item
+        android:id="@+id/navigation_profile"
+        android:visible="false"
+        android:title="" />
+
 </menu>

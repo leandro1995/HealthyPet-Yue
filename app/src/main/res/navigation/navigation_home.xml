@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_home"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/navigation_profile">
 
     <fragment
         android:id="@+id/navigation_bathroom"
@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_vet" />
 
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/navigation_profile"
         android:name="com.leandro1995.healthypet.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
