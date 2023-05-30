@@ -38,6 +38,7 @@
     <string name="begin_button">Empezar</string>
     <string name="save_button">Guardar</string>
     <string name="accept_button">Aceptar</string>
+    <string name="edit_pet_button">Editar Mascota</string>
 
     <!-- Error Message -->
 
