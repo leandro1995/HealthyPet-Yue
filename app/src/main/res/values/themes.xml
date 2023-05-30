@@ -96,4 +96,10 @@
         <item name="android:foregroundTint">@color/blue_4552CB</item>
     </style>
 
+    <style name="BottomNavigationView">
+
+        <item name="colorSecondaryContainer">@color/blue_4552CB</item>
+        <item name="fontFamily">@font/medium</item>
+    </style>
+
 </resources>
