@@ -40,9 +40,13 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/homeNavigation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:backgroundTint="@color/white" />
+                    android:theme="@style/BottomNavigationView"
+                    app:backgroundTint="@color/white"
+                    app:itemIconTint="@color/change_color_icon"
+                    app:itemTextColor="@color/change_color_text" />
 
             </LinearLayout>
 
@@ -56,6 +60,7 @@
                 tools:ignore="RtlHardcoded">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/profileFloating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/dimen_10"
