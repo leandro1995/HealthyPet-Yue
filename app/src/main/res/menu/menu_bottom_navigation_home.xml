@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_vet"
+        android:icon="@drawable/ic_vet_deactivate"
+        android:title="@string/vet_text" />
+
+    <item
+        android:id="@+id/navigation_bathroom"
+        android:icon="@drawable/ic_bathroom_deactivate"
+        android:title="@string/bathrooms_text" />
+
+    <item
+        android:id="@+id/navigation_injection"
+        android:icon="@drawable/ic_vaccine_deactivate"
+        android:title="@string/injection_text" />
+
+</menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_home"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/navigation_bathroom"
+        android:name="com.leandro1995.healthypet.fragment.BathroomFragment"
+        android:label="fragment_bathroom"
+        tools:layout="@layout/fragment_bathroom" />
+
+    <fragment
+        android:id="@+id/navigation_injection"
+        android:name="com.leandro1995.healthypet.fragment.InjectionFragment"
+        android:label="fragment_injection"
+        tools:layout="@layout/fragment_injection" />
+
+    <fragment
+        android:id="@+id/navigation_vet"
+        android:name="com.leandro1995.healthypet.fragment.VetFragment"
+        android:label="fragment_vet"
+        tools:layout="@layout/fragment_vet" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.leandro1995.healthypet.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
