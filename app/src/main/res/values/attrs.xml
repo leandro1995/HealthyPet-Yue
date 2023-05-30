@@ -14,4 +14,9 @@
         <attr name="text_error_list" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="BottomNavigationComponent">
+
+        <attr name="menu_bottom_navigation" format="reference" />
+    </declare-styleable>
+
 </resources>
