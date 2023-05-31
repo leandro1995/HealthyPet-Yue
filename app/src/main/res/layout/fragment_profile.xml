@@ -1,181 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".fragment.ProfileFragment">
 
-    <LinearLayout
-        android:layout_width="@dimen/dimen_0"
-        android:layout_height="@dimen/dimen_0"
-        android:layout_marginStart="@dimen/dimen_0"
-        android:layout_marginTop="@dimen/dimen_0"
-        android:layout_marginEnd="@dimen/dimen_0"
-        android:layout_marginBottom="@dimen/dimen_0"
-        android:orientation="vertical"
-        android:padding="@dimen/dimen_16"
-        app:layout_constraintBottom_toTopOf="@+id/editButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
 
-        <TextView
-            android:id="@+id/titleText"
-            style="@style/Headline.H1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Este perfil es de, Dualget" />
+        <variable
+            name="profileViewModel"
+            type="com.leandro1995.healthypet.viewmodel.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_25"
-            android:orientation="horizontal"
-            tools:ignore="DisableBaselineAlignment">
-
-            <LinearLayout
-                android:layout_width="@dimen/dimen_0"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/photoProfileSimple"
-                    android:layout_width="@dimen/dimen_160"
-                    android:layout_height="@dimen/dimen_150"
-                    fresco:placeholderImage="@drawable/ic_holder_pet_camera"
-                    fresco:placeholderImageScaleType="fitCenter"
-                    fresco:roundingBorderColor="@color/blue_4552CB"
-                    fresco:roundingBorderWidth="@dimen/dimen_3" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="@dimen/dimen_0"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/name_profile_text"
-                    android:textColor="@color/lead_BBC3CE" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Dualget" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_5"
-                    android:text="@string/specie_profile_text"
-                    android:textColor="@color/lead_BBC3CE" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gato" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_5"
-                    android:text="@string/sex_profile_text"
-                    android:textColor="@color/lead_BBC3CE" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hembra" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_5"
-                    android:text="@string/date_profile_text"
-                    android:textColor="@color/lead_BBC3CE" />
-
-                <TextView
-                    style="@style/Headline.H6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="20/03/2023" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            style="@style/Headline.H5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_20"
-            android:text="@string/option_text" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_20"
-            android:gravity="center"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="@dimen/dimen_0"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginTop="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:layout_marginBottom="@dimen/dimen_0"
             android:orientation="vertical"
-            tools:ignore="DisableBaselineAlignment">
+            android:padding="@dimen/dimen_16"
+            app:layout_constraintBottom_toTopOf="@+id/editButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/titleText"
+                style="@style/Headline.H1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este perfil es de, Dualget" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/dimen_25"
                 android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
+                tools:ignore="DisableBaselineAlignment">
 
                 <LinearLayout
                     android:layout_width="@dimen/dimen_0"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/dimen_45"
-                        android:layout_height="@dimen/dimen_45"
-                        app:srcCompat="@drawable/ic_share"
-                        tools:ignore="ContentDescription" />
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/photoProfileSimple"
+                        android:layout_width="@dimen/dimen_160"
+                        android:layout_height="@dimen/dimen_150"
+                        fresco:placeholderImage="@drawable/ic_holder_pet_camera"
+                        fresco:placeholderImageScaleType="fitCenter"
+                        fresco:roundingBorderColor="@color/blue_4552CB"
+                        fresco:roundingBorderWidth="@dimen/dimen_3" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="@dimen/dimen_0"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|left"
-                    android:layout_weight="3"
-                    android:gravity="center|left"
-                    android:orientation="vertical"
-                    tools:ignore="RtlHardcoded">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
-                        style="@style/Headline.H5"
-                        android:layout_width="wrap_content"
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/share_text" />
+                        android:text="@string/name_profile_text"
+                        android:textColor="@color/lead_BBC3CE" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dualget" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:text="@string/specie_profile_text"
+                        android:textColor="@color/lead_BBC3CE" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gato" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:text="@string/sex_profile_text"
+                        android:textColor="@color/lead_BBC3CE" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hembra" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:text="@string/date_profile_text"
+                        android:textColor="@color/lead_BBC3CE" />
+
+                    <TextView
+                        style="@style/Headline.H6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="20/03/2023" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                style="@style/Headline.H5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:text="@string/option_text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,38 +141,91 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dimen_20"
                 android:gravity="center"
-                android:orientation="horizontal"
-                tools:ignore="UseCompoundDrawables">
+                android:orientation="vertical"
+                tools:ignore="DisableBaselineAlignment">
 
                 <LinearLayout
-                    android:layout_width="@dimen/dimen_0"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
-                    <ImageView
-                        android:layout_width="@dimen/dimen_45"
-                        android:layout_height="@dimen/dimen_45"
-                        app:srcCompat="@drawable/ic_play_store"
-                        tools:ignore="ContentDescription" />
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_45"
+                            android:layout_height="@dimen/dimen_45"
+                            app:srcCompat="@drawable/ic_share"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|left"
+                        android:layout_weight="3"
+                        android:gravity="center|left"
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            style="@style/Headline.H5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/share_text" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/dimen_0"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|left"
-                    android:layout_weight="3"
-                    android:gravity="center|left"
-                    android:orientation="vertical"
-                    tools:ignore="RtlHardcoded">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
-                    <TextView
-                        style="@style/Headline.H5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/qualify_text" />
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_45"
+                            android:layout_height="@dimen/dimen_45"
+                            app:srcCompat="@drawable/ic_play_store"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|left"
+                        android:layout_weight="3"
+                        android:gravity="center|left"
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            style="@style/Headline.H5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/qualify_text" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -222,17 +233,17 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/editButton"
+            style="@style/Button"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:layout_marginBottom="@dimen/dimen_16"
+            android:text="@string/edit_pet_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/editButton"
-        style="@style/Button"
-        android:layout_marginStart="@dimen/dimen_0"
-        android:layout_marginEnd="@dimen/dimen_0"
-        android:layout_marginBottom="@dimen/dimen_16"
-        android:text="@string/edit_pet_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
