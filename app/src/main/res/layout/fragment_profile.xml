@@ -10,6 +10,10 @@
         <variable
             name="profileViewModel"
             type="com.leandro1995.healthypet.viewmodel.ProfileViewModel" />
+
+        <variable
+            name="setting"
+            type="com.leandro1995.healthypet.config.Setting" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,7 +137,7 @@
                         style="@style/Headline.H6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:pet_date="@{profileViewModel.pet.date}" />
+                        app:pet_date="@{profileViewModel.pet.date(setting.DATE_FORMAT_ONE)}" />
 
                 </LinearLayout>
 

@@ -64,12 +64,11 @@ class DataBindingUtil {
 
         @BindingAdapter("app:pet_date")
         @JvmStatic
-        fun setPetDateLong(textView: TextView, long: Long) {
+        fun setPetDateLong(textView: TextView, string: String) {
 
-            if (long != -1L) {
+            if (string.isNotEmpty()) {
 
-                textView.text =
-                    long.dateFormat(format = Setting.DATE_FORMAT_ONE, isCalendar = false)
+                textView.text = string
             }
         }
 
