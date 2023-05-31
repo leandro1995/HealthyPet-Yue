@@ -207,6 +207,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimen_20"
                     android:gravity="center"
+                    android:onClick="@{()-> profileViewModel.onClick.invoke(profileViewModel.PLAY_STORE)}"
                     android:orientation="horizontal"
                     tools:ignore="UseCompoundDrawables">
 

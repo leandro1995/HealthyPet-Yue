@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,5 +65,10 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
             idString = R.string.profile_pet_text_title,
             petName = profileViewModel.pet.name
         )
+    }
+
+    override fun playStoreOpen(intent: Intent) {
+
+        startActivity(intent)
     }
 }

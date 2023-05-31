@@ -20,6 +20,11 @@ object ProfileIntentConfig {
 
                 profileIntentCallBack.view()
             }
+
+            is ProfileIntent.PlayStoreOpen -> {
+
+                profileIntentCallBack.playStoreOpen(intent = profileIntent.intent)
+            }
         }
     }
 }
