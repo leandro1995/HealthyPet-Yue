@@ -8,10 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ProfileIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentProfileBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
+import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
+import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.ProfileViewModel
 
 class ProfileFragment : Fragment(), ProfileIntentCallBack {
@@ -31,9 +34,15 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
         profileBinding.profileViewModel = profileViewModel
 
+        petExtra()
         collect()
 
         return profileBinding.root
+    }
+
+    private fun petExtra() {
+
+        profileViewModel.pet = (Setting.PET_PUT putPet requireActivity())!!
     }
 
     private fun collect() {
@@ -49,5 +58,11 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
     override fun view() {
 
+        DesignUtil.textHtml(
+            activity = requireActivity(),
+            textView = profileBinding.titleText,
+            idString = R.string.profile_pet_text_title,
+            petName = profileViewModel.pet.name
+        )
     }
 }
