@@ -57,7 +57,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dimen_10" />
+                    android:layout_marginTop="@dimen/dimen_10"
+                    app:pet_image_url="@{editProfilePetViewModel.pet.photoFile()}" />
 
                 <TextView
                     style='style="@style/Headline.H6"'
@@ -72,6 +73,7 @@
                     android:layout_marginTop="@dimen/dimen_5"
                     android:ems="10"
                     android:inputType="text"
+                    android:text="@={editProfilePetViewModel.pet.name}"
                     tools:ignore="Autofill,LabelFor" />
 
                 <TextView
@@ -99,7 +101,8 @@
                     android:id="@+id/sexSelectionComponent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_5" />
+                    android:layout_marginTop="@dimen/dimen_5"
+                    app:pet_sex="@{editProfilePetViewModel.pet.sex}" />
 
                 <TextView
                     style='style="@style/Headline.H6"'
@@ -115,6 +118,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center|left"
+                    app:pet_date="@={editProfilePetViewModel.pet.date}"
                     tools:ignore="RtlHardcoded" />
 
             </LinearLayout>

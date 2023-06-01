@@ -17,6 +17,7 @@ import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
 import com.leandro1995.healthypet.model.design.Url
+import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.ProfileViewModel
 
@@ -79,8 +80,11 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
         startActivity(url.share(message = getString(R.string.message_text)))
     }
 
-    override fun editProfilePetActivity(activity: Activity) {
+    override fun editProfilePetActivity(activity: Activity, pet: Pet) {
 
-        startActivity(Intent(requireActivity(), activity::class.java))
+        startActivity(Intent(requireActivity(), activity::class.java).apply {
+
+            putExtra(Setting.PET_PUT, pet)
+        })
     }
 }

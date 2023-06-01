@@ -30,6 +30,17 @@ class SexSelectionComponent(context: Context, attrs: AttributeSet? = null) :
         defaultSelect()
     }
 
+    fun selectSex(isSex: Boolean) {
+
+        if (isSex) {
+
+            sexFemaleSelect()
+        } else {
+
+            sexMaleSelect()
+        }
+    }
+
     private fun defaultSelect() {
 
         sexMaleSelect()

@@ -37,5 +37,8 @@ class ArrayListUtil {
 
         fun spiceFilter(id: Int, activity: Activity) =
             spiceArrayList(activity = activity).find { it.id == id }
+
+        fun indexSpice(activity: Activity, id: Int) =
+            spiceArrayList(activity = activity).indexOfFirst { it.id == id }
     }
 }

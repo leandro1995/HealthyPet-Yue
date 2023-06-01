@@ -38,6 +38,7 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
                         )
                     )
                 )
+
                 componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
 
                 isImageSelectorComponent(url = photoUrl)
@@ -54,6 +55,13 @@ class ImageSelectorComponent(context: Context, attrs: AttributeSet? = null) :
         )
 
         onClick()
+    }
+
+    @Suppress("DEPRECATION")
+    fun imageUrl(uri: Uri) {
+
+        componentImageSelectorBinding.photoProfileSimple.setImageURI(uri)
+        componentImageSelectorBinding.addImage.setImageResource(R.drawable.ic_edit)
     }
 
     private fun onClick() {

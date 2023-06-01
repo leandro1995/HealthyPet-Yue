@@ -59,6 +59,6 @@ class ProfileViewModel : ViewModel() {
     private fun editProfilePetActivity() {
 
         profileMutableStateFlow.value =
-            ProfileIntent.EditProfilePetActivity(activity = EditProfilePetActivity())
+            ProfileIntent.EditProfilePetActivity(activity = EditProfilePetActivity(), pet = pet)
     }
 }

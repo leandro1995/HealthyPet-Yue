@@ -33,7 +33,9 @@ object ProfileIntentConfig {
 
             is ProfileIntent.EditProfilePetActivity -> {
 
-                profileIntentCallBack.editProfilePetActivity(activity = profileIntent.activity)
+                profileIntentCallBack.editProfilePetActivity(
+                    activity = profileIntent.activity, pet = profileIntent.pet
+                )
             }
         }
     }
