@@ -41,6 +41,12 @@
         <item name="android:textColor">@color/blue_070821</item>
     </style>
 
+    <style name="Headline.H1">
+
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/sp_34</item>
+    </style>
+
     <style name="Headline.H2">
 
         <item name="fontFamily">@font/bold</item>
@@ -51,6 +57,12 @@
 
         <item name="fontFamily">@font/bold</item>
         <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="Headline.H5">
+
+        <item name="fontFamily">@font/semi_bold</item>
+        <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
     <style name="Headline.H6">

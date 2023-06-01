@@ -23,6 +23,8 @@ class Setting {
 
         const val TO_COMPLETE_MESSAGE_CODE = 0
 
+        const val PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.leandro1995.healthypet"
+
         val MESSAGE_HASH_MAP = hashMapOf(
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
             Pair(NAME_MESSAGE, R.string.name_message),

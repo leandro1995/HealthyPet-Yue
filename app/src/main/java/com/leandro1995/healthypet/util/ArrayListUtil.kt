@@ -34,5 +34,8 @@ class ArrayListUtil {
             Spice(id = 1, name = activity.getString(R.string.dog_text)),
             Spice(id = 2, name = activity.getString(R.string.cat_text))
         )
+
+        fun spiceFilter(id: Int, activity: Activity) =
+            spiceArrayList(activity = activity).find { it.id == id }
     }
 }

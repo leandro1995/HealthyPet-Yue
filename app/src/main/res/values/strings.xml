@@ -5,6 +5,7 @@
 
     <string name="list_pet_text_title">Listar mascotas</string>
     <string name="register_pet_text_title">Registrar mascota</string>
+    <string name="profile_pet_text_title">Este perfil es de, </string>
 
     <!-- Text -->
 
@@ -31,6 +32,14 @@
     <string name="vet_text">Veterinaria</string>
     <string name="bathrooms_text">Baños</string>
     <string name="injection_text">Inyecciones</string>
+    <string name="name_profile_text">Nombre:</string>
+    <string name="specie_profile_text">Especie:</string>
+    <string name="sex_profile_text">Sexo:</string>
+    <string name="date_profile_text">Fecha de nacimiento:</string>
+    <string name="share_text">Compartir la App</string>
+    <string name="qualify_text">Calificar la App</string>
+    <string name="option_text">Opciones de la App:</string>
+    <string name="message_text">¡Descubre nuestra app de mascotas!\n\nCuida, conecta y comparte momentos con tus adorables amigos peludos. Descarga nuestra app ahora y lleva el cuidado de tus mascotas al siguiente nivel. ¡No te lo pierdas!</string>
 
     <!-- Button Text -->
 
@@ -38,6 +47,7 @@
     <string name="begin_button">Empezar</string>
     <string name="save_button">Guardar</string>
     <string name="accept_button">Aceptar</string>
+    <string name="edit_pet_button">Editar Mascota</string>
 
     <!-- Error Message -->
 

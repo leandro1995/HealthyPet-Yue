@@ -3,12 +3,15 @@ package com.leandro1995.healthypet.util
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Build
+import android.text.Html
 import android.view.Window
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.config.Setting
@@ -75,7 +78,8 @@ class DesignUtil {
 
         fun onBackPressed(activity: Activity, method: () -> Unit = {}) {
 
-            (activity as AppCompatActivity).onBackPressedDispatcher.addCallback(activity,
+            (activity as AppCompatActivity).onBackPressedDispatcher.addCallback(
+                activity,
                 object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
 
@@ -83,5 +87,27 @@ class DesignUtil {
                     }
                 })
         }
+
+        @Suppress("DEPRECATION")
+        fun textHtml(
+            activity: Activity, textView: TextView, @StringRes idString: Int, petName: String
+        ) {
+
+            textView.setText(
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+                    Html.fromHtml(
+                        "${activity.getString(idString)} ${colorHtml(string = petName)}",
+                        HtmlCompat.FROM_HTML_MODE_LEGACY
+                    )
+                } else {
+
+                    Html.fromHtml("${activity.getString(idString)} ${colorHtml(string = petName)}")
+                }, TextView.BufferType.SPANNABLE
+            )
+
+        }
+
+        private fun colorHtml(string: String) = "<font color='#FFCF6F'>${string}.</font>"
     }
 }
