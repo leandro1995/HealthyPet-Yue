@@ -3,7 +3,7 @@ package com.leandro1995.healthypet.viewmodel
 import androidx.lifecycle.ViewModel
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.intent.ProfileIntent
-import com.leandro1995.healthypet.model.design.UrlView
+import com.leandro1995.healthypet.model.design.Url
 import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -34,6 +34,6 @@ class ProfileViewModel : ViewModel() {
     private fun playStore() {
 
         profileMutableStateFlow.value =
-            ProfileIntent.PlayStoreOpen(intent = UrlView(url = Setting.PLAY_STORE_URL).viewPage())
+            ProfileIntent.PlayStoreOpen(intent = Url(url = Setting.PLAY_STORE_URL).viewPage())
     }
 }
