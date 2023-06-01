@@ -6,6 +6,7 @@
     <string name="list_pet_text_title">Listar mascotas</string>
     <string name="register_pet_text_title">Registrar mascota</string>
     <string name="profile_pet_text_title">Este perfil es de, </string>
+    <string name="edit_pet_text_title">Editar Mascota</string>
 
     <!-- Text -->
 

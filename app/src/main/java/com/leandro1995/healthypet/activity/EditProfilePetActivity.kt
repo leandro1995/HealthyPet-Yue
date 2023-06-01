@@ -9,6 +9,7 @@ import com.leandro1995.healthypet.config.callback.intent.EditProfilePetIntentCal
 import com.leandro1995.healthypet.databinding.ActivityEditProfilePetBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.EditProfilePetIntentConfig
+import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.EditProfilePetViewModel
 
 class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack {
@@ -27,7 +28,17 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
 
         editProfilePetBinding.editProfilePetViewModel = editProfilePetViewModel
 
+        materialToolbar()
         collect()
+    }
+
+    private fun materialToolbar() {
+
+        DesignUtil.materialToolbar(activity = this,
+            materialToolbar = editProfilePetBinding.appBar.toolbar,
+            idTitle = R.string.edit_pet_text_title,
+            isArrow = true,
+            method = { finish() })
     }
 
     private fun collect() {
@@ -42,6 +53,6 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
     }
 
     override fun view() {
-        
+
     }
 }
