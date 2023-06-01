@@ -10,7 +10,7 @@ import com.leandro1995.healthypet.database.model.Pet
 interface PetDao {
 
     @Insert
-    suspend fun register(pet: Pet)
+    suspend fun register(pet: Pet): Long
 
     @Query("select * from Pet")
     suspend fun petList(): MutableList<Pet>

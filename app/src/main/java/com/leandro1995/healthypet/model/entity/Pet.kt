@@ -45,11 +45,11 @@ class Pet constructor(
 
     suspend fun registerPetDatabase() {
 
-        DataBaseConfig.petDao().register(
+        id = DataBaseConfig.petDao().register(
             pet = Pet(
                 photoUrl = photoUrl, name = name, spiceId = spice.id, isSex = isSex, date = date
             )
-        )
+        ).toInt()
     }
 
     suspend fun updatePetDatabase() {
