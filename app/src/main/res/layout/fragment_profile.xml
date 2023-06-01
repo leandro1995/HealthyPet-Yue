@@ -10,10 +10,6 @@
         <variable
             name="profileViewModel"
             type="com.leandro1995.healthypet.viewmodel.ProfileViewModel" />
-
-        <variable
-            name="setting"
-            type="com.leandro1995.healthypet.config.Setting" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,7 +56,6 @@
                         android:id="@+id/photoProfileSimple"
                         android:layout_width="@dimen/dimen_160"
                         android:layout_height="@dimen/dimen_150"
-                        app:image_url="@{profileViewModel.pet.photoFile()}"
                         fresco:placeholderImage="@drawable/ic_profile_holder"
                         fresco:placeholderImageScaleType="fitCenter"
                         fresco:roundBottomEnd="true"
@@ -94,8 +89,7 @@
                         android:id="@+id/nameText"
                         style="@style/Headline.H6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@{profileViewModel.pet.name}" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         style="@style/Headline.H6"
@@ -109,9 +103,7 @@
                         android:id="@+id/spiceText"
                         style="@style/Headline.H6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:context="@{context}"
-                        app:pet_specie="@{profileViewModel.pet.spice.id}" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         style="@style/Headline.H6"
@@ -125,8 +117,7 @@
                         android:id="@+id/sexText"
                         style="@style/Headline.H6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:pet_sex="@{profileViewModel.pet.sex}" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         style="@style/Headline.H6"
@@ -140,8 +131,7 @@
                         android:id="@+id/dateText"
                         style="@style/Headline.H6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:pet_date="@{profileViewModel.pet.date(setting.DATE_FORMAT_ONE)}" />
+                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 
