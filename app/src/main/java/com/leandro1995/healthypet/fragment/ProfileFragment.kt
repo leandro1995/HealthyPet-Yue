@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -76,5 +77,10 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
     override fun shareApp(url: Url) {
 
         startActivity(url.share(message = getString(R.string.message_text)))
+    }
+
+    override fun editProfilePetActivity(activity: Activity) {
+
+        startActivity(Intent(requireActivity(), activity::class.java))
     }
 }

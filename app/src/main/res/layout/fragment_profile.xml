@@ -256,6 +256,7 @@
             android:layout_marginStart="@dimen/dimen_0"
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_16"
+            android:onClick="@{()-> profileViewModel.onClick.invoke(profileViewModel.EDIT_PROFILE_PET_ACTIVITY)}"
             android:text="@string/edit_pet_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

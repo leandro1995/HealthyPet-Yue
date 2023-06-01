@@ -30,6 +30,11 @@ object ProfileIntentConfig {
 
                 profileIntentCallBack.shareApp(url = profileIntent.url)
             }
+
+            is ProfileIntent.EditProfilePetActivity -> {
+
+                profileIntentCallBack.editProfilePetActivity(activity = profileIntent.activity)
+            }
         }
     }
 }
