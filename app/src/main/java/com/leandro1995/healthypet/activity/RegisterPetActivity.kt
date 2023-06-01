@@ -37,15 +37,14 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     private val spiceArrayList = arrayListOf<Spice>()
 
-    private val resultLauncher =
-        ActivityUtil.activityResultLauncher(activity = this) {
+    private val resultLauncher = ActivityUtil.activityResultLauncher(activity = this) {
 
-            setResult(Activity.RESULT_OK, Intent().apply {
+        setResult(Activity.RESULT_OK, Intent().apply {
 
-                putExtra(Setting.PET_PUT, registerPetViewModel.pet)
-            })
-            finish()
-        }
+            putExtra(Setting.PET_PUT, registerPetViewModel.pet)
+        })
+        finish()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -138,9 +137,10 @@ class RegisterPetActivity : AppCompatActivity(), RegisterPetIntentCallBack {
 
     override fun completeRegistration() {
 
-        resultLauncher.launch(Intent(this, ToCompleteActivity::class.java).apply {
-
-            putExtra(Setting.CODE_MESSAGE_PUT, Setting.TO_COMPLETE_MESSAGE_CODE)
-        })
+        resultLauncher.launch(
+            DesignUtil.intentToCompleteActivity(
+                activity = this, code = Setting.TO_COMPLETE_MESSAGE_CODE
+            )
+        )
     }
 }

@@ -8,7 +8,7 @@ import com.leandro1995.healthypet.extension.fileUrl
 import java.io.Serializable
 
 class Pet constructor(
-    private val id: Int = -1,
+    var id: Int = -1,
     var photoUrl: String = "",
     var name: String = "",
     var spice: Spice = Spice(),
@@ -45,11 +45,11 @@ class Pet constructor(
 
     suspend fun registerPetDatabase() {
 
-        DataBaseConfig.petDao().register(
+        id = DataBaseConfig.petDao().register(
             pet = Pet(
                 photoUrl = photoUrl, name = name, spiceId = spice.id, isSex = isSex, date = date
             )
-        )
+        ).toInt()
     }
 
     suspend fun updatePetDatabase() {
@@ -63,6 +63,8 @@ class Pet constructor(
             date = date
         )
     }
+
+    suspend fun idPetDatabase() = DataBaseConfig.petDao().idPet(id = id).pet()
 
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()
 

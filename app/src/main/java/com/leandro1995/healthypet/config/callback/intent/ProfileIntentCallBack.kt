@@ -13,5 +13,7 @@ interface ProfileIntentCallBack {
 
     fun shareApp(url: Url)
 
-    fun editProfilePetActivity(activity: Activity,pet: Pet)
+    fun editProfilePetActivity(activity: Activity, pet: Pet)
+
+    fun idPet(pet: Pet)
 }

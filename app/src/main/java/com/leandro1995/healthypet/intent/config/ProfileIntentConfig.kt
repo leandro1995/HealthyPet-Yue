@@ -37,6 +37,11 @@ object ProfileIntentConfig {
                     activity = profileIntent.activity, pet = profileIntent.pet
                 )
             }
+
+            is ProfileIntent.IdPet -> {
+
+                profileIntentCallBack.idPet(pet = profileIntent.pet)
+            }
         }
     }
 }

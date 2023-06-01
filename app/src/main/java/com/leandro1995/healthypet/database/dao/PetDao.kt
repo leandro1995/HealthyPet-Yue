@@ -10,7 +10,7 @@ import com.leandro1995.healthypet.database.model.Pet
 interface PetDao {
 
     @Insert
-    suspend fun register(pet: Pet)
+    suspend fun register(pet: Pet): Long
 
     @Query("select * from Pet")
     suspend fun petList(): MutableList<Pet>
@@ -19,4 +19,7 @@ interface PetDao {
     suspend fun update(
         id: Int, photoUrl: String, name: String, spiceId: Int, isSex: Boolean, date: Long
     )
+
+    @Query("select * from Pet where ${DatabaseSetting.ID} = :id")
+    suspend fun idPet(id: Int): Pet
 }
