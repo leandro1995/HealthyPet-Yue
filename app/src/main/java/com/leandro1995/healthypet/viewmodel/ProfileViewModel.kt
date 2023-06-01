@@ -74,7 +74,7 @@ class ProfileViewModel : ViewModel() {
 
         viewModelScope.launch {
 
-            pet = pet.idPet()
+            pet = pet.idPetDatabase()
 
             profileMutableStateFlow.value = ProfileIntent.IdPet(pet = pet)
         }
