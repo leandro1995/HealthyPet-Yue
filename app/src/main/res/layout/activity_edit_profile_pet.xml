@@ -6,4 +6,133 @@
     android:layout_height="match_parent"
     tools:context=".activity.EditProfilePetActivity">
 
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginTop="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="@dimen/dimen_0"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginTop="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_0"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/editButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_16">
+
+            <TextView
+                style="@style/Headline.H6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/information_pet_text" />
+
+            <com.leandro1995.healthypet.component.ImageSelectorComponent
+                android:id="@+id/imageSelectorComponent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_10" />
+
+            <TextView
+                style='style="@style/Headline.H6"'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/name_pet_text"
+                android:textColor="@color/lead_BBC3CE" />
+
+            <EditText
+                style="@style/EditText"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="Autofill,LabelFor" />
+
+            <TextView
+                style='style="@style/Headline.H6"'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/species_pet_text"
+                android:textColor="@color/lead_BBC3CE" />
+
+            <Spinner
+                android:id="@+id/spiceSpinner"
+                style="@style/EditText"
+                android:layout_marginTop="@dimen/dimen_5" />
+
+            <TextView
+                style='style="@style/Headline.H6"'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/sex_pet_text"
+                android:textColor="@color/lead_BBC3CE" />
+
+            <com.leandro1995.healthypet.component.SexSelectionComponent
+                android:id="@+id/sexSelectionComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5" />
+
+            <TextView
+                style='style="@style/Headline.H6"'
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/date_pet_text"
+                android:textColor="@color/lead_BBC3CE" />
+
+            <TextView
+                android:id="@+id/dateText"
+                style="@style/EditText"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:gravity="center|left"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/editButton"
+        style="@style/Button"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="@string/edit_pet_button"
+        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.leandro1995.healthypet.component.SeparatorComponent
+        android:id="@+id/separatorComponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_0"
+        app:background_separator="@drawable/separator_lead"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
