@@ -13,12 +13,15 @@ import com.leandro1995.healthypet.config.callback.intent.EditProfilePetIntentCal
 import com.leandro1995.healthypet.config.callback.spinner.SpiceSpinnerCallBack
 import com.leandro1995.healthypet.config.listener.SpiceSpinnerListener
 import com.leandro1995.healthypet.databinding.ActivityEditProfilePetBinding
+import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.intent.config.EditProfilePetIntentConfig
+import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.entity.Spice
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.DialogUtil
 import com.leandro1995.healthypet.viewmodel.EditProfilePetViewModel
 
 class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack {
@@ -114,6 +117,15 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
                         }
                     }
             }
+        }
+    }
+
+    override fun datePickerDialog(calendar: Calendar) {
+
+        DialogUtil.datePickerDialog(activity = this, calendar = calendar) { dateLong ->
+
+            editProfilePetBinding.dateText.text =
+                dateLong.dateFormat(format = Setting.DATE_FORMAT_ONE)
         }
     }
 

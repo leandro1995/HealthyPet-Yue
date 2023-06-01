@@ -20,6 +20,11 @@ object EditProfilePetIntentConfig {
 
                 editProfilePetIntentCallBack.view()
             }
+
+            is EditProfilePetIntent.DatePickerDialog -> {
+
+                editProfilePetIntentCallBack.datePickerDialog(calendar = editProfilePetIntent.calendar)
+            }
         }
     }
 }

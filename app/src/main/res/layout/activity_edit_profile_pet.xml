@@ -118,6 +118,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center|left"
+                    android:onClick="@{()-> editProfilePetViewModel.onClick.invoke(editProfilePetViewModel.DATE_PICKER_DIALOG)}"
                     app:pet_date="@={editProfilePetViewModel.pet.date}"
                     tools:ignore="RtlHardcoded" />
 
