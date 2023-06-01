@@ -19,4 +19,7 @@ interface PetDao {
     suspend fun update(
         id: Int, photoUrl: String, name: String, spiceId: Int, isSex: Boolean, date: Long
     )
+
+    @Query("select * from Pet where ${DatabaseSetting.ID} = :id")
+    suspend fun idPet(id: Int): Pet
 }

@@ -64,6 +64,8 @@ class Pet constructor(
         )
     }
 
+    suspend fun idPet() = DataBaseConfig.petDao().idPet(id = id).pet()
+
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()
 
     private fun isNameEmpty() = name.isEmpty()

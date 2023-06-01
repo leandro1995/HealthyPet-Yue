@@ -82,6 +82,8 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
             idString = R.string.profile_pet_text_title,
             petName = profileViewModel.pet.name
         )
+
+        profileViewModel.onClick.invoke(ProfileViewModel.ID_PET)
     }
 
     override fun playStoreOpen(intent: Intent) {
@@ -100,5 +102,14 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
             putExtra(Setting.PET_PUT, pet)
         })
+    }
+
+    override fun idPet(pet: Pet) {
+
+        ProfileViewUtil.profilePetView(
+            activity = requireActivity(),
+            pet = pet,
+            fragmentProfileBinding = profileBinding
+        )
     }
 }
