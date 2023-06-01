@@ -149,10 +149,11 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
 
     override fun completeUpdate() {
 
-        resultLauncher.launch(Intent(this, ToCompleteActivity::class.java).apply {
-
-            putExtra(Setting.CODE_MESSAGE_PUT, Setting.UPDATE_COMPLETE_MESSAGE_CODE)
-        })
+        resultLauncher.launch(
+            DesignUtil.intentToCompleteActivity(
+                activity = this, code = Setting.UPDATE_COMPLETE_MESSAGE_CODE
+            )
+        )
     }
 
     private fun positionSpice() = ArrayListUtil.indexSpice(

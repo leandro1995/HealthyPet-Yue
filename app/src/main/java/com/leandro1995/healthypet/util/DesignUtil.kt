@@ -2,6 +2,7 @@ package com.leandro1995.healthypet.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.text.Html
 import android.view.Window
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.activity.ToCompleteActivity
 import com.leandro1995.healthypet.config.Setting
 
 class DesignUtil {
@@ -118,6 +120,13 @@ class DesignUtil {
         } else {
 
             R.string.male_text
+        }
+
+        fun intentToCompleteActivity(activity: Activity, code: Int) = Intent(
+            activity, ToCompleteActivity::class.java
+        ).apply {
+
+            putExtra(Setting.CODE_MESSAGE_PUT, code)
         }
 
         private fun colorHtml(string: String) = "<font color='#FFCF6F'>${string}.</font>"
