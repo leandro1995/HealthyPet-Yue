@@ -9,6 +9,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -35,6 +36,20 @@ fun lifecycleScope(activity: Activity, method: suspend () -> Unit) {
         activity.repeatOnLifecycle(Lifecycle.State.CREATED) {
 
             method()
+        }
+    }
+}
+
+fun viewLifecycleOwner(fragment: Fragment, method: suspend () -> Unit) {
+
+    fragment.viewLifecycleOwner.apply {
+
+        lifecycleScope.launch {
+
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+
+                method()
+            }
         }
     }
 }
