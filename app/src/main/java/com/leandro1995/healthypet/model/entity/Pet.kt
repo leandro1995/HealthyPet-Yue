@@ -8,6 +8,7 @@ import com.leandro1995.healthypet.extension.fileUrl
 import java.io.Serializable
 
 class Pet constructor(
+    private val id: Int = -1,
     var photoUrl: String = "",
     var name: String = "",
     var spice: Spice = Spice(),
@@ -48,6 +49,18 @@ class Pet constructor(
             pet = Pet(
                 photoUrl = photoUrl, name = name, spiceId = spice.id, isSex = isSex, date = date
             )
+        )
+    }
+
+    suspend fun updatePetDatabase() {
+
+        DataBaseConfig.petDao().update(
+            id = id,
+            photoUrl = photoUrl,
+            name = name,
+            spiceId = spice.id,
+            isSex = isSex,
+            date = date
         )
     }
 
