@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -133,6 +134,14 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
     override fun messageErrorDialog(message: Message) {
 
         DialogUtil.messageDialog(activity = this, message = message)
+    }
+
+    override fun completeRegistration() {
+
+        startActivity(Intent(this, ToCompleteActivity::class.java).apply {
+
+            putExtra(Setting.CODE_MESSAGE_PUT, Setting.UPDATE_COMPLETE_MESSAGE_CODE)
+        })
     }
 
     private fun positionSpice() = ArrayListUtil.indexSpice(

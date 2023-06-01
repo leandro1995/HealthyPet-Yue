@@ -10,4 +10,6 @@ sealed class EditProfilePetIntent {
     data class DatePickerDialog constructor(val calendar: Calendar) : EditProfilePetIntent()
 
     data class MessageErrorDialog constructor(val message: Message) : EditProfilePetIntent()
+
+    object CompleteUpdate : EditProfilePetIntent()
 }

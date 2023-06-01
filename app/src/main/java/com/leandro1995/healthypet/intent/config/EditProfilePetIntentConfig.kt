@@ -30,6 +30,11 @@ object EditProfilePetIntentConfig {
 
                 editProfilePetIntentCallBack.messageErrorDialog(message = editProfilePetIntent.message)
             }
+
+            EditProfilePetIntent.CompleteUpdate -> {
+
+                editProfilePetIntentCallBack.completeRegistration()
+            }
         }
     }
 }

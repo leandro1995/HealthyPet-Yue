@@ -74,6 +74,8 @@ class EditProfilePetViewModel : ViewModel() {
         viewModelScope.launch {
 
             pet.updatePetDatabase()
+
+            editProfilePetMutableStateFlow.value = EditProfilePetIntent.CompleteUpdate
         }
     }
 }

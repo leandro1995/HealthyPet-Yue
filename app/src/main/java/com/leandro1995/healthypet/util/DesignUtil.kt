@@ -70,6 +70,11 @@ class DesignUtil {
                 R.string.register_pet_message
             }
 
+            Setting.UPDATE_COMPLETE_MESSAGE_CODE -> {
+
+                R.string.update_pet_message
+            }
+
             else -> {
 
                 -1
@@ -78,8 +83,7 @@ class DesignUtil {
 
         fun onBackPressed(activity: Activity, method: () -> Unit = {}) {
 
-            (activity as AppCompatActivity).onBackPressedDispatcher.addCallback(
-                activity,
+            (activity as AppCompatActivity).onBackPressedDispatcher.addCallback(activity,
                 object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
 

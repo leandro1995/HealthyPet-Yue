@@ -10,4 +10,6 @@ interface EditProfilePetIntentCallBack {
     fun datePickerDialog(calendar: Calendar)
 
     fun messageErrorDialog(message: Message)
+
+    fun completeRegistration()
 }
