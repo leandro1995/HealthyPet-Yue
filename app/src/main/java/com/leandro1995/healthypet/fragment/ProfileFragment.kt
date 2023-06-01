@@ -12,8 +12,8 @@ import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ProfileIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentProfileBinding
-import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putPet
+import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
 import com.leandro1995.healthypet.model.design.Url
 import com.leandro1995.healthypet.util.DesignUtil
@@ -49,7 +49,7 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
     private fun collect() {
 
-        lifecycleScope(activity = requireActivity(), method = {
+        viewLifecycleOwner(fragment = this, method = {
 
             profileViewModel.profileMutableStateFlow.collect { profileIntent ->
 

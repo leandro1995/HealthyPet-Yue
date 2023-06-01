@@ -41,6 +41,7 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
     fun navigationItem(navController: NavController) {
 
         componentBottomNavigationBinding.homeNavigation.setupWithNavController(navController)
+        menuSelectOption(navController = navController)
     }
 
     override fun typedArray(typedArray: TypedArray?) {
@@ -59,17 +60,16 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
 
     private fun onClick() {
 
-        menuSelectOption()
         buttonOption()
     }
 
-    private fun menuSelectOption() {
+    private fun menuSelectOption(navController: NavController) {
 
         componentBottomNavigationBinding.homeNavigation.apply {
 
             setOnItemSelectedListener {
 
-                selectedItemId = it.itemId
+                navController.navigate(it.itemId)
 
                 return@setOnItemSelectedListener true
             }
