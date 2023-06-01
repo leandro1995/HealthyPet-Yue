@@ -15,6 +15,7 @@ import com.leandro1995.healthypet.databinding.FragmentProfileBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
+import com.leandro1995.healthypet.model.design.Url
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.ProfileViewModel
 
@@ -70,5 +71,10 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
     override fun playStoreOpen(intent: Intent) {
 
         startActivity(intent)
+    }
+
+    override fun shareApp(url: Url) {
+
+        startActivity(url.share(message = getString(R.string.message_text)))
     }
 }

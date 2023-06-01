@@ -25,6 +25,11 @@ object ProfileIntentConfig {
 
                 profileIntentCallBack.playStoreOpen(intent = profileIntent.intent)
             }
+
+            is ProfileIntent.ShareApp -> {
+
+                profileIntentCallBack.shareApp(url = profileIntent.url)
+            }
         }
     }
 }

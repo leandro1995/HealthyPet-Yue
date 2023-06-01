@@ -11,7 +11,8 @@ class ProfileViewModel : ViewModel() {
 
     companion object {
 
-        const val PLAY_STORE = 0
+        const val SHARE_APP = 0
+        const val PLAY_STORE = 1
     }
 
     val profileMutableStateFlow: MutableStateFlow<ProfileIntent> by lazy {
@@ -24,11 +25,22 @@ class ProfileViewModel : ViewModel() {
 
         when (action) {
 
+            SHARE_APP -> {
+
+                shareApp()
+            }
+
             PLAY_STORE -> {
 
                 playStore()
             }
         }
+    }
+
+    private fun shareApp() {
+
+        profileMutableStateFlow.value =
+            ProfileIntent.ShareApp(url = Url(url = Setting.PLAY_STORE_URL))
     }
 
     private fun playStore() {
