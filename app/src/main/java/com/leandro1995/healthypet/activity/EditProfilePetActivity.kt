@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -21,6 +22,7 @@ import com.leandro1995.healthypet.intent.config.EditProfilePetIntentConfig
 import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.entity.Spice
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.util.DialogUtil
@@ -35,6 +37,15 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
     private lateinit var spiceAdapter: SpiceAdapter
 
     private val spiceArrayList = arrayListOf<Spice>()
+
+    private val resultLauncher = ActivityUtil.activityResultLauncher(activity = this) {
+
+        setResult(Activity.RESULT_OK, Intent().apply {
+
+            putExtra(Setting.PET_PUT, editProfilePetViewModel.pet)
+        })
+        finish()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -136,9 +147,9 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
         DialogUtil.messageDialog(activity = this, message = message)
     }
 
-    override fun completeRegistration() {
+    override fun completeUpdate() {
 
-        startActivity(Intent(this, ToCompleteActivity::class.java).apply {
+        resultLauncher.launch(Intent(this, ToCompleteActivity::class.java).apply {
 
             putExtra(Setting.CODE_MESSAGE_PUT, Setting.UPDATE_COMPLETE_MESSAGE_CODE)
         })

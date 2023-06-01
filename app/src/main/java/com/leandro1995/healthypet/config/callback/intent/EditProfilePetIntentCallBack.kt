@@ -11,5 +11,5 @@ interface EditProfilePetIntentCallBack {
 
     fun messageErrorDialog(message: Message)
 
-    fun completeRegistration()
+    fun completeUpdate()
 }

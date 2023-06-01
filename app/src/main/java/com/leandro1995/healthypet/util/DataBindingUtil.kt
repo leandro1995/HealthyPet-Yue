@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import com.facebook.drawee.view.SimpleDraweeView
-import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.component.ImageSelectorComponent
 import com.leandro1995.healthypet.component.SexSelectionComponent
 import com.leandro1995.healthypet.config.Setting
@@ -52,16 +51,7 @@ class DataBindingUtil {
         @JvmStatic
         fun setSex(textView: TextView, isSex: Boolean) {
 
-            textView.setText(
-
-                if (isSex) {
-
-                    R.string.female_text
-                } else {
-
-                    R.string.male_text
-                }
-            )
+            textView.setText(DesignUtil.sexText(isSex = isSex))
         }
 
         @BindingAdapter("app:pet_date")

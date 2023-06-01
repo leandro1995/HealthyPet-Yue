@@ -33,7 +33,7 @@ object EditProfilePetIntentConfig {
 
             EditProfilePetIntent.CompleteUpdate -> {
 
-                editProfilePetIntentCallBack.completeRegistration()
+                editProfilePetIntentCallBack.completeUpdate()
             }
         }
     }

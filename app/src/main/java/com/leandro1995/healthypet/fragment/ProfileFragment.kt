@@ -18,7 +18,9 @@ import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
 import com.leandro1995.healthypet.model.design.Url
 import com.leandro1995.healthypet.model.entity.Pet
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.view.ProfileViewUtil
 import com.leandro1995.healthypet.viewmodel.ProfileViewModel
 
 class ProfileFragment : Fragment(), ProfileIntentCallBack {
@@ -26,6 +28,17 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
     private lateinit var profileBinding: FragmentProfileBinding
 
     private val profileViewModel by viewModels<ProfileViewModel>()
+
+    private val resultLauncher = ActivityUtil.activityResultLauncher(fragment = this) {
+
+        profileViewModel.pet = (it putPet Setting.PET_PUT)!!
+
+        ProfileViewUtil.profilePetView(
+            activity = requireActivity(),
+            pet = profileViewModel.pet,
+            fragmentProfileBinding = profileBinding
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -82,7 +95,7 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
     override fun editProfilePetActivity(activity: Activity, pet: Pet) {
 
-        startActivity(Intent(requireActivity(), activity::class.java).apply {
+        resultLauncher.launch(Intent(requireActivity(), activity::class.java).apply {
 
             putExtra(Setting.PET_PUT, pet)
         })

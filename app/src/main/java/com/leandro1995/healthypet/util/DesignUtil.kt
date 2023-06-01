@@ -112,6 +112,14 @@ class DesignUtil {
 
         }
 
+        fun sexText(isSex: Boolean) = if (isSex) {
+
+            R.string.female_text
+        } else {
+
+            R.string.male_text
+        }
+
         private fun colorHtml(string: String) = "<font color='#FFCF6F'>${string}.</font>"
     }
 }
