@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.viewmodel
 import androidx.lifecycle.ViewModel
 import com.leandro1995.healthypet.intent.EditProfilePetIntent
 import com.leandro1995.healthypet.model.design.Calendar
+import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -11,6 +12,7 @@ class EditProfilePetViewModel : ViewModel() {
     companion object {
 
         const val DATE_PICKER_DIALOG = 0
+        const val VERIFY_PET = 1
     }
 
     val editProfilePetMutableStateFlow: MutableStateFlow<EditProfilePetIntent> by lazy {
@@ -27,6 +29,11 @@ class EditProfilePetViewModel : ViewModel() {
 
                 datePickerDialog()
             }
+
+            VERIFY_PET -> {
+
+                verifyPet()
+            }
         }
     }
 
@@ -37,5 +44,17 @@ class EditProfilePetViewModel : ViewModel() {
                 date = pet.date, isNow = true, isToday = true
             )
         )
+    }
+
+    private fun verifyPet() {
+
+        pet.checkPet().let { index ->
+
+            if (index != 0) {
+
+                editProfilePetMutableStateFlow.value =
+                    EditProfilePetIntent.MessageErrorDialog(message = Message(indexMessage = index))
+            }
+        }
     }
 }

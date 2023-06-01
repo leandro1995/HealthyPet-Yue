@@ -132,6 +132,7 @@
             android:layout_marginStart="@dimen/dimen_0"
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_16"
+            android:onClick="@{()-> editProfilePetViewModel.onClick.invoke(editProfilePetViewModel.VERIFY_PET)}"
             android:text="@string/edit_pet_button"
             app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
             app:layout_constraintEnd_toEndOf="parent"

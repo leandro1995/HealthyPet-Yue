@@ -25,6 +25,11 @@ object EditProfilePetIntentConfig {
 
                 editProfilePetIntentCallBack.datePickerDialog(calendar = editProfilePetIntent.calendar)
             }
+
+            is EditProfilePetIntent.MessageErrorDialog -> {
+
+                editProfilePetIntentCallBack.messageErrorDialog(message = editProfilePetIntent.message)
+            }
         }
     }
 }
