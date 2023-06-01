@@ -9,7 +9,7 @@ import com.leandro1995.healthypet.model.entity.Spice
 
 @Entity
 class Pet constructor(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = DatabaseSetting.ID) val id: Int = 0,
     @ColumnInfo(name = DatabaseSetting.PHOTO_URL) var photoUrl: String = "",
     @ColumnInfo(name = DatabaseSetting.NAME) var name: String = "",
     @ColumnInfo(name = DatabaseSetting.SPICE_ID) var spiceId: Int = -1,
@@ -18,6 +18,11 @@ class Pet constructor(
 ) {
 
     fun pet() = Pet(
-        photoUrl = photoUrl, name = name, spice = Spice(id = spiceId), isSex = isSex, date = date
+        id = id,
+        photoUrl = photoUrl,
+        name = name,
+        spice = Spice(id = spiceId),
+        isSex = isSex,
+        date = date
     )
 }

@@ -1,6 +1,7 @@
 package com.leandro1995.healthypet.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.leandro1995.healthypet.activity.EditProfilePetActivity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.intent.ProfileIntent
 import com.leandro1995.healthypet.model.design.Url
@@ -13,6 +14,7 @@ class ProfileViewModel : ViewModel() {
 
         const val SHARE_APP = 0
         const val PLAY_STORE = 1
+        const val EDIT_PROFILE_PET_ACTIVITY = 2
     }
 
     val profileMutableStateFlow: MutableStateFlow<ProfileIntent> by lazy {
@@ -34,6 +36,11 @@ class ProfileViewModel : ViewModel() {
 
                 playStore()
             }
+
+            EDIT_PROFILE_PET_ACTIVITY -> {
+
+                editProfilePetActivity()
+            }
         }
     }
 
@@ -47,5 +54,11 @@ class ProfileViewModel : ViewModel() {
 
         profileMutableStateFlow.value =
             ProfileIntent.PlayStoreOpen(intent = Url(url = Setting.PLAY_STORE_URL).viewPage())
+    }
+
+    private fun editProfilePetActivity() {
+
+        profileMutableStateFlow.value =
+            ProfileIntent.EditProfilePetActivity(activity = EditProfilePetActivity(), pet = pet)
     }
 }
