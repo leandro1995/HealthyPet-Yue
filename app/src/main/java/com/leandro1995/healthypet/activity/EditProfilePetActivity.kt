@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.adapter.SpiceAdapter
+import com.leandro1995.healthypet.component.config.callback.ImageSelectorComponentCallBack
+import com.leandro1995.healthypet.component.config.callback.SexSelectionComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.EditProfilePetIntentCallBack
 import com.leandro1995.healthypet.config.callback.spinner.SpiceSpinnerCallBack
@@ -88,11 +90,29 @@ class EditProfilePetActivity : AppCompatActivity(), EditProfilePetIntentCallBack
 
                         override fun position(position: Int) {
 
+                            this@EditProfilePetActivity.editProfilePetViewModel.pet.spice =
+                                spiceArrayList[position]
                         }
                     }
                 }
 
                 spinner.setSelection(positionSpice())
+
+                imageSelectorComponent.imageSelectorComponentCallBack =
+                    object : ImageSelectorComponentCallBack {
+                        override fun photoUrl(url: String) {
+
+                            this@EditProfilePetActivity.editProfilePetViewModel.pet.photoUrl = url
+                        }
+                    }
+
+                sexSelectionComponent.sexSelectionComponentCallBack =
+                    object : SexSelectionComponentCallBack {
+                        override fun isSelectSex(isSex: Boolean) {
+
+                            this@EditProfilePetActivity.editProfilePetViewModel.pet.isSex = isSex
+                        }
+                    }
             }
         }
     }
