@@ -12,6 +12,7 @@ class Setting {
         const val IMAGE_PUT = "image_put"
         const val CODE_MESSAGE_PUT = "code_message_put"
         const val PET_PUT = "pet_put"
+        const val ID_PET_PUT = "id_pet_put"
         const val PET_ARRAY_LIST_PUT = "pet_array_list_put"
 
         const val DATE_FORMAT_ONE = "dd/MM/yyyy"

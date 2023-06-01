@@ -13,6 +13,7 @@ import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.ProfileIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentProfileBinding
+import com.leandro1995.healthypet.extension.putInt
 import com.leandro1995.healthypet.extension.putPet
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.ProfileIntentConfig
@@ -59,7 +60,7 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
 
     private fun petExtra() {
 
-        profileViewModel.pet = (Setting.PET_PUT putPet requireActivity())!!
+        profileViewModel.pet.id = (Setting.ID_PET_PUT putInt requireActivity())
     }
 
     private fun collect() {

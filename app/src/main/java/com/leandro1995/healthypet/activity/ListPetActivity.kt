@@ -100,7 +100,7 @@ class ListPetActivity : AppCompatActivity(), ListPetIntentCallBack {
 
         startActivity(Intent(this, HomeActivity::class.java).apply {
 
-            putExtra(Setting.PET_PUT, pet)
+            putExtra(Setting.ID_PET_PUT, pet.id)
         })
 
         finishAffinity()

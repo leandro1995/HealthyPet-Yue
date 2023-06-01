@@ -8,7 +8,7 @@ import com.leandro1995.healthypet.extension.fileUrl
 import java.io.Serializable
 
 class Pet constructor(
-    private val id: Int = -1,
+    var id: Int = -1,
     var photoUrl: String = "",
     var name: String = "",
     var spice: Spice = Spice(),

@@ -21,7 +21,7 @@ class ProfileViewModel : ViewModel() {
         MutableStateFlow(ProfileIntent.View)
     }
 
-    lateinit var pet: Pet
+    var pet = Pet()
 
     val onClick = fun(action: Int) {
 
