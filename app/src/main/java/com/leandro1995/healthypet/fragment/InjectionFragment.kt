@@ -5,15 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
 
 class InjectionFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private lateinit var injectionBinding: FragmentInjectionBinding
 
-        return inflater.inflate(R.layout.fragment_injection, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+
+        injectionBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_injection, container, false)
+
+        return injectionBinding.root
     }
 }
