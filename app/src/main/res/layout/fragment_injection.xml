@@ -28,10 +28,12 @@
             android:layout_marginTop="@dimen/dimen_0"
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_16"
+            app:image_error_list="@drawable/ic_vaccine"
             app:layout_constraintBottom_toTopOf="@+id/injectionButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar" />
+            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:text_error_list="@string/injection_message" />
 
         <Button
             android:id="@+id/injectionButton"
