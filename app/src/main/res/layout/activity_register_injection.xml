@@ -26,7 +26,7 @@
         android:layout_marginEnd="@dimen/dimen_0"
         android:layout_marginBottom="@dimen/dimen_0"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+        app:layout_constraintBottom_toTopOf="@+id/saveInjectionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar">
@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_10"
-                        android:text="@string/date_pet_text"
+                        android:text="@string/current_date_text"
                         android:textColor="@color/lead_BBC3CE" />
 
                     <TextView
@@ -84,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_10"
-                        android:text="@string/date_pet_text"
+                        android:text="@string/next_appointment_text"
                         android:textColor="@color/lead_BBC3CE" />
 
                     <TextView
@@ -102,7 +102,7 @@
                 style='style="@style/Headline.H6"'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginTop="@dimen/dimen_16"
                 android:text="@string/date_pet_text"
                 android:textColor="@color/lead_BBC3CE" />
 
@@ -111,24 +111,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_10" />
 
-            <TextView
-                style='style="@style/Headline.H6"'
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_10"
-                android:text="@string/date_pet_text"
-                android:textColor="@color/lead_BBC3CE" />
-
-            <TextView
-                style="@style/EditText"
+            <EditText
+                style="@style/TextArea"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimen_5"
-                android:gravity="center|left"
-                tools:ignore="RtlHardcoded" />
+                android:layout_marginTop="@dimen/dimen_16"
+                android:gravity="top|left"
+                android:hint="@string/comment_observation_hint"
+                tools:ignore="Autofill,LabelFor,RtlHardcoded,TextFields" />
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/saveInjectionButton"
+        style="@style/Button"
+        android:layout_marginStart="@dimen/dimen_0"
+        android:layout_marginEnd="@dimen/dimen_0"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="@string/save_button"
+        app:layout_constraintBottom_toTopOf="@+id/separatorComponent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.leandro1995.healthypet.component.SeparatorComponent
         android:id="@+id/separatorComponent"

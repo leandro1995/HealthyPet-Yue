@@ -106,6 +106,14 @@
         <item name="android:paddingStart">@dimen/dimen_10</item>
         <item name="android:paddingEnd">@dimen/dimen_10</item>
         <item name="android:foregroundTint">@color/blue_4552CB</item>
+        <item name="android:textColorHint">@color/lead_BBC3CE</item>
+    </style>
+
+    <style name="TextArea" parent="EditText">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_150</item>
+        <item name="android:paddingTop">@dimen/dimen_10</item>
     </style>
 
     <style name="BottomNavigationView">
