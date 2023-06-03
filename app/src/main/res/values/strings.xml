@@ -7,6 +7,7 @@
     <string name="register_pet_text_title">Registrar mascota</string>
     <string name="profile_pet_text_title">Este perfil es de, </string>
     <string name="edit_pet_text_title">Editar Mascota</string>
+    <string name="injection_text_title">Lista de inyecciones</string>
 
     <!-- Text -->
 
@@ -49,6 +50,7 @@
     <string name="save_button">Guardar</string>
     <string name="accept_button">Aceptar</string>
     <string name="edit_pet_button">Editar Mascota</string>
+    <string name="add_injection_button">Agregar vacuna</string>
 
     <!-- Error Message -->
 
@@ -58,6 +60,7 @@
     <string name="date_message">Ingrese una fecha de nacimiento de la mascota</string>
     <string name="register_pet_message">Se registro su mascota con éxito</string>
     <string name="update_pet_message">Se actualizó su mascota con éxito</string>
+    <string name="injection_message">No hay inyecciones registrados</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
