@@ -48,6 +48,7 @@
             android:layout_marginStart="@dimen/dimen_0"
             android:layout_marginEnd="@dimen/dimen_0"
             android:layout_marginBottom="@dimen/dimen_16"
+            android:onClick="@{()-> injectionViewModel.onClick.invoke(injectionViewModel.REGISTER_INJECTION)}"
             android:text="@string/add_injection_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

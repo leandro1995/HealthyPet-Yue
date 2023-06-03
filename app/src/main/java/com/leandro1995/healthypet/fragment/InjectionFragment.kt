@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.fragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,5 +62,10 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     override fun view() {
 
+    }
+
+    override fun registerInjection(activity: Activity) {
+
+        startActivity(Intent(requireActivity(), activity::class.java))
     }
 }

@@ -20,6 +20,11 @@ object InjectionIntentConfig {
 
                 injectionIntentCallBack.view()
             }
+
+            is InjectionIntent.RegisterInjection -> {
+
+                injectionIntentCallBack.registerInjection(activity = injectionIntent.activity)
+            }
         }
     }
 }
