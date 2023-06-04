@@ -8,6 +8,7 @@
     <string name="profile_pet_text_title">Este perfil es de, </string>
     <string name="edit_pet_text_title">Editar Mascota</string>
     <string name="injection_text_title">Lista de inyecciones</string>
+    <string name="register_injection_text_title">Registrar inyeccion</string>
 
     <!-- Text -->
 
