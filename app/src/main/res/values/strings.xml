@@ -78,6 +78,9 @@
     <string name="register_pet_message">Se registro su mascota con éxito</string>
     <string name="update_pet_message">Se actualizó su mascota con éxito</string>
     <string name="injection_message">No hay inyecciones registrados</string>
+    <string name="next_appointment_message">No hay fecha de la proxima cita</string>
+    <string name="select_injection_message">No selecciono una inyección</string>
+    <string name="photo_url_injection_message">Ingrese una foto de la inyección</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

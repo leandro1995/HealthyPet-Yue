@@ -20,6 +20,11 @@ object RegisterInjectionIntentConfig {
 
                 registerInjectionIntentCallBack.view()
             }
+
+            is RegisterInjectionIntent.MessageErrorDialog -> {
+
+                registerInjectionIntentCallBack.messageErrorDialog(message = registerInjectionIntent.message)
+            }
         }
     }
 }

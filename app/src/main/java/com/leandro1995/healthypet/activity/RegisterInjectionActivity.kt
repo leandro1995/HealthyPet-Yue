@@ -12,9 +12,11 @@ import com.leandro1995.healthypet.config.callback.intent.RegisterInjectionIntent
 import com.leandro1995.healthypet.databinding.ActivityRegisterInjectionBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterInjectionIntentConfig
+import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.DialogUtil
 import com.leandro1995.healthypet.viewmodel.RegisterInjectionViewModel
 
 class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCallBack {
@@ -79,5 +81,10 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
         }
 
         typeInjectionCheckedAdapter.submitList(typeInjectionCheckedArrayList)
+    }
+
+    override fun messageErrorDialog(message: Message) {
+
+        DialogUtil.messageDialog(activity = this, message = message)
     }
 }

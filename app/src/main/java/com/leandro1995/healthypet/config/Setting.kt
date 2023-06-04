@@ -20,6 +20,9 @@ class Setting {
         const val PHOTO_URL_MESSAGE = 1
         const val NAME_MESSAGE = 2
         const val DATE_MESSAGE = 3
+        const val NEXT_APPOINTMENT = 4
+        const val INJECTION = 5
+        const val PHOTO_URL_INJECTION_MESSAGE = 6
         const val COMPLETE = 0
 
         const val TO_COMPLETE_MESSAGE_CODE = 0
@@ -32,6 +35,9 @@ class Setting {
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
             Pair(NAME_MESSAGE, R.string.name_message),
             Pair(DATE_MESSAGE, R.string.date_message),
+            Pair(NEXT_APPOINTMENT, R.string.next_appointment_message),
+            Pair(INJECTION, R.string.select_injection_message),
+            Pair(PHOTO_URL_INJECTION_MESSAGE, R.string.photo_url_injection_message),
             Pair(COMPLETE, 0)
         )
 
