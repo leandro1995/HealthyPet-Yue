@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import com.leandro1995.healthypet.R
-import com.leandro1995.healthypet.adapter.InjectionCheckedAdapter
+import com.leandro1995.healthypet.adapter.TypeInjectionCheckedAdapter
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.RegisterInjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityRegisterInjectionBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterInjectionIntentConfig
-import com.leandro1995.healthypet.model.design.InjectionChecked
+import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.RegisterInjectionViewModel
@@ -23,9 +23,9 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
 
     private val registerInjectionViewModel by viewModels<RegisterInjectionViewModel>()
 
-    private lateinit var injectionCheckedAdapter: InjectionCheckedAdapter
+    private lateinit var typeInjectionCheckedAdapter: TypeInjectionCheckedAdapter
 
-    private val injectionCheckedArrayList = arrayListOf<InjectionChecked>()
+    private val typeInjectionCheckedArrayList = arrayListOf<TypeInjectionChecked>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,21 +63,21 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
 
     override fun view() {
 
-        injectionCheckedArrayList.clear()
-        injectionCheckedArrayList.addAll(ArrayListUtil.injectionCheckedArrayList(activity = this))
+        typeInjectionCheckedArrayList.clear()
+        typeInjectionCheckedArrayList.addAll(ArrayListUtil.typeInjectionCheckedArrayList(activity = this))
 
-        injectionCheckedAdapter = InjectionCheckedAdapter()
+        typeInjectionCheckedAdapter = TypeInjectionCheckedAdapter()
 
         registerInjectionBinding.apply {
 
-            injectionRecycler.let { recyclerView ->
+            typeInjectionRecycler.let { recyclerView ->
 
                 recyclerView.layoutManager =
                     GridLayoutManager(this@RegisterInjectionActivity, Setting.GRID_LAYOUT_TWO)
-                recyclerView.adapter = injectionCheckedAdapter
+                recyclerView.adapter = typeInjectionCheckedAdapter
             }
         }
 
-        injectionCheckedAdapter.submitList(injectionCheckedArrayList)
+        typeInjectionCheckedAdapter.submitList(typeInjectionCheckedArrayList)
     }
 }

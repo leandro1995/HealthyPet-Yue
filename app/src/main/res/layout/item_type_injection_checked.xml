@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <RadioButton
-        android:id="@+id/injectionCheck"
+        android:id="@+id/injectionRadio"
         style="@style/Headline.H6"
         android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"

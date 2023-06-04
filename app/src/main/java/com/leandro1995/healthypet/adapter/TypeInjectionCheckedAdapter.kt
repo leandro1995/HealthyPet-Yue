@@ -9,38 +9,38 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.leandro1995.healthypet.R
-import com.leandro1995.healthypet.model.design.InjectionChecked
+import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 
-class InjectionCheckedAdapter :
-    ListAdapter<InjectionChecked, InjectionCheckedAdapter.InjectionCheckedHolder>(
-        InjectionCheckedDiffUtil()
+class TypeInjectionCheckedAdapter :
+    ListAdapter<TypeInjectionChecked, TypeInjectionCheckedAdapter.InjectionCheckedHolder>(
+        TypeInjectionCheckedDiffUtil()
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InjectionCheckedHolder {
 
         return InjectionCheckedHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_injection_checked, parent, false)
+                .inflate(R.layout.item_type_injection_checked, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: InjectionCheckedHolder, position: Int) {
 
-        holder.injectionCheck.apply {
+        holder.injectionRadio.apply {
 
             isChecked = getItem(position).isChecked
-            text = getItem(position).injection.name
+            text = getItem(position).typeInjection.name
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     inner class InjectionCheckedHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
 
-        val injectionCheck: RadioButton = view.findViewById(R.id.injectionCheck)
+        val injectionRadio: RadioButton = view.findViewById(R.id.injectionRadio)
 
         init {
 
-            injectionCheck.setOnClickListener {
+            injectionRadio.setOnClickListener {
 
                 currentList.forEach { it.isChecked = false }
 
@@ -51,17 +51,17 @@ class InjectionCheckedAdapter :
         }
     }
 
-    class InjectionCheckedDiffUtil : DiffUtil.ItemCallback<InjectionChecked>() {
+    class TypeInjectionCheckedDiffUtil : DiffUtil.ItemCallback<TypeInjectionChecked>() {
 
         override fun areItemsTheSame(
-            oldItem: InjectionChecked, newItem: InjectionChecked
+            oldItem: TypeInjectionChecked, newItem: TypeInjectionChecked
         ): Boolean {
 
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: InjectionChecked, newItem: InjectionChecked
+            oldItem: TypeInjectionChecked, newItem: TypeInjectionChecked
         ): Boolean {
 
             return areItemsTheSame(oldItem, newItem)
