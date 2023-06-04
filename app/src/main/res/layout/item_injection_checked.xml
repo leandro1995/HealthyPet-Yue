@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <CheckBox
+    <RadioButton
         android:id="@+id/injectionCheck"
         style="@style/Headline.H6"
         android:layout_width="@dimen/dimen_0"

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
+import android.widget.RadioButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +36,7 @@ class InjectionCheckedAdapter :
     @SuppressLint("NotifyDataSetChanged")
     inner class InjectionCheckedHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
 
-        val injectionCheck: CheckBox = view.findViewById(R.id.injectionCheck)
+        val injectionCheck: RadioButton = view.findViewById(R.id.injectionCheck)
 
         init {
 

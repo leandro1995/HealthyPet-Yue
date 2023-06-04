@@ -58,7 +58,7 @@
     <string name="injection_list_text">Inyecciones:</string>
 
     <!-- Hint Text -->
-    <string name="comment_observation_hint">comentario o observación de la vacuna....</string>
+    <string name="comment_observation_hint">comentario o observación de la vacuna....*</string>
 
     <!-- Button Text -->
 
