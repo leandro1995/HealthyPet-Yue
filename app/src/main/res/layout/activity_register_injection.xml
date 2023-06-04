@@ -112,13 +112,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_16"
-                    android:text="@string/date_pet_text"
+                    android:text="@string/injection_list_text"
                     android:textColor="@color/lead_BBC3CE" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/injectionRecycler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10" />
+                    android:layout_marginTop="@dimen/dimen_5" />
 
                 <EditText
                     style="@style/TextArea"

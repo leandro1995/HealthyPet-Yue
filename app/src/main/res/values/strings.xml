@@ -45,6 +45,17 @@
     <string name="message_text">¡Descubre nuestra app de mascotas!\n\nCuida, conecta y comparte momentos con tus adorables amigos peludos. Descarga nuestra app ahora y lleva el cuidado de tus mascotas al siguiente nivel. ¡No te lo pierdas!</string>
     <string name="current_date_text">Fecha actual:</string>
     <string name="next_appointment_text">Próxima cita:</string>
+    <string name="distemper_text">Distemper</string>
+    <string name="par_virus_text">Parvovirus</string>
+    <string name="hepatitis_text">Hepatitis</string>
+    <string name="influenza_text">Parainfluenza</string>
+    <string name="lep_text">Leptospira</string>
+    <string name="rhino_text">Rinotraqueitis</string>
+    <string name="pan_text">Panleucopenia</string>
+    <string name="calicivirus_text">Calicivirus</string>
+    <string name="rabia_text">Rabia</string>
+    <string name="other_text">Otro</string>
+    <string name="injection_list_text">Inyecciones:</string>
 
     <!-- Hint Text -->
     <string name="comment_observation_hint">comentario o observación de la vacuna....</string>

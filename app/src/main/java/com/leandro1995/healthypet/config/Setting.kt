@@ -25,7 +25,8 @@ class Setting {
         const val TO_COMPLETE_MESSAGE_CODE = 0
         const val UPDATE_COMPLETE_MESSAGE_CODE = 1
 
-        const val PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.leandro1995.healthypet"
+        const val PLAY_STORE_URL =
+            "https://play.google.com/store/apps/details?id=com.leandro1995.healthypet"
 
         val MESSAGE_HASH_MAP = hashMapOf(
             Pair(PHOTO_URL_MESSAGE, R.string.photo_url_message),
@@ -33,5 +34,7 @@ class Setting {
             Pair(DATE_MESSAGE, R.string.date_message),
             Pair(COMPLETE, 0)
         )
+
+        const val GRID_LAYOUT_TWO = 2
     }
 }
