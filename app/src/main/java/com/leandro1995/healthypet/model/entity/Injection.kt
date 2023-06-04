@@ -7,4 +7,9 @@ class Injection constructor(
     private val nextAppointment: Long = -1L,
     private val typeInjection: TypeInjection = TypeInjection(),
     private val comment: String = ""
-)
+) {
+
+    private fun isPhotoUrl() = photoUrl.isEmpty()
+
+    private fun isNextAppointment() = nextAppointment == -1L
+}
