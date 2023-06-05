@@ -11,12 +11,9 @@ import com.leandro1995.healthypet.database.model.Pet
     entities = [Pet::class],
     version = BuildConfig.VERSION_CODE,
     exportSchema = true,
-    autoMigrations = [
-        AutoMigration(
-            from = 4,
-            to = BuildConfig.VERSION_CODE
-        )
-    ]
+    autoMigrations = [AutoMigration(
+        from = (BuildConfig.VERSION_CODE - 1), to = BuildConfig.VERSION_CODE
+    )]
 )
 abstract class DatabaseApp : RoomDatabase() {
 
