@@ -25,6 +25,11 @@ object RegisterInjectionIntentConfig {
 
                 registerInjectionIntentCallBack.messageErrorDialog(message = registerInjectionIntent.message)
             }
+
+            is RegisterInjectionIntent.DatePickerDialog -> {
+
+                registerInjectionIntentCallBack.datePickerDialog(calendar = registerInjectionIntent.calendar)
+            }
         }
     }
 }

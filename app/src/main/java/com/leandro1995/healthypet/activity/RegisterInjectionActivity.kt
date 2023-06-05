@@ -7,13 +7,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.adapter.TypeInjectionCheckedAdapter
+import com.leandro1995.healthypet.component.config.callback.ImageSelectorComponentCallBack
 import com.leandro1995.healthypet.config.Setting
+import com.leandro1995.healthypet.config.adapter.TypeInjectionCheckedAdapterCallBack
 import com.leandro1995.healthypet.config.callback.intent.RegisterInjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityRegisterInjectionBinding
+import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.intent.config.RegisterInjectionIntentConfig
+import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
+import com.leandro1995.healthypet.model.entity.TypeInjection
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.util.DialogUtil
@@ -70,6 +75,16 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
 
         typeInjectionCheckedAdapter = TypeInjectionCheckedAdapter()
 
+        typeInjectionCheckedAdapter.typeInjectionCheckedAdapterCallBack =
+            object : TypeInjectionCheckedAdapterCallBack {
+
+                override fun typeInjection(typeInjection: TypeInjection) {
+
+                    this@RegisterInjectionActivity.registerInjectionViewModel.injection.typeInjection =
+                        typeInjection
+                }
+            }
+
         registerInjectionBinding.apply {
 
             typeInjectionRecycler.let { recyclerView ->
@@ -78,6 +93,16 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
                     GridLayoutManager(this@RegisterInjectionActivity, Setting.GRID_LAYOUT_TWO)
                 recyclerView.adapter = typeInjectionCheckedAdapter
             }
+
+            imageSelectorComponent.imageSelectorComponentCallBack =
+                object : ImageSelectorComponentCallBack {
+
+                    override fun photoUrl(url: String) {
+
+                        this@RegisterInjectionActivity.registerInjectionViewModel.injection.photoUrl =
+                            url
+                    }
+                }
         }
 
         typeInjectionCheckedAdapter.submitList(typeInjectionCheckedArrayList)
@@ -86,5 +111,14 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
     override fun messageErrorDialog(message: Message) {
 
         DialogUtil.messageDialog(activity = this, message = message)
+    }
+
+    override fun datePickerDialog(calendar: Calendar) {
+
+        DialogUtil.datePickerDialog(activity = this, calendar = calendar) { dateLong ->
+
+            registerInjectionBinding.dateText.text =
+                dateLong.dateFormat(format = Setting.DATE_FORMAT_ONE)
+        }
     }
 }

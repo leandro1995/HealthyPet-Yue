@@ -61,6 +61,7 @@
                         android:orientation="vertical">
 
                         <com.leandro1995.healthypet.component.ImageSelectorComponent
+                            android:id="@+id/imageSelectorComponent"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center" />
@@ -86,6 +87,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/dimen_5"
                             android:gravity="center|left"
+                            app:pet_date="@{registerInjectionViewModel.injection.currentDate}"
                             tools:ignore="RtlHardcoded" />
 
                         <TextView
@@ -97,10 +99,13 @@
                             android:textColor="@color/lead_BBC3CE" />
 
                         <TextView
+                            android:id="@+id/dateText"
                             style="@style/EditText"
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/dimen_5"
                             android:gravity="center|left"
+                            android:onClick="@{()-> registerInjectionViewModel.onClick.invoke(registerInjectionViewModel.DATE_PICKER_DIALOG)}"
+                            app:date="@={registerInjectionViewModel.injection.nextAppointment}"
                             tools:ignore="RtlHardcoded" />
 
                     </LinearLayout>

@@ -9,12 +9,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.adapter.TypeInjectionCheckedAdapterCallBack
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
+import com.leandro1995.healthypet.model.entity.TypeInjection
 
 class TypeInjectionCheckedAdapter :
     ListAdapter<TypeInjectionChecked, TypeInjectionCheckedAdapter.InjectionCheckedHolder>(
         TypeInjectionCheckedDiffUtil()
     ) {
+
+    var typeInjectionCheckedAdapterCallBack: TypeInjectionCheckedAdapterCallBack? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InjectionCheckedHolder {
 
@@ -46,6 +50,8 @@ class TypeInjectionCheckedAdapter :
 
                 currentList[adapterPosition].isChecked = true
 
+                isTypeInjectionCheckedAdapter(typeInjection = getItem(adapterPosition).typeInjection)
+
                 notifyDataSetChanged()
             }
         }
@@ -65,6 +71,14 @@ class TypeInjectionCheckedAdapter :
         ): Boolean {
 
             return areItemsTheSame(oldItem, newItem)
+        }
+    }
+
+    private fun isTypeInjectionCheckedAdapter(typeInjection: TypeInjection) {
+
+        if (typeInjectionCheckedAdapterCallBack != null) {
+
+            typeInjectionCheckedAdapterCallBack!!.typeInjection(typeInjection = typeInjection)
         }
     }
 }
