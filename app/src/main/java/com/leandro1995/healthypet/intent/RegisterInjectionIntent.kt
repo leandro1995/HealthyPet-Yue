@@ -10,4 +10,6 @@ sealed class RegisterInjectionIntent {
     data class MessageErrorDialog constructor(val message: Message) : RegisterInjectionIntent()
 
     data class DatePickerDialog constructor(val calendar: Calendar) : RegisterInjectionIntent()
+
+    object CompleteRegistration : RegisterInjectionIntent()
 }

@@ -1,6 +1,6 @@
 package com.leandro1995.healthypet.model.entity
 
-class TypeInjection constructor(private val id: Int = -1, val name: String = "") {
+class TypeInjection constructor(val id: Int = -1, val name: String = "") {
 
     fun isId() = id == -1
 }

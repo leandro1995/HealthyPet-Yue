@@ -30,6 +30,11 @@ object RegisterInjectionIntentConfig {
 
                 registerInjectionIntentCallBack.datePickerDialog(calendar = registerInjectionIntent.calendar)
             }
+
+            RegisterInjectionIntent.CompleteRegistration -> {
+
+                registerInjectionIntentCallBack.completeRegistration()
+            }
         }
     }
 }

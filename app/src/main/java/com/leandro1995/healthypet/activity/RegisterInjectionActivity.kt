@@ -121,4 +121,13 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
                 dateLong.dateFormat(format = Setting.DATE_FORMAT_ONE)
         }
     }
+
+    override fun completeRegistration() {
+
+        startActivity(
+            DesignUtil.intentToCompleteActivity(
+                activity = this, code = Setting.TO_COMPLETE_INJECTION_MESSAGE_CODE
+            )
+        )
+    }
 }

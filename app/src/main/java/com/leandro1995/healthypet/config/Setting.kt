@@ -27,6 +27,7 @@ class Setting {
 
         const val TO_COMPLETE_MESSAGE_CODE = 0
         const val UPDATE_COMPLETE_MESSAGE_CODE = 1
+        const val TO_COMPLETE_INJECTION_MESSAGE_CODE = 2
 
         const val PLAY_STORE_URL =
             "https://play.google.com/store/apps/details?id=com.leandro1995.healthypet"

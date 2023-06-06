@@ -1,15 +1,17 @@
 package com.leandro1995.healthypet.model.entity
 
 import com.leandro1995.healthypet.config.Setting
+import com.leandro1995.healthypet.database.config.DataBaseConfig
+import com.leandro1995.healthypet.database.model.Injection
 import java.util.Date
 
 class Injection constructor(
-    private val id: Int = -1,
+    private var id: Int = -1,
     var photoUrl: String = "",
     var currentDate: Long = Date().time,
     var nextAppointment: Long = -1L,
     var typeInjection: TypeInjection = TypeInjection(),
-    private val comment: String = ""
+    var comment: String = ""
 ) {
 
     fun checkInjection() = when {
@@ -33,6 +35,19 @@ class Injection constructor(
 
             Setting.COMPLETE
         }
+    }
+
+    suspend fun registerInjectionDatabase() {
+
+        id = DataBaseConfig.injectionDao().register(
+            injection = Injection(
+                photoUrl = photoUrl,
+                currentDate = currentDate,
+                nextAppointment = nextAppointment,
+                idTypeInjection = typeInjection.id,
+                comment = comment
+            )
+        ).toInt()
     }
 
     private fun isPhotoUrl() = photoUrl.isEmpty()

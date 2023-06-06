@@ -10,4 +10,6 @@ interface RegisterInjectionIntentCallBack {
     fun messageErrorDialog(message: Message)
 
     fun datePickerDialog(calendar: Calendar)
+
+    fun completeRegistration()
 }
