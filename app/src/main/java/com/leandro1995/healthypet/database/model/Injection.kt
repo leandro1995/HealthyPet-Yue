@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.leandro1995.healthypet.database.config.DatabaseSetting
+import com.leandro1995.healthypet.model.entity.Injection
+import com.leandro1995.healthypet.model.entity.TypeInjection
 
 @Entity
 class Injection constructor(
@@ -13,4 +15,14 @@ class Injection constructor(
     @ColumnInfo(name = DatabaseSetting.NEXT_APPOINTMENT) var nextAppointment: Long = -1L,
     @ColumnInfo(name = DatabaseSetting.ID_TYPE_INJECTION) var idTypeInjection: Int = -1,
     @ColumnInfo(name = DatabaseSetting.COMMENT) val comment: String = ""
-)
+) {
+
+    fun injection() = Injection(
+        id = id,
+        photoUrl = photoUrl,
+        currentDate = currentDate,
+        nextAppointment = nextAppointment,
+        typeInjection = TypeInjection(id = id),
+        comment = comment
+    )
+}
