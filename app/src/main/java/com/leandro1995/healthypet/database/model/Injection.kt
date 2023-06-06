@@ -22,7 +22,7 @@ class Injection constructor(
         photoUrl = photoUrl,
         currentDate = currentDate,
         nextAppointment = nextAppointment,
-        typeInjection = TypeInjection(id = id),
+        typeInjection = TypeInjection(id = idTypeInjection),
         comment = comment
     )
 }

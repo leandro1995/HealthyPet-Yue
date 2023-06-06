@@ -55,6 +55,9 @@ class ArrayListUtil {
             return typeInjectionCheckedArrayList
         }
 
+        fun typeInjection(activity: Activity, id: Int) =
+            typeInjectionArrayList(activity = activity).find { it.id == id }
+
         private fun typeInjectionArrayList(activity: Activity) = arrayListOf(
             TypeInjection(id = 0, name = activity.getString(R.string.distemper_text)),
             TypeInjection(id = 1, name = activity.getString(R.string.par_virus_text)),
