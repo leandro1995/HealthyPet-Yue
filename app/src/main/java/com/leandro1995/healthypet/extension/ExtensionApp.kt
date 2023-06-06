@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.leandro1995.healthypet.HealthyPetPreferences
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.datastore.HealthyPetSerializable
+import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.model.entity.Pet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -88,6 +89,15 @@ infix fun Intent.putPet(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSIO
 
     @Suppress("DEPRECATION") this.getSerializableExtra(key) as Pet
 }
+
+infix fun Intent.putInjection(key: String) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+
+        this.getSerializableExtra(key, Injection::class.java)
+    } else {
+
+        @Suppress("DEPRECATION") this.getSerializableExtra(key) as Injection
+    }
 
 @SuppressLint("SimpleDateFormat")
 fun Long.dateFormat(format: String, isCalendar: Boolean = true): String {

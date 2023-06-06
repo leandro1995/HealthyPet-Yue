@@ -3,6 +3,8 @@ package com.leandro1995.healthypet.model.entity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.database.config.DataBaseConfig
 import com.leandro1995.healthypet.database.model.Injection
+import com.leandro1995.healthypet.extension.dateFormat
+import com.leandro1995.healthypet.extension.fileUrl
 import java.io.Serializable
 import java.util.Date
 
@@ -37,6 +39,11 @@ class Injection constructor(
             Setting.COMPLETE
         }
     }
+
+    fun photoFile() = photoUrl.fileUrl()
+
+    fun dateNextAppointment(format: String) =
+        nextAppointment.dateFormat(format = format, isCalendar = false)
 
     suspend fun registerInjectionDatabase() {
 

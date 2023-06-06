@@ -10,10 +10,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
+import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.InjectionIntentConfig
+import com.leandro1995.healthypet.model.entity.Injection
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.InjectionViewModel
 
@@ -22,6 +26,15 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
     private lateinit var injectionBinding: FragmentInjectionBinding
 
     private val injectionViewModel by viewModels<InjectionViewModel>()
+
+    private val injectionArrayList = ArrayList<Injection>()
+
+    private val result = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
+
+        injectionArrayList.add((it putInjection Setting.INJECTION_PUT)!!)
+
+        injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
+    })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -62,10 +75,19 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     override fun view() {
 
+        injectionViewModel.onClick.invoke(InjectionViewModel.INJECTION_LIST)
     }
 
     override fun registerInjection(activity: Activity) {
 
-        startActivity(Intent(requireActivity(), activity::class.java))
+        result.launch(Intent(requireActivity(), activity::class.java))
+    }
+
+    override fun injectionArrayList(injectionArrayList: ArrayList<Injection>) {
+
+        this.injectionArrayList.clear()
+        this.injectionArrayList.addAll(injectionArrayList)
+
+        injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = this.injectionArrayList)
     }
 }

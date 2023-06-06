@@ -25,6 +25,11 @@ object InjectionIntentConfig {
 
                 injectionIntentCallBack.registerInjection(activity = injectionIntent.activity)
             }
+
+            is InjectionIntent.InjectionArrayList -> {
+
+                injectionIntentCallBack.injectionArrayList(injectionArrayList = injectionIntent.injectionArrayList)
+            }
         }
     }
 }
