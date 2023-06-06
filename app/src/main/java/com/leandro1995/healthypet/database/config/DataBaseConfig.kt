@@ -18,4 +18,6 @@ object DataBaseConfig {
     }
 
     fun petDao() = database.petDao()
+
+    fun injectionDao() = database.injectionDao()
 }
