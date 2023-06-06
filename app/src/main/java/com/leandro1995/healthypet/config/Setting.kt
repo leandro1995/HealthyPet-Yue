@@ -14,6 +14,7 @@ class Setting {
         const val PET_PUT = "pet_put"
         const val ID_PET_PUT = "id_pet_put"
         const val PET_ARRAY_LIST_PUT = "pet_array_list_put"
+        const val INJECTION_PUT = "injection_put"
 
         const val DATE_FORMAT_ONE = "dd/MM/yyyy"
 

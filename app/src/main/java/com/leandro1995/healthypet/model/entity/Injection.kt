@@ -3,6 +3,7 @@ package com.leandro1995.healthypet.model.entity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.database.config.DataBaseConfig
 import com.leandro1995.healthypet.database.model.Injection
+import java.io.Serializable
 import java.util.Date
 
 class Injection constructor(
@@ -12,7 +13,7 @@ class Injection constructor(
     var nextAppointment: Long = -1L,
     var typeInjection: TypeInjection = TypeInjection(),
     var comment: String = ""
-) {
+) : Serializable {
 
     fun checkInjection() = when {
 

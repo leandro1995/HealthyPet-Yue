@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.Message
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.model.entity.TypeInjection
+import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.util.DialogUtil
@@ -33,6 +36,15 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
     private lateinit var typeInjectionCheckedAdapter: TypeInjectionCheckedAdapter
 
     private val typeInjectionCheckedArrayList = arrayListOf<TypeInjectionChecked>()
+
+    private val result = ActivityUtil.activityResultLauncher(activity = this, resultData = {
+
+        setResult(Activity.RESULT_OK, Intent().apply {
+
+            putExtra(Setting.INJECTION_PUT, registerInjectionViewModel.injection)
+        })
+        finish()
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,7 +136,7 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
 
     override fun completeRegistration() {
 
-        startActivity(
+        result.launch(
             DesignUtil.intentToCompleteActivity(
                 activity = this, code = Setting.TO_COMPLETE_INJECTION_MESSAGE_CODE
             )
