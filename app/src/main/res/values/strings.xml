@@ -8,6 +8,7 @@
     <string name="profile_pet_text_title">Este perfil es de, </string>
     <string name="edit_pet_text_title">Editar Mascota</string>
     <string name="injection_text_title">Lista de inyecciones</string>
+    <string name="register_injection_text_title">Registrar inyeccion</string>
 
     <!-- Text -->
 
@@ -42,6 +43,22 @@
     <string name="qualify_text">Calificar la App</string>
     <string name="option_text">Opciones de la App:</string>
     <string name="message_text">¡Descubre nuestra app de mascotas!\n\nCuida, conecta y comparte momentos con tus adorables amigos peludos. Descarga nuestra app ahora y lleva el cuidado de tus mascotas al siguiente nivel. ¡No te lo pierdas!</string>
+    <string name="current_date_text">Fecha actual:</string>
+    <string name="next_appointment_text">Próxima cita:</string>
+    <string name="distemper_text">Distemper</string>
+    <string name="par_virus_text">Parvovirus</string>
+    <string name="hepatitis_text">Hepatitis</string>
+    <string name="influenza_text">Parainfluenza</string>
+    <string name="lep_text">Leptospira</string>
+    <string name="rhino_text">Rinotraqueitis</string>
+    <string name="pan_text">Panleucopenia</string>
+    <string name="calicivirus_text">Calicivirus</string>
+    <string name="rabia_text">Rabia</string>
+    <string name="other_text">Otro</string>
+    <string name="injection_list_text">Inyecciones:</string>
+
+    <!-- Hint Text -->
+    <string name="comment_observation_hint">comentario o observación de la vacuna....*</string>
 
     <!-- Button Text -->
 
@@ -61,6 +78,10 @@
     <string name="register_pet_message">Se registro su mascota con éxito</string>
     <string name="update_pet_message">Se actualizó su mascota con éxito</string>
     <string name="injection_message">No hay inyecciones registrados</string>
+    <string name="next_appointment_message">No hay fecha de la proxima cita</string>
+    <string name="select_injection_message">No selecciono una inyección</string>
+    <string name="photo_url_injection_message">Ingrese una foto de la inyección</string>
+    <string name="register_injection_message">Se registro su inyección con éxito</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

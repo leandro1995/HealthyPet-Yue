@@ -77,6 +77,11 @@ class DesignUtil {
                 R.string.update_pet_message
             }
 
+            Setting.TO_COMPLETE_INJECTION_MESSAGE_CODE -> {
+
+                R.string.register_injection_message
+            }
+
             else -> {
 
                 -1

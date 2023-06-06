@@ -2,7 +2,9 @@ package com.leandro1995.healthypet.util
 
 import android.app.Activity
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.model.design.WelcomePage
+import com.leandro1995.healthypet.model.entity.TypeInjection
 import com.leandro1995.healthypet.model.entity.Spice
 
 class ArrayListUtil {
@@ -40,5 +42,30 @@ class ArrayListUtil {
 
         fun indexSpice(activity: Activity, id: Int) =
             spiceArrayList(activity = activity).indexOfFirst { it.id == id }
+
+        fun typeInjectionCheckedArrayList(activity: Activity): ArrayList<TypeInjectionChecked> {
+
+            val typeInjectionCheckedArrayList = ArrayList<TypeInjectionChecked>()
+
+            typeInjectionArrayList(activity = activity).forEach {
+
+                typeInjectionCheckedArrayList.add(TypeInjectionChecked(typeInjection = it))
+            }
+
+            return typeInjectionCheckedArrayList
+        }
+
+        private fun typeInjectionArrayList(activity: Activity) = arrayListOf(
+            TypeInjection(id = 0, name = activity.getString(R.string.distemper_text)),
+            TypeInjection(id = 1, name = activity.getString(R.string.par_virus_text)),
+            TypeInjection(id = 2, name = activity.getString(R.string.hepatitis_text)),
+            TypeInjection(id = 3, name = activity.getString(R.string.influenza_text)),
+            TypeInjection(id = 4, name = activity.getString(R.string.lep_text)),
+            TypeInjection(id = 5, name = activity.getString(R.string.rhino_text)),
+            TypeInjection(id = 6, name = activity.getString(R.string.pan_text)),
+            TypeInjection(id = 7, name = activity.getString(R.string.calicivirus_text)),
+            TypeInjection(id = 8, name = activity.getString(R.string.rabia_text)),
+            TypeInjection(id = 9, name = activity.getString(R.string.other_text))
+        )
     }
 }

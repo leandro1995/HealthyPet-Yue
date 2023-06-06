@@ -10,5 +10,9 @@ class DatabaseSetting {
         const val IS_SEX = "is_sex"
         const val DATE = "date"
         const val ID = "id"
+        const val CURRENT_DATE = "current_date"
+        const val NEXT_APPOINTMENT = "next_Appointment"
+        const val ID_TYPE_INJECTION = "id_type_Injection"
+        const val COMMENT = "comment"
     }
 }
