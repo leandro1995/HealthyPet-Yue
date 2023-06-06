@@ -13,12 +13,11 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
 
     private lateinit var injectionAdapter: InjectionAdapter
 
-    private val injectionArrayList = arrayListOf<Injection>()
+    private var injectionArrayList = arrayListOf<Injection>()
 
     fun injectionArrayList(injectionArrayList: ArrayList<Injection>) {
 
-        this.injectionArrayList.clear()
-        this.injectionArrayList.addAll(injectionArrayList)
+        this.injectionArrayList = ArrayList(injectionArrayList)
 
         if (this.injectionArrayList.isEmpty()) {
 
@@ -28,7 +27,7 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
             errorMessageGone()
         }
 
-        injectionAdapter.submitList(injectionArrayList)
+        injectionAdapter.submitList(ArrayList(this.injectionArrayList))
     }
 
     override fun adapter() {
