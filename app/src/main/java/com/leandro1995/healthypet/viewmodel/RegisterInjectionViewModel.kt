@@ -65,6 +65,7 @@ class RegisterInjectionViewModel : ViewModel() {
         registerInjectionMutableSateFlow.value = RegisterInjectionIntent.DatePickerDialog(
             calendar = Calendar(
                 date = injection.nextAppointment,
+                isToday = true,
                 isCalendarConstraints = true,
                 isNow = false
             )

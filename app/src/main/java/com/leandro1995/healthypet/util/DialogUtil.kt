@@ -24,7 +24,7 @@ class DialogUtil {
 
                 if (calendar.isToday) {
 
-                    if (calendar.isDateEmpty()) {
+                    if (calendar.isSelectDay()) {
 
                         dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                     } else {
