@@ -49,7 +49,7 @@ class RegisterPetViewModel : ViewModel() {
 
         registerPetMutableStateFlow.value = RegisterPetIntent.DatePickerDialog(
             calendar = Calendar(
-                date = pet.date, isToday = true, isNow = true
+                date = pet.date, isToday = true, isCalendarConstraints = true
             )
         )
     }

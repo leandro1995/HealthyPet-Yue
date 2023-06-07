@@ -33,9 +33,9 @@ class DialogUtil {
                     }
                 }
 
-                if (calendar.isNow) {
+                if (calendar.isCalendarConstraints) {
 
-                    dialog.setCalendarConstraints(DatePickerCalendarUtil.setValidatorNow())
+                    dialog.setCalendarConstraints(DatePickerCalendarUtil.setValidatorNow(isNow = calendar.isNow))
                 }
 
                 dialog.build().let { build ->
