@@ -20,7 +20,7 @@ class InjectionViewModel : ViewModel() {
         MutableStateFlow(InjectionIntent.View)
     }
 
-    private val pet = Pet()
+    val pet = Pet()
 
     val onClick = fun(action: Int) {
 
