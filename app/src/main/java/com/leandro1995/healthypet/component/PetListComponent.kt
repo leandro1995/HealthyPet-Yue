@@ -32,14 +32,7 @@ class PetListComponent(context: Context, attrs: AttributeSet? = null) :
             errorMessageGone()
         }
 
-        componentListPetBinding.listRecycler.let { recycler ->
-
-            recycler.layoutManager = GridLayoutManager(context, ComponentSetting.GRID_LAYOUT_TWO)
-
-            recycler.adapter = listPetAdapter
-        }
-
-        listPetAdapter.submitList(this.petArrayList)
+        listPetAdapter.submitList(ArrayList(this.petArrayList))
     }
 
     override fun adapter() {
@@ -53,6 +46,13 @@ class PetListComponent(context: Context, attrs: AttributeSet? = null) :
                     isPetListComponent(pet = pet)
                 }
             }
+        }
+
+        componentListPetBinding.listRecycler.let { recycler ->
+
+            recycler.layoutManager = GridLayoutManager(context, ComponentSetting.GRID_LAYOUT_TWO)
+
+            recycler.adapter = listPetAdapter
         }
 
         listPetAdapter.submitList(petArrayList)
