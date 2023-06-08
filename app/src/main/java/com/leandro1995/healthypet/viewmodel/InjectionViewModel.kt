@@ -41,7 +41,7 @@ class InjectionViewModel : ViewModel() {
     private fun registerInjection() {
 
         injectionMutableStateFlow.value =
-            InjectionIntent.RegisterInjection(activity = RegisterInjectionActivity())
+            InjectionIntent.RegisterInjection(activity = RegisterInjectionActivity(), pet = pet)
     }
 
     private fun injectionList() {

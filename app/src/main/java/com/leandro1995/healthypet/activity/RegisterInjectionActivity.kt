@@ -16,6 +16,7 @@ import com.leandro1995.healthypet.config.callback.intent.RegisterInjectionIntent
 import com.leandro1995.healthypet.databinding.ActivityRegisterInjectionBinding
 import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
+import com.leandro1995.healthypet.extension.putInt
 import com.leandro1995.healthypet.intent.config.RegisterInjectionIntentConfig
 import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.Message
@@ -56,8 +57,14 @@ class RegisterInjectionActivity : AppCompatActivity(), RegisterInjectionIntentCa
 
         registerInjectionBinding.registerInjectionViewModel = registerInjectionViewModel
 
+        putExtra()
         materialToolbar()
         collect()
+    }
+
+    private fun putExtra() {
+
+        registerInjectionViewModel.idPet = Setting.ID_PET_PUT putInt this
     }
 
     private fun materialToolbar() {

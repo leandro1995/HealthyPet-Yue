@@ -23,6 +23,7 @@ class RegisterInjectionViewModel : ViewModel() {
     }
 
     val injection = Injection()
+    var idPet = 0
 
     val onClick = fun(action: Int) {
 
@@ -76,7 +77,7 @@ class RegisterInjectionViewModel : ViewModel() {
 
         viewModelScope.launch {
 
-            injection.registerInjectionDatabase()
+            injection.registerInjectionDatabase(idPet = idPet)
 
             registerInjectionMutableSateFlow.value = RegisterInjectionIntent.CompleteRegistration
         }
