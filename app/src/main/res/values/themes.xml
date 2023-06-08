@@ -169,4 +169,22 @@
         <item name="iconTint">@color/blue_4596EA</item>
     </style>
 
+    <style name="MessageDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+
+        <item name="colorSurface">@color/white</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+    </style>
+
 </resources>

@@ -56,8 +56,11 @@ class DialogUtil {
 
         fun messageDialog(activity: Activity, message: Message) {
 
-            MaterialAlertDialogBuilder(activity).setTitle(activity.getString(R.string.app_name))
-                .setMessage(activity.getString(message.messageError()!!))
+            MaterialAlertDialogBuilder(activity, R.style.MessageDialog).setTitle(
+                activity.getString(
+                    R.string.app_name
+                )
+            ).setMessage(activity.getString(message.messageError()!!))
                 .setPositiveButton(activity.getString(R.string.accept_button)) { _, _ ->
 
                 }.show()
