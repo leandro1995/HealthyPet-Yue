@@ -100,6 +100,14 @@
         <item name="android:layout_height">@dimen/dimen_60</item>
     </style>
 
+    <style name="DeleteButton" parent="Button">
+
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/red_EF403B</item>
+        <item name="strokeColor">@color/red_EF403B</item>
+        <item name="strokeWidth">@dimen/dimen_2</item>
+    </style>
+
     <style name="MaterialToolBar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
 
         <item name="titleTextColor">@color/blue_070821</item>

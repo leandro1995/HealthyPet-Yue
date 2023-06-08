@@ -22,10 +22,9 @@
             android:layout_marginStart="@dimen/dimen_0"
             android:layout_marginTop="@dimen/dimen_0"
             android:layout_marginEnd="@dimen/dimen_0"
-            android:layout_marginBottom="@dimen/dimen_0"
             android:orientation="vertical"
             android:padding="@dimen/dimen_16"
-            app:layout_constraintBottom_toTopOf="@+id/editButton"
+            app:layout_constraintBottom_toTopOf="@+id/deleteButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -243,6 +242,17 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/deleteButton"
+            style="@style/DeleteButton"
+            android:layout_marginStart="@dimen/dimen_0"
+            android:layout_marginEnd="@dimen/dimen_0"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:text="@string/delete_pet_button"
+            app:layout_constraintBottom_toTopOf="@+id/editButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/editButton"

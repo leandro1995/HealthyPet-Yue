@@ -70,6 +70,7 @@
     <string name="accept_button">Aceptar</string>
     <string name="edit_pet_button">Editar Mascota</string>
     <string name="add_injection_button">Agregar vacuna</string>
+    <string name="delete_pet_button">Eliminar mascota</string>
 
     <!-- Error Message -->
 
