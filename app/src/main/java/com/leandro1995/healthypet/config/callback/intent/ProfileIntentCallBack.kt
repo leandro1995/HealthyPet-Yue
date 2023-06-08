@@ -16,4 +16,6 @@ interface ProfileIntentCallBack {
     fun editProfilePetActivity(activity: Activity, pet: Pet)
 
     fun idPet(pet: Pet)
+
+    fun listPetActivity(activity: Activity, petArrayList: ArrayList<Pet>)
 }

@@ -42,6 +42,14 @@ object ProfileIntentConfig {
 
                 profileIntentCallBack.idPet(pet = profileIntent.pet)
             }
+
+            is ProfileIntent.ListPetActivity -> {
+
+                profileIntentCallBack.listPetActivity(
+                    activity = profileIntent.activity,
+                    petArrayList = profileIntent.petArrayList
+                )
+            }
         }
     }
 }

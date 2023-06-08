@@ -78,6 +78,11 @@ class Pet constructor(
         return injectionArrayList
     }
 
+    suspend fun deletePetDataBase() {
+
+        DataBaseConfig.petDao().deletePet(id = id)
+    }
+
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()
 
     private fun isNameEmpty() = name.isEmpty()
