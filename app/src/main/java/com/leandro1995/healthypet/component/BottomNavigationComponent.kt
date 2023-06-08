@@ -17,6 +17,8 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
 
     private lateinit var componentBottomNavigationBinding: ComponentBottomNavigationBinding
 
+    private var idMenu = R.id.navigation_profile
+
     init {
 
         typedArray(
@@ -69,7 +71,11 @@ class BottomNavigationComponent(context: Context, attrs: AttributeSet? = null) :
 
             setOnItemSelectedListener {
 
-                navController.navigate(it.itemId)
+                if (idMenu != it.itemId) {
+
+                    navController.navigate(it.itemId)
+                    idMenu = it.itemId
+                }
 
                 return@setOnItemSelectedListener true
             }
