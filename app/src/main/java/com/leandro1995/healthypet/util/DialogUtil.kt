@@ -20,6 +20,8 @@ class DialogUtil {
 
             MaterialDatePicker.Builder.datePicker().let { dialog ->
 
+                dialog.setTheme(R.style.dialog)
+
                 dialog.setTitleText(activity.getString(R.string.app_name))
 
                 if (calendar.isToday) {
