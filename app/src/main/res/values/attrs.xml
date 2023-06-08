@@ -12,6 +12,7 @@
 
         <attr name="image_error_list" format="reference" />
         <attr name="text_error_list" format="string" />
+        <attr name="is_loading_list" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="BottomNavigationComponent">

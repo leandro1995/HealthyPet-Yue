@@ -19,15 +19,18 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
 
         this.injectionArrayList = ArrayList(injectionArrayList)
 
-        if (this.injectionArrayList.isEmpty()) {
+        isLoadingList {
 
-            errorMessageVisible()
-        } else {
+            if (this.injectionArrayList.isEmpty()) {
 
-            errorMessageGone()
+                errorMessageVisible()
+            } else {
+
+                errorMessageGone()
+            }
+
+            injectionAdapter.submitList(ArrayList(this.injectionArrayList))
         }
-
-        injectionAdapter.submitList(ArrayList(this.injectionArrayList))
     }
 
     override fun adapter() {

@@ -7,17 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.component.config.ComponentSetting
 import com.leandro1995.healthypet.component.util.TypeArrayComponentUtil
 import com.leandro1995.healthypet.databinding.ComponentListPetBinding
+import com.leandro1995.healthypet.extension.coroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import java.util.concurrent.TimeUnit
 
 open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
     ViewAmbient(context, attrs) {
 
     protected lateinit var componentListPetBinding: ComponentListPetBinding
 
-    init {
+    private var isLoading = false
 
-        errorMessageVisible()
+    init {
 
         typedArray(
             typedArray = attributes(
@@ -25,6 +30,7 @@ open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
             )
         )
 
+        isLoading()
         adapter()
     }
 
@@ -50,8 +56,11 @@ open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
             )
 
             componentListPetBinding.errorText.text = typedArrayComponent.typeArrayText(
-                typedArray = typedArray,
-                indexAttr = R.styleable.ListViewAmbient_text_error_list
+                typedArray = typedArray, indexAttr = R.styleable.ListViewAmbient_text_error_list
+            )
+
+            isLoading = typedArrayComponent.typeArrayBoolean(
+                typedArray = typedArray, indexAttr = R.styleable.ListViewAmbient_is_loading_list
             )
         }
     }
@@ -68,5 +77,35 @@ open class ListViewAmbient(context: Context, attrs: AttributeSet? = null) :
 
         componentListPetBinding.messageErrorLinear.visibility = View.GONE
         componentListPetBinding.listLinear.visibility = View.VISIBLE
+    }
+
+    protected fun isLoadingList(method: () -> Unit) {
+
+        coroutineScope(context = Dispatchers.Main, method = {
+
+            if (isLoading) {
+
+                delay(TimeUnit.SECONDS.toMillis(ComponentSetting.TIME_OUT_LIST))
+            }
+
+            method()
+
+            isLoading = false
+            loadingGone()
+        })
+    }
+
+    private fun isLoading() {
+
+        if (!isLoading) {
+
+            loadingGone()
+            errorMessageVisible()
+        }
+    }
+
+    private fun loadingGone() {
+
+        componentListPetBinding.progressBar.visibility = View.GONE
     }
 }
