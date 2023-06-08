@@ -14,5 +14,8 @@ class DatabaseSetting {
         const val NEXT_APPOINTMENT = "next_Appointment"
         const val ID_TYPE_INJECTION = "id_type_Injection"
         const val COMMENT = "comment"
+        const val ID_PET = "id_pet"
+
+        const val DEFAULT_VALUE_NUMBER = "0"
     }
 }

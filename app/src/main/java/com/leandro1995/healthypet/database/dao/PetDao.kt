@@ -22,4 +22,7 @@ interface PetDao {
 
     @Query("select * from Pet where ${DatabaseSetting.ID} = :id")
     suspend fun idPet(id: Int): Pet
+
+    @Query("delete from Pet where ${DatabaseSetting.ID} = :id")
+    suspend fun deletePet(id: Int)
 }

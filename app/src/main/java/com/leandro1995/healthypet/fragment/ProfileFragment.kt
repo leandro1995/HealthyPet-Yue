@@ -107,9 +107,16 @@ class ProfileFragment : Fragment(), ProfileIntentCallBack {
     override fun idPet(pet: Pet) {
 
         ProfileViewUtil.profilePetView(
-            activity = requireActivity(),
-            pet = pet,
-            fragmentProfileBinding = profileBinding
+            activity = requireActivity(), pet = pet, fragmentProfileBinding = profileBinding
         )
+    }
+
+    override fun listPetActivity(activity: Activity, petArrayList: ArrayList<Pet>) {
+
+        startActivity(Intent(requireActivity(), activity::class.java).apply {
+
+            putExtra(Setting.PET_ARRAY_LIST_PUT, petArrayList)
+        })
+        requireActivity().finishAffinity()
     }
 }

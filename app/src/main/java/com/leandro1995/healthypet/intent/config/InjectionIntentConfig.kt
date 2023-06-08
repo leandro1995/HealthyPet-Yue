@@ -23,7 +23,9 @@ object InjectionIntentConfig {
 
             is InjectionIntent.RegisterInjection -> {
 
-                injectionIntentCallBack.registerInjection(activity = injectionIntent.activity)
+                injectionIntentCallBack.registerInjection(
+                    activity = injectionIntent.activity, pet = injectionIntent.pet
+                )
             }
 
             is InjectionIntent.InjectionArrayList -> {

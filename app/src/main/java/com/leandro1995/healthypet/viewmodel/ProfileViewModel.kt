@@ -3,10 +3,12 @@ package com.leandro1995.healthypet.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.leandro1995.healthypet.activity.EditProfilePetActivity
+import com.leandro1995.healthypet.activity.ListPetActivity
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.intent.ProfileIntent
 import com.leandro1995.healthypet.model.design.Url
 import com.leandro1995.healthypet.model.entity.Pet
+import com.leandro1995.healthypet.model.entity.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
@@ -18,6 +20,7 @@ class ProfileViewModel : ViewModel() {
         const val PLAY_STORE = 1
         const val EDIT_PROFILE_PET_ACTIVITY = 2
         const val ID_PET = 3
+        const val DELETE_PET = 4
     }
 
     val profileMutableStateFlow: MutableStateFlow<ProfileIntent> by lazy {
@@ -49,6 +52,11 @@ class ProfileViewModel : ViewModel() {
 
                 idPet()
             }
+
+            DELETE_PET -> {
+
+                deletePet()
+            }
         }
     }
 
@@ -77,6 +85,18 @@ class ProfileViewModel : ViewModel() {
             pet = pet.idPetDatabase()
 
             profileMutableStateFlow.value = ProfileIntent.IdPet(pet = pet)
+        }
+    }
+
+    private fun deletePet() {
+
+        viewModelScope.launch {
+
+            pet.deletePetDataBase()
+
+            profileMutableStateFlow.value = ProfileIntent.ListPetActivity(
+                activity = ListPetActivity(), petArrayList = User().petArrayListDatabase()
+            )
         }
     }
 }

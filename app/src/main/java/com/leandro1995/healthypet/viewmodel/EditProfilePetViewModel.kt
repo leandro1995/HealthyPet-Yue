@@ -49,7 +49,7 @@ class EditProfilePetViewModel : ViewModel() {
 
         editProfilePetMutableStateFlow.value = EditProfilePetIntent.DatePickerDialog(
             calendar = Calendar(
-                date = pet.date, isNow = true, isToday = true
+                date = pet.date, isCalendarConstraints = true, isToday = true
             )
         )
     }

@@ -17,4 +17,9 @@ sealed class ProfileIntent {
         ProfileIntent()
 
     data class IdPet constructor(val pet: Pet) : ProfileIntent()
+
+    data class ListPetActivity constructor(
+        val activity: Activity,
+        val petArrayList: ArrayList<Pet>
+    ) : ProfileIntent()
 }

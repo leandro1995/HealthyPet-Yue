@@ -13,6 +13,13 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
+    <style name="DateDialog" parent="Theme.Material3.Light.NoActionBar">
+
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blue_4596EA</item>
+        <item name="colorAccent">@color/blue_4596EA</item>
+    </style>
+
     <style name="Theme.HealthyPet" parent="Base.Theme.HealthyPet" />
 
     <style name="Theme.Transparent" parent="Base.Theme.HealthyPet">
@@ -93,6 +100,14 @@
         <item name="android:layout_height">@dimen/dimen_60</item>
     </style>
 
+    <style name="DeleteButton" parent="Button">
+
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/red_EF403B</item>
+        <item name="strokeColor">@color/red_EF403B</item>
+        <item name="strokeWidth">@dimen/dimen_2</item>
+    </style>
+
     <style name="MaterialToolBar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
 
         <item name="titleTextColor">@color/blue_070821</item>
@@ -120,6 +135,64 @@
 
         <item name="colorSecondaryContainer">@color/blue_4552CB</item>
         <item name="fontFamily">@font/medium</item>
+    </style>
+
+    <!-- Dialog App -->
+
+    <style name="dialog" parent="@style/ThemeOverlay.Material3.MaterialCalendar">
+
+        <item name="materialCalendarHeaderTitle">@style/TitleDialog</item>
+        <item name="materialCalendarHeaderSelection">@style/HeaderDateDialog</item>
+        <item name="materialCalendarHeaderToggleButton">@style/SwitchToKeyboardDateDialog</item>
+        <item name="materialCalendarYearNavigationButton">@style/YearSelectionDateDialog</item>
+        <item name="materialCalendarMonthNavigationButton">@style/MonthPaginationDateDialog</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="theme">@style/DateDialog</item>
+    </style>
+
+    <style name="TitleDialog" parent="@style/Widget.Material3.MaterialCalendar.HeaderTitle">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+    </style>
+
+    <style name="HeaderDateDialog" parent="@style/Widget.Material3.MaterialCalendar.HeaderSelection">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+    </style>
+
+    <style name="SwitchToKeyboardDateDialog" parent="@style/Widget.Material3.MaterialCalendar.HeaderToggleButton">
+
+        <item name="android:tint">@color/blue_4596EA</item>
+    </style>
+
+    <style name="YearSelectionDateDialog" parent="@style/Widget.Material3.MaterialCalendar.YearNavigationButton">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+        <item name="iconTint">@color/blue_4596EA</item>
+    </style>
+
+    <style name="MonthPaginationDateDialog" parent="@style/Widget.Material3.MaterialCalendar.MonthNavigationButton">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+        <item name="iconTint">@color/blue_4596EA</item>
+    </style>
+
+    <style name="MessageDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+
+        <item name="colorSurface">@color/white</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+
+        <item name="android:textColor">@color/blue_4596EA</item>
     </style>
 
 </resources>

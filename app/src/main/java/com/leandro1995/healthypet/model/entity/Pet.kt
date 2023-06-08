@@ -70,12 +70,17 @@ class Pet constructor(
 
         val injectionArrayList = arrayListOf<Injection>()
 
-        DataBaseConfig.injectionDao().injectionList().forEach {
+        DataBaseConfig.injectionDao().injectionList(idPet = id).forEach {
 
             injectionArrayList.add(it.injection())
         }
 
         return injectionArrayList
+    }
+
+    suspend fun deletePetDataBase() {
+
+        DataBaseConfig.petDao().deletePet(id = id)
     }
 
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()

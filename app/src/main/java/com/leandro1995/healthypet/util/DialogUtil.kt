@@ -20,11 +20,13 @@ class DialogUtil {
 
             MaterialDatePicker.Builder.datePicker().let { dialog ->
 
+                dialog.setTheme(R.style.dialog)
+
                 dialog.setTitleText(activity.getString(R.string.app_name))
 
                 if (calendar.isToday) {
 
-                    if (calendar.isDateEmpty()) {
+                    if (calendar.isSelectDay()) {
 
                         dialog.setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                     } else {
@@ -33,9 +35,9 @@ class DialogUtil {
                     }
                 }
 
-                if (calendar.isNow) {
+                if (calendar.isCalendarConstraints) {
 
-                    dialog.setCalendarConstraints(DatePickerCalendarUtil.setValidatorNow())
+                    dialog.setCalendarConstraints(DatePickerCalendarUtil.setValidatorNow(isNow = calendar.isNow))
                 }
 
                 dialog.build().let { build ->
@@ -54,8 +56,11 @@ class DialogUtil {
 
         fun messageDialog(activity: Activity, message: Message) {
 
-            MaterialAlertDialogBuilder(activity).setTitle(activity.getString(R.string.app_name))
-                .setMessage(activity.getString(message.messageError()!!))
+            MaterialAlertDialogBuilder(activity, R.style.MessageDialog).setTitle(
+                activity.getString(
+                    R.string.app_name
+                )
+            ).setMessage(activity.getString(message.messageError()!!))
                 .setPositiveButton(activity.getString(R.string.accept_button)) { _, _ ->
 
                 }.show()

@@ -14,9 +14,11 @@ import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
 import com.leandro1995.healthypet.extension.putInjection
+import com.leandro1995.healthypet.extension.putInt
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
 import com.leandro1995.healthypet.intent.config.InjectionIntentConfig
 import com.leandro1995.healthypet.model.entity.Injection
+import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.util.ActivityUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.InjectionViewModel
@@ -47,10 +49,16 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
         injectionBinding.injectionViewModel = injectionViewModel
 
+        putExtra()
         materialToolBar()
         collect()
 
         return injectionBinding.root
+    }
+
+    private fun putExtra() {
+
+        injectionViewModel.pet.id = Setting.ID_PET_PUT putInt requireActivity()
     }
 
     private fun collect() {
@@ -78,9 +86,12 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
         injectionViewModel.onClick.invoke(InjectionViewModel.INJECTION_LIST)
     }
 
-    override fun registerInjection(activity: Activity) {
+    override fun registerInjection(activity: Activity, pet: Pet) {
 
-        result.launch(Intent(requireActivity(), activity::class.java))
+        result.launch(Intent(requireActivity(), activity::class.java).apply {
+
+            putExtra(Setting.ID_PET_PUT, pet.id)
+        })
     }
 
     override fun injectionArrayList(injectionArrayList: ArrayList<Injection>) {

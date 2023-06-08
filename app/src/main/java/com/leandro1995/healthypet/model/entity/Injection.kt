@@ -45,10 +45,11 @@ class Injection constructor(
     fun dateNextAppointment(format: String) =
         nextAppointment.dateFormat(format = format, isCalendar = false)
 
-    suspend fun registerInjectionDatabase() {
+    suspend fun registerInjectionDatabase(idPet: Int) {
 
         id = DataBaseConfig.injectionDao().register(
             injection = Injection(
+                idPet = idPet,
                 photoUrl = photoUrl,
                 currentDate = currentDate,
                 nextAppointment = nextAppointment,

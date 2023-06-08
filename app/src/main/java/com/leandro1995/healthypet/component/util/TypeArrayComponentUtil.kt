@@ -20,5 +20,8 @@ class TypeArrayComponentUtil {
         fun typeArrayMenu(typedArray: TypedArray?, indexAttr: Int) =
             typedArray?.getResourceId(indexAttr, android.R.color.transparent)
                 ?: android.R.color.transparent
+
+        fun typeArrayBoolean(typedArray: TypedArray?, indexAttr: Int) =
+            typedArray?.getBoolean(indexAttr, false) ?: false
     }
 }
