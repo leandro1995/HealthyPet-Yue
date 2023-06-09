@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.activity.DetailInjectionActivity
+import com.leandro1995.healthypet.component.config.callback.InjectionListComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
@@ -84,6 +86,15 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
     override fun view() {
 
         injectionViewModel.onClick.invoke(InjectionViewModel.INJECTION_LIST)
+
+        injectionBinding.injectionListComponent.injectionListComponentCallBack =
+            object : InjectionListComponentCallBack {
+
+                override fun injection(injection: Injection) {
+
+                    starActivityDetailInjection(injection = injection)
+                }
+            }
     }
 
     override fun registerInjection(activity: Activity, pet: Pet) {
@@ -100,5 +111,13 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
         this.injectionArrayList.addAll(injectionArrayList)
 
         injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = this.injectionArrayList)
+    }
+
+    private fun starActivityDetailInjection(injection: Injection) {
+
+        startActivity(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
+
+            putExtra(Setting.INJECTION_PUT, injection)
+        })
     }
 }

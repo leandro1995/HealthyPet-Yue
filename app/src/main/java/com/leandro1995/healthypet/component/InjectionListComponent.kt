@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leandro1995.healthypet.adapter.InjectionAdapter
 import com.leandro1995.healthypet.component.ambient.ListViewAmbient
+import com.leandro1995.healthypet.component.config.callback.InjectionListComponentCallBack
+import com.leandro1995.healthypet.config.adapter.InjectionAdapterCallBack
 import com.leandro1995.healthypet.model.entity.Injection
 
 class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
@@ -14,6 +16,8 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
     private lateinit var injectionAdapter: InjectionAdapter
 
     private var injectionArrayList = arrayListOf<Injection>()
+
+    var injectionListComponentCallBack: InjectionListComponentCallBack? = null
 
     fun injectionArrayList(injectionArrayList: ArrayList<Injection>) {
 
@@ -35,7 +39,16 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
 
     override fun adapter() {
 
-        injectionAdapter = InjectionAdapter(activity = (context as AppCompatActivity))
+        injectionAdapter = InjectionAdapter(activity = (context as AppCompatActivity)).apply {
+
+            injectionAdapterCallBack = object : InjectionAdapterCallBack {
+
+                override fun injection(injection: Injection) {
+
+                    isInjectionListComponent(injection = injection)
+                }
+            }
+        }
 
         componentListPetBinding.listRecycler.let { recycler ->
 
@@ -46,5 +59,13 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
         }
 
         injectionAdapter.submitList(injectionArrayList)
+    }
+
+    private fun isInjectionListComponent(injection: Injection) {
+
+        if (injectionListComponentCallBack != null) {
+
+            injectionListComponentCallBack!!.injection(injection = injection)
+        }
     }
 }
