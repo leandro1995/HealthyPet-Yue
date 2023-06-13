@@ -80,6 +80,15 @@ infix fun String.putPet(activity: Activity) =
         @Suppress("DEPRECATION") activity.intent.getSerializableExtra(this) as Pet
     }
 
+infix fun String.putInjection(activity: Activity) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+
+        activity.intent.getSerializableExtra(this, Injection::class.java)
+    } else {
+
+        @Suppress("DEPRECATION") activity.intent.getSerializableExtra(this) as Injection
+    }
+
 infix fun Intent.putString(key: String) = this.getStringExtra(key)
 
 infix fun Intent.putPet(key: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
