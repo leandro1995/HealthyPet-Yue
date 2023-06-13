@@ -20,6 +20,14 @@ object DetailInjectionIntentConfig {
 
                 detailInjectionIntentCallBack.view()
             }
+
+            is DetailInjectionIntent.InjectionStatus -> {
+
+                detailInjectionIntentCallBack.injectionStatus(
+                    isStatus = detailInjectionIntent.isStatus,
+                    injection = detailInjectionIntent.injection
+                )
+            }
         }
     }
 }

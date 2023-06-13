@@ -159,6 +159,7 @@
                 android:layout_width="@dimen/dimen_0"
                 android:layout_marginStart="@dimen/dimen_5"
                 android:layout_weight="1"
+                android:onClick="@{()-> detailInjectionViewModel.onClick.invoke(detailInjectionViewModel.DELETE_INJECTION)}"
                 android:text="@string/delete_button" />
 
         </LinearLayout>

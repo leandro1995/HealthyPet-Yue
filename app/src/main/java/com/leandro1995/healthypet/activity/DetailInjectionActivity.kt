@@ -1,5 +1,7 @@
 package com.leandro1995.healthypet.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,7 @@ import com.leandro1995.healthypet.databinding.ActivityDetailInjectionBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.intent.config.DetailInjectionIntentConfig
+import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.viewmodel.DetailInjectionViewModel
 
 class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBack {
@@ -51,5 +54,15 @@ class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBa
 
     override fun view() {
 
+    }
+
+    override fun injectionStatus(isStatus: Boolean, injection: Injection) {
+
+        setResult(Activity.RESULT_OK, Intent().apply {
+
+            putExtra(Setting.BOOLEAN_PUT, isStatus)
+            putExtra(Setting.INJECTION_PUT, injection)
+        })
+        finish()
     }
 }
