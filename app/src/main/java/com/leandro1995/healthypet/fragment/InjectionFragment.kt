@@ -33,7 +33,7 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     private val injectionArrayList = ArrayList<Injection>()
 
-    private val result = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
+    private val resultRegister = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
 
         injectionArrayList.add((it putInjection Setting.INJECTION_PUT)!!)
 
@@ -99,7 +99,7 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     override fun registerInjection(activity: Activity, pet: Pet) {
 
-        result.launch(Intent(requireActivity(), activity::class.java).apply {
+        resultRegister.launch(Intent(requireActivity(), activity::class.java).apply {
 
             putExtra(Setting.ID_PET_PUT, pet.id)
         })
