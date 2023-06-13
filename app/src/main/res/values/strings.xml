@@ -71,6 +71,8 @@
     <string name="edit_pet_button">Editar Mascota</string>
     <string name="add_injection_button">Agregar vacuna</string>
     <string name="delete_pet_button">Eliminar mascota</string>
+    <string name="delete_button">Eliminar</string>
+    <string name="edit_button">Editar</string>
 
     <!-- Error Message -->
 
