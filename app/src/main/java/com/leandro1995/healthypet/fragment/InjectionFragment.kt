@@ -40,6 +40,10 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
         injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
     })
 
+    private val resultEdit = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
+
+    })
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -115,7 +119,7 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     private fun starActivityDetailInjection(injection: Injection) {
 
-        startActivity(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
+        resultEdit.launch(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
 
             putExtra(Setting.INJECTION_PUT, injection)
         })
