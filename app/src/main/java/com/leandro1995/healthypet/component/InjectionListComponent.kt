@@ -1,5 +1,6 @@
 package com.leandro1995.healthypet.component
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
 
     var injectionListComponentCallBack: InjectionListComponentCallBack? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun injectionArrayList(injectionArrayList: ArrayList<Injection>) {
 
         this.injectionArrayList = ArrayList(injectionArrayList)
@@ -33,8 +35,11 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
                 errorMessageGone()
             }
 
-            injectionAdapter.submitList(null)
-            injectionAdapter.submitList(ArrayList(this.injectionArrayList))
+            injectionAdapter.let { adapter ->
+
+                adapter.submitList(ArrayList(this.injectionArrayList))
+                adapter.notifyDataSetChanged()
+            }
         }
     }
 
