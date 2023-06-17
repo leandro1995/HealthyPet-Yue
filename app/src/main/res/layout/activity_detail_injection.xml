@@ -152,6 +152,7 @@
                 android:layout_width="@dimen/dimen_0"
                 android:layout_marginEnd="@dimen/dimen_5"
                 android:layout_weight="1"
+                android:onClick="@{()->detailInjectionViewModel.onClick.invoke(detailInjectionViewModel.UPDATE_INJECTION)}"
                 android:text="@string/edit_button" />
 
             <Button

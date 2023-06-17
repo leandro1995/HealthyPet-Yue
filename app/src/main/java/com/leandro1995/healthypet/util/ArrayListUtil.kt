@@ -64,6 +64,22 @@ class ArrayListUtil {
             injectionArrayList.removeAll { it.id == id }
         }
 
+        fun injectionUpdateItem(
+            injection: Injection,
+            injectionArrayList: ArrayList<Injection>,
+        ) {
+
+            injectionArrayList.find { it.id == injection.id }?.let {
+
+                it.id = injection.id
+                it.photoUrl = injection.photoUrl
+                it.currentDate = injection.currentDate
+                it.nextAppointment = injection.nextAppointment
+                it.typeInjection = injection.typeInjection
+                it.comment = injection.comment
+            }
+        }
+
         private fun typeInjectionArrayList(activity: Activity) = arrayListOf(
             TypeInjection(id = 0, name = activity.getString(R.string.distemper_text)),
             TypeInjection(id = 1, name = activity.getString(R.string.par_virus_text)),

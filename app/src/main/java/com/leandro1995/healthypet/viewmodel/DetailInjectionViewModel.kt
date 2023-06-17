@@ -10,6 +10,7 @@ class DetailInjectionViewModel : ViewModel() {
     companion object {
 
         const val DELETE_INJECTION = 0
+        const val UPDATE_INJECTION = 1
     }
 
     val detailInjectionMutableStateFlow: MutableStateFlow<DetailInjectionIntent> by lazy {
@@ -26,6 +27,11 @@ class DetailInjectionViewModel : ViewModel() {
 
                 deleteInjection()
             }
+
+            UPDATE_INJECTION -> {
+
+                updateInjection()
+            }
         }
     }
 
@@ -33,5 +39,11 @@ class DetailInjectionViewModel : ViewModel() {
 
         detailInjectionMutableStateFlow.value =
             DetailInjectionIntent.InjectionStatus(isStatus = true, injection = injection)
+    }
+
+    private fun updateInjection() {
+
+        detailInjectionMutableStateFlow.value =
+            DetailInjectionIntent.InjectionStatus(isStatus = false, injection = injection)
     }
 }

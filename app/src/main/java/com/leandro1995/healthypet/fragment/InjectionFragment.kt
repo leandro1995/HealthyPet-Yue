@@ -135,12 +135,17 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
         DesignUtil.injectionStatus(isStatus = isStatus, update = {
 
+            ArrayListUtil.injectionUpdateItem(
+                injection = injection, injectionArrayList = injectionArrayList
+            )
+
         }, delete = {
 
             ArrayListUtil.injectionRemoverItem(
                 id = injection.id, injectionArrayList = injectionArrayList
             )
-            injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
         })
+
+        injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
     }
 }
