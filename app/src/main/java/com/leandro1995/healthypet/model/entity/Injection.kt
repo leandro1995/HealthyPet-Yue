@@ -64,6 +64,18 @@ class Injection constructor(
         DataBaseConfig.injectionDao().deleteInjection(id = id)
     }
 
+    suspend fun updateInjectionDatabase() {
+
+        DataBaseConfig.injectionDao().updateInjection(
+            id = id,
+            photoUrl = photoUrl,
+            currentDate = currentDate,
+            nextAppointment = nextAppointment,
+            idTypeInjection = typeInjection.id,
+            comment = comment
+        )
+    }
+
     private fun isPhotoUrl() = photoUrl.isEmpty()
 
     private fun isNextAppointment() = nextAppointment == -1L

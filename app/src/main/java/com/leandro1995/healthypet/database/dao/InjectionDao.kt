@@ -17,4 +17,14 @@ interface InjectionDao {
 
     @Query("delete from Injection where ${DatabaseSetting.ID} = :id")
     suspend fun deleteInjection(id: Int)
+
+    @Query("update Injection set ${DatabaseSetting.PHOTO_URL} =:photoUrl, ${DatabaseSetting.CURRENT_DATE} =:currentDate, ${DatabaseSetting.NEXT_APPOINTMENT} = :nextAppointment, ${DatabaseSetting.ID_TYPE_INJECTION} =:idTypeInjection, ${DatabaseSetting.COMMENT} =:comment where ${DatabaseSetting.ID} = :id")
+    suspend fun updateInjection(
+        id: Int,
+        photoUrl: String,
+        currentDate: Long,
+        nextAppointment: Long,
+        idTypeInjection: Int,
+        comment: String
+    )
 }

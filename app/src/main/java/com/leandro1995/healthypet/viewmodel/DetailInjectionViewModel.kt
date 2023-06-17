@@ -50,7 +50,12 @@ class DetailInjectionViewModel : ViewModel() {
 
     private fun updateInjection() {
 
-        detailInjectionMutableStateFlow.value =
-            DetailInjectionIntent.InjectionStatus(isStatus = false, injection = injection)
+        viewModelScope.launch {
+
+            injection.updateInjectionDatabase()
+
+            detailInjectionMutableStateFlow.value =
+                DetailInjectionIntent.InjectionStatus(isStatus = false, injection = injection)
+        }
     }
 }
