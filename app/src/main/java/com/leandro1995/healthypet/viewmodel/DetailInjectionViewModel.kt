@@ -1,9 +1,11 @@
 package com.leandro1995.healthypet.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.leandro1995.healthypet.intent.DetailInjectionIntent
 import com.leandro1995.healthypet.model.entity.Injection
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 
 class DetailInjectionViewModel : ViewModel() {
 
@@ -37,8 +39,13 @@ class DetailInjectionViewModel : ViewModel() {
 
     private fun deleteInjection() {
 
-        detailInjectionMutableStateFlow.value =
-            DetailInjectionIntent.InjectionStatus(isStatus = true, injection = injection)
+        viewModelScope.launch {
+
+            injection.deleteInjectionDatabase()
+
+            detailInjectionMutableStateFlow.value =
+                DetailInjectionIntent.InjectionStatus(isStatus = true, injection = injection)
+        }
     }
 
     private fun updateInjection() {

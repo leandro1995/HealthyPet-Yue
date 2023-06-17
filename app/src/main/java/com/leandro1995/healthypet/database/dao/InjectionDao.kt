@@ -14,4 +14,7 @@ interface InjectionDao {
 
     @Query("select * from Injection where ${DatabaseSetting.ID_PET} == :idPet")
     suspend fun injectionList(idPet: Int): MutableList<Injection>
+
+    @Query("delete from Injection where ${DatabaseSetting.ID} = :id")
+    suspend fun deleteInjection(id: Int)
 }

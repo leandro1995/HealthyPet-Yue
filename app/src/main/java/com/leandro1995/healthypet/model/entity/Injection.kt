@@ -59,6 +59,11 @@ class Injection constructor(
         ).toInt()
     }
 
+    suspend fun deleteInjectionDatabase() {
+
+        DataBaseConfig.injectionDao().deleteInjection(id = id)
+    }
+
     private fun isPhotoUrl() = photoUrl.isEmpty()
 
     private fun isNextAppointment() = nextAppointment == -1L
