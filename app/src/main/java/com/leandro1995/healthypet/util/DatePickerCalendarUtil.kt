@@ -26,8 +26,6 @@ class DatePickerCalendarUtil() {
 
             calendar.time = Date()
 
-            calendar.add(Calendar.DAY_OF_MONTH, -1)
-
             return calendar.time.time
         }
     }
