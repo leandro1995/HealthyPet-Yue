@@ -1,7 +1,6 @@
 package com.leandro1995.healthypet.adapter
 
 import android.app.Activity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +33,6 @@ class InjectionAdapter constructor(private val activity: Activity) :
         holder.apply {
 
             getItem(position).let { injection ->
-
-                Log.e("ID","${injection.typeInjection.id}")
 
                 photoSimple.setImageURI(injection.photoFile())
                 dateText.text = injection.dateNextAppointment(format = Setting.DATE_FORMAT_ONE)

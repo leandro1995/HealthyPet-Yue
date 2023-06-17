@@ -33,6 +33,7 @@ class InjectionListComponent(context: Context, attrs: AttributeSet? = null) :
                 errorMessageGone()
             }
 
+            injectionAdapter.submitList(null)
             injectionAdapter.submitList(ArrayList(this.injectionArrayList))
         }
     }
