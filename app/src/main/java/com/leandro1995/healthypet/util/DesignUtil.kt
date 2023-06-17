@@ -134,6 +134,17 @@ class DesignUtil {
             putExtra(Setting.CODE_MESSAGE_PUT, code)
         }
 
+        fun injectionStatus(isStatus: Boolean, update: () -> Unit, delete: () -> Unit) {
+
+            if (isStatus) {
+
+                delete()
+            } else {
+
+                update()
+            }
+        }
+
         private fun colorHtml(string: String) = "<font color='#FFCF6F'>${string}.</font>"
     }
 }

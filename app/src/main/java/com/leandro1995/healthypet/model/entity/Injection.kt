@@ -9,7 +9,7 @@ import java.io.Serializable
 import java.util.Date
 
 class Injection constructor(
-    private var id: Int = -1,
+    var id: Int = -1,
     var photoUrl: String = "",
     var currentDate: Long = Date().time,
     var nextAppointment: Long = -1L,
@@ -57,6 +57,23 @@ class Injection constructor(
                 comment = comment
             )
         ).toInt()
+    }
+
+    suspend fun deleteInjectionDatabase() {
+
+        DataBaseConfig.injectionDao().deleteInjection(id = id)
+    }
+
+    suspend fun updateInjectionDatabase() {
+
+        DataBaseConfig.injectionDao().updateInjection(
+            id = id,
+            photoUrl = photoUrl,
+            currentDate = currentDate,
+            nextAppointment = nextAppointment,
+            idTypeInjection = typeInjection.id,
+            comment = comment
+        )
     }
 
     private fun isPhotoUrl() = photoUrl.isEmpty()

@@ -4,6 +4,7 @@ import android.app.Activity
 import com.leandro1995.healthypet.R
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.model.design.WelcomePage
+import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.model.entity.TypeInjection
 import com.leandro1995.healthypet.model.entity.Spice
 
@@ -55,8 +56,47 @@ class ArrayListUtil {
             return typeInjectionCheckedArrayList
         }
 
+        fun typeInjectionCheckedArrayList(
+            activity: Activity, typeInjectionId: Int
+        ): ArrayList<TypeInjectionChecked> {
+
+            val typeInjectionCheckedArrayList = ArrayList<TypeInjectionChecked>()
+
+            typeInjectionArrayList(activity = activity).forEach {
+
+                typeInjectionCheckedArrayList.add(
+                    TypeInjectionChecked(
+                        typeInjection = it, isChecked = it.id == typeInjectionId
+                    )
+                )
+            }
+
+            return typeInjectionCheckedArrayList
+        }
+
         fun typeInjection(activity: Activity, id: Int) =
             typeInjectionArrayList(activity = activity).find { it.id == id }
+
+        fun injectionRemoverItem(id: Int, injectionArrayList: ArrayList<Injection>) {
+
+            injectionArrayList.removeAll { it.id == id }
+        }
+
+        fun injectionUpdateItem(
+            injection: Injection,
+            injectionArrayList: ArrayList<Injection>,
+        ) {
+
+            injectionArrayList.find { it.id == injection.id }?.let {
+
+                it.id = injection.id
+                it.photoUrl = injection.photoUrl
+                it.currentDate = injection.currentDate
+                it.nextAppointment = injection.nextAppointment
+                it.typeInjection = injection.typeInjection
+                it.comment = injection.comment
+            }
+        }
 
         private fun typeInjectionArrayList(activity: Activity) = arrayListOf(
             TypeInjection(id = 0, name = activity.getString(R.string.distemper_text)),

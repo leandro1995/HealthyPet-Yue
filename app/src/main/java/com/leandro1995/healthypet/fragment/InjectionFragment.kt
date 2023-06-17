@@ -10,9 +10,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.leandro1995.healthypet.R
+import com.leandro1995.healthypet.activity.DetailInjectionActivity
+import com.leandro1995.healthypet.component.config.callback.InjectionListComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
+import com.leandro1995.healthypet.extension.putBoolean
 import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.extension.putInt
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
@@ -20,6 +23,7 @@ import com.leandro1995.healthypet.intent.config.InjectionIntentConfig
 import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.util.ActivityUtil
+import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.InjectionViewModel
 
@@ -31,11 +35,19 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     private val injectionArrayList = ArrayList<Injection>()
 
-    private val result = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
+    private val resultRegister = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
 
         injectionArrayList.add((it putInjection Setting.INJECTION_PUT)!!)
 
         injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
+    })
+
+    private val resultEdit = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
+
+        resultEdit(
+            isStatus = it.putBoolean(Setting.BOOLEAN_PUT),
+            injection = it.putInjection(Setting.INJECTION_PUT)!!
+        )
     })
 
     override fun onCreateView(
@@ -84,11 +96,20 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
     override fun view() {
 
         injectionViewModel.onClick.invoke(InjectionViewModel.INJECTION_LIST)
+
+        injectionBinding.injectionListComponent.injectionListComponentCallBack =
+            object : InjectionListComponentCallBack {
+
+                override fun injection(injection: Injection) {
+
+                    starActivityDetailInjection(injection = injection)
+                }
+            }
     }
 
     override fun registerInjection(activity: Activity, pet: Pet) {
 
-        result.launch(Intent(requireActivity(), activity::class.java).apply {
+        resultRegister.launch(Intent(requireActivity(), activity::class.java).apply {
 
             putExtra(Setting.ID_PET_PUT, pet.id)
         })
@@ -100,5 +121,31 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
         this.injectionArrayList.addAll(injectionArrayList)
 
         injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = this.injectionArrayList)
+    }
+
+    private fun starActivityDetailInjection(injection: Injection) {
+
+        resultEdit.launch(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
+
+            putExtra(Setting.INJECTION_PUT, injection)
+        })
+    }
+
+    private fun resultEdit(isStatus: Boolean, injection: Injection) {
+
+        DesignUtil.injectionStatus(isStatus = isStatus, update = {
+
+            ArrayListUtil.injectionUpdateItem(
+                injection = injection, injectionArrayList = injectionArrayList
+            )
+
+        }, delete = {
+
+            ArrayListUtil.injectionRemoverItem(
+                id = injection.id, injectionArrayList = injectionArrayList
+            )
+        })
+
+        injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
     }
 }

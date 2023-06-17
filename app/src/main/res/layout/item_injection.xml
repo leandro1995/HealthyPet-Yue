@@ -115,8 +115,9 @@
                     tools:ignore="RtlHardcoded">
 
                     <TextView
+                        android:id="@+id/seeMoreText"
                         style="@style/Headline.H5"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|bottom"
                         android:gravity="right|bottom"
