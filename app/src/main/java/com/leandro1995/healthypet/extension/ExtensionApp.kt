@@ -108,6 +108,8 @@ infix fun Intent.putInjection(key: String) =
         @Suppress("DEPRECATION") this.getSerializableExtra(key) as Injection
     }
 
+infix fun Intent.putBoolean(key: String) = this.getBooleanExtra(key, false)
+
 @SuppressLint("SimpleDateFormat")
 fun Long.dateFormat(format: String, isCalendar: Boolean = true): String {
 

@@ -15,6 +15,7 @@ import com.leandro1995.healthypet.component.config.callback.InjectionListCompone
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.FragmentInjectionBinding
+import com.leandro1995.healthypet.extension.putBoolean
 import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.extension.putInt
 import com.leandro1995.healthypet.extension.viewLifecycleOwner
@@ -22,6 +23,7 @@ import com.leandro1995.healthypet.intent.config.InjectionIntentConfig
 import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.model.entity.Pet
 import com.leandro1995.healthypet.util.ActivityUtil
+import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.InjectionViewModel
 
@@ -42,6 +44,10 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     private val resultEdit = ActivityUtil.activityResultLauncher(fragment = this, resultData = {
 
+        resultEdit(
+            isStatus = it.putBoolean(Setting.BOOLEAN_PUT),
+            injection = it.putInjection(Setting.INJECTION_PUT)!!
+        )
     })
 
     override fun onCreateView(
@@ -122,6 +128,19 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
         resultEdit.launch(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
 
             putExtra(Setting.INJECTION_PUT, injection)
+        })
+    }
+
+    private fun resultEdit(isStatus: Boolean, injection: Injection) {
+
+        DesignUtil.injectionStatus(isStatus = isStatus, update = {
+
+        }, delete = {
+
+            ArrayListUtil.injectionRemoverItem(
+                id = injection.id, injectionArrayList = injectionArrayList
+            )
+            injectionBinding.injectionListComponent.injectionArrayList(injectionArrayList = injectionArrayList)
         })
     }
 }

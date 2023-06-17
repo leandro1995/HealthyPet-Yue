@@ -9,7 +9,7 @@ import java.io.Serializable
 import java.util.Date
 
 class Injection constructor(
-    private var id: Int = -1,
+    var id: Int = -1,
     var photoUrl: String = "",
     var currentDate: Long = Date().time,
     var nextAppointment: Long = -1L,
