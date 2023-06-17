@@ -56,6 +56,24 @@ class ArrayListUtil {
             return typeInjectionCheckedArrayList
         }
 
+        fun typeInjectionCheckedArrayList(
+            activity: Activity, typeInjectionId: Int
+        ): ArrayList<TypeInjectionChecked> {
+
+            val typeInjectionCheckedArrayList = ArrayList<TypeInjectionChecked>()
+
+            typeInjectionArrayList(activity = activity).forEach {
+
+                typeInjectionCheckedArrayList.add(
+                    TypeInjectionChecked(
+                        typeInjection = it, isChecked = it.id == typeInjectionId
+                    )
+                )
+            }
+
+            return typeInjectionCheckedArrayList
+        }
+
         fun typeInjection(activity: Activity, id: Int) =
             typeInjectionArrayList(activity = activity).find { it.id == id }
 
