@@ -13,7 +13,7 @@ import com.leandro1995.healthypet.component.config.callback.ImageSelectorCompone
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.adapter.TypeInjectionCheckedAdapterCallBack
 import com.leandro1995.healthypet.config.callback.intent.DetailInjectionIntentCallBack
-import com.leandro1995.healthypet.databinding.ActivityDetailInjectionBinding
+import com.leandro1995.healthypet.databinding.ActivityEditInjectionBinding
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.intent.config.DetailInjectionIntentConfig
@@ -24,9 +24,9 @@ import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
 import com.leandro1995.healthypet.viewmodel.DetailInjectionViewModel
 
-class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBack {
+class EditInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBack {
 
-    private lateinit var detailInjectionBinding: ActivityDetailInjectionBinding
+    private lateinit var editInjectionBinding: ActivityEditInjectionBinding
 
     private val detailInjectionViewModel by viewModels<DetailInjectionViewModel>()
 
@@ -39,10 +39,10 @@ class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBa
 
         DetailInjectionIntentConfig.instance(detailInjectionIntentCallBack = this)
 
-        detailInjectionBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_detail_injection)
+        editInjectionBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_edit_injection)
 
-        detailInjectionBinding.detailInjectionViewModel = detailInjectionViewModel
+        editInjectionBinding.detailInjectionViewModel = detailInjectionViewModel
 
         materialToolbar()
         putExtra()
@@ -57,7 +57,7 @@ class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBa
     private fun materialToolbar() {
 
         DesignUtil.materialToolbar(activity = this,
-            materialToolbar = detailInjectionBinding.appBar.toolbar,
+            materialToolbar = editInjectionBinding.appBar.toolbar,
             idTitle = R.string.edit_injection_text_title,
             isArrow = true,
             method = { finish() })
@@ -91,17 +91,17 @@ class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBa
 
                 override fun typeInjection(typeInjection: TypeInjection) {
 
-                    this@DetailInjectionActivity.detailInjectionViewModel.injection.typeInjection =
+                    this@EditInjectionActivity.detailInjectionViewModel.injection.typeInjection =
                         typeInjection
                 }
             }
 
-        detailInjectionBinding.apply {
+        editInjectionBinding.apply {
 
             typeInjectionRecycler.let { recyclerView ->
 
                 recyclerView.layoutManager =
-                    GridLayoutManager(this@DetailInjectionActivity, Setting.GRID_LAYOUT_TWO)
+                    GridLayoutManager(this@EditInjectionActivity, Setting.GRID_LAYOUT_TWO)
                 recyclerView.adapter = typeInjectionCheckedAdapter
             }
 
@@ -110,7 +110,7 @@ class DetailInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBa
 
                     override fun photoUrl(url: String) {
 
-                        this@DetailInjectionActivity.detailInjectionViewModel.injection.photoUrl =
+                        this@EditInjectionActivity.detailInjectionViewModel.injection.photoUrl =
                             url
                     }
                 }
