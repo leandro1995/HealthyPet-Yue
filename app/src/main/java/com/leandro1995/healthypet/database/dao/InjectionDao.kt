@@ -10,16 +10,16 @@ import com.leandro1995.healthypet.database.model.Injection
 interface InjectionDao {
 
     @Insert
-    suspend fun register(injection: Injection): Long
+    suspend fun injectionRegister(injection: Injection): Long
 
     @Query("select * from Injection where ${DatabaseSetting.ID_PET} == :idPet")
     suspend fun injectionList(idPet: Int): MutableList<Injection>
 
     @Query("delete from Injection where ${DatabaseSetting.ID} = :id")
-    suspend fun deleteInjection(id: Int)
+    suspend fun injectionDelete(id: Int)
 
     @Query("update Injection set ${DatabaseSetting.PHOTO_URL} =:photoUrl, ${DatabaseSetting.CURRENT_DATE} =:currentDate, ${DatabaseSetting.NEXT_APPOINTMENT} = :nextAppointment, ${DatabaseSetting.ID_TYPE_INJECTION} =:idTypeInjection, ${DatabaseSetting.COMMENT} =:comment where ${DatabaseSetting.ID} = :id")
-    suspend fun updateInjection(
+    suspend fun injectionUpdate(
         id: Int,
         photoUrl: String,
         currentDate: Long,

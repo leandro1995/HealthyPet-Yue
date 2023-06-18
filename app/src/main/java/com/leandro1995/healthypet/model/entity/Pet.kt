@@ -45,7 +45,7 @@ class Pet constructor(
 
     suspend fun registerPetDatabase() {
 
-        id = DataBaseConfig.petDao().register(
+        id = DataBaseConfig.petDao().petRegister(
             pet = Pet(
                 photoUrl = photoUrl, name = name, spiceId = spice.id, isSex = isSex, date = date
             )
@@ -54,7 +54,7 @@ class Pet constructor(
 
     suspend fun updatePetDatabase() {
 
-        DataBaseConfig.petDao().update(
+        DataBaseConfig.petDao().petUpdate(
             id = id,
             photoUrl = photoUrl,
             name = name,
@@ -64,7 +64,7 @@ class Pet constructor(
         )
     }
 
-    suspend fun idPetDatabase() = DataBaseConfig.petDao().idPet(id = id).pet()
+    suspend fun idPetDatabase() = DataBaseConfig.petDao().petId(id = id).pet()
 
     suspend fun injectionArrayListDatabase(): ArrayList<Injection> {
 
@@ -80,7 +80,7 @@ class Pet constructor(
 
     suspend fun deletePetDataBase() {
 
-        DataBaseConfig.petDao().deletePet(id = id)
+        DataBaseConfig.petDao().petDelete(id = id)
     }
 
     private fun isPhotoUrlEmpty() = photoUrl.isEmpty()

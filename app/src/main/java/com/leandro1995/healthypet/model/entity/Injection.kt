@@ -47,7 +47,7 @@ class Injection constructor(
 
     suspend fun registerInjectionDatabase(idPet: Int) {
 
-        id = DataBaseConfig.injectionDao().register(
+        id = DataBaseConfig.injectionDao().injectionRegister(
             injection = Injection(
                 idPet = idPet,
                 photoUrl = photoUrl,
@@ -61,12 +61,12 @@ class Injection constructor(
 
     suspend fun deleteInjectionDatabase() {
 
-        DataBaseConfig.injectionDao().deleteInjection(id = id)
+        DataBaseConfig.injectionDao().injectionDelete(id = id)
     }
 
     suspend fun updateInjectionDatabase() {
 
-        DataBaseConfig.injectionDao().updateInjection(
+        DataBaseConfig.injectionDao().injectionUpdate(
             id = id,
             photoUrl = photoUrl,
             currentDate = currentDate,

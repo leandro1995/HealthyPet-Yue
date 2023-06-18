@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.leandro1995.healthypet.R
-import com.leandro1995.healthypet.activity.DetailInjectionActivity
+import com.leandro1995.healthypet.activity.EditInjectionActivity
 import com.leandro1995.healthypet.component.config.callback.InjectionListComponentCallBack
 import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.callback.intent.InjectionIntentCallBack
@@ -125,7 +125,7 @@ class InjectionFragment : Fragment(), InjectionIntentCallBack {
 
     private fun starActivityDetailInjection(injection: Injection) {
 
-        resultEdit.launch(Intent(requireActivity(), DetailInjectionActivity::class.java).apply {
+        resultEdit.launch(Intent(requireActivity(), EditInjectionActivity::class.java).apply {
 
             putExtra(Setting.INJECTION_PUT, injection)
         })
