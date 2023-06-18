@@ -105,6 +105,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/dimen_5"
                             android:gravity="center|left"
+                            android:onClick="@{()-> detailInjectionViewModel.onClick.invoke(detailInjectionViewModel.DATE_PICKER_DIALOG)}"
                             app:pet_date="@={detailInjectionViewModel.injection.nextAppointment}"
                             tools:ignore="RtlHardcoded" />
 

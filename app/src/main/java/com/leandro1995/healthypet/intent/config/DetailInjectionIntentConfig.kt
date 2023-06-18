@@ -28,6 +28,11 @@ object DetailInjectionIntentConfig {
                     injection = detailInjectionIntent.injection
                 )
             }
+
+            is DetailInjectionIntent.DatePickerDialog -> {
+
+                detailInjectionIntentCallBack.datePickerDialog(calendar = detailInjectionIntent.calendar)
+            }
         }
     }
 }

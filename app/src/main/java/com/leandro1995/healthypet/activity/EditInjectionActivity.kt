@@ -14,14 +14,17 @@ import com.leandro1995.healthypet.config.Setting
 import com.leandro1995.healthypet.config.adapter.TypeInjectionCheckedAdapterCallBack
 import com.leandro1995.healthypet.config.callback.intent.DetailInjectionIntentCallBack
 import com.leandro1995.healthypet.databinding.ActivityEditInjectionBinding
+import com.leandro1995.healthypet.extension.dateFormat
 import com.leandro1995.healthypet.extension.lifecycleScope
 import com.leandro1995.healthypet.extension.putInjection
 import com.leandro1995.healthypet.intent.config.DetailInjectionIntentConfig
+import com.leandro1995.healthypet.model.design.Calendar
 import com.leandro1995.healthypet.model.design.TypeInjectionChecked
 import com.leandro1995.healthypet.model.entity.Injection
 import com.leandro1995.healthypet.model.entity.TypeInjection
 import com.leandro1995.healthypet.util.ArrayListUtil
 import com.leandro1995.healthypet.util.DesignUtil
+import com.leandro1995.healthypet.util.DialogUtil
 import com.leandro1995.healthypet.viewmodel.DetailInjectionViewModel
 
 class EditInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBack {
@@ -127,5 +130,14 @@ class EditInjectionActivity : AppCompatActivity(), DetailInjectionIntentCallBack
             putExtra(Setting.INJECTION_PUT, injection)
         })
         finish()
+    }
+
+    override fun datePickerDialog(calendar: Calendar) {
+
+        DialogUtil.datePickerDialog(activity = this, calendar = calendar) { dateLong ->
+
+            editInjectionBinding.dateText.text =
+                dateLong.dateFormat(format = Setting.DATE_FORMAT_ONE)
+        }
     }
 }
